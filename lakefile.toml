@@ -1,0 +1,10 @@
+name = "legioncore"
+version = "0.1.0"
+defaultTargets = ["LegionCore", "legion_decide"]
+
+[[lean_lib]]
+name = "LegionCore"
+
+[[lean_exe]]
+name = "legion_decide"
+root = "Main"

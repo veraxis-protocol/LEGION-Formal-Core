@@ -1,0 +1,601 @@
+{
+ "work_order": "WO-LEGION-FORMAL-CORE-001",
+ "repository_branch": "formal-core-r2",
+ "commit": "8e6713f99582adf0bc42ac0c69c629aef4a34866",
+ "qualified_runtime_commit": "d9d38cd6fd9e93e002b0b5d5135377ce1d33d8c8",
+ "lean_toolchain": "leanprover/lean4:v4.29.1",
+ "dependencies": "Lean core only (no Mathlib, no ZTL import)",
+ "build": "lake build -> success (from-scratch clean-room build at 8e6713f in 24 s)",
+ "legion_decide_qualified_sha256": "99cda684f29afba33e69b8f4811d754c499987c30c07ac1c67f19ec250ade73a",
+ "legion_decide_note": "compiled binaries are not byte-reproducible; behavioural equivalence of a clean rebuild shown by 12,000-case + 27-effect + 44-test equivalence (G5_RELEASE/REPRO_*)",
+ "source_sha256": {
+  "LegionCore/Admission.lean": "9a308165ba75146053963b95599728e3a24a410a63b9e36dcc5e18a54598726d",
+  "LegionCore/Authority.lean": "061c56d8eefea8952a9b641f13578cb2c82c1287342d6f0943cae3c66fc76762",
+  "LegionCore/Completion.lean": "eb7224c3a0a2956993994d88a680898cf48829cc42684c3e9b29757c16f75073",
+  "LegionCore/Countermodels.lean": "db9e57dde8bd199a36683e42c71b5393f9d0d8467298674224d8af4b3ac95f00",
+  "LegionCore/Journal.lean": "6d8a06887802c67e1d9db76e247217f92c725bfe75e0beaf3956380b2f33fb8c",
+  "LegionCore/MissionPreservation.lean": "c10f7c9451c26986e9b58f9eb2bf0bdc2acbe039555346d8cb0affc5cca0b4d7",
+  "LegionCore/ProofSpecBinding.lean": "20895b95914173601c705ebd8c6c29d56007707099ba6e1e61069ba80ba5dd15",
+  "LegionCore/Recovery.lean": "baaab966dfd13cd7ee7091eb140a9c8ff073ad6f2ac47a29bf952aeee77e0c28",
+  "LegionCore/Resources.lean": "c167bfde2aba41f4b1c03f57e0953de2293e554386539eda2e297fcebb25cdce",
+  "LegionCore/SpecAuthority.lean": "56902f5520169654fe653930ed1f34bb6d3e8e19186df08d7fedc258179cde5f",
+  "LegionCore/State.lean": "fa67316a741d734992c9e542ed86ac4b0589a596a95ec69cb5fed883454986a3",
+  "LegionCore/SystemSafety.lean": "f118526ca25f8c070e991b82a69c7fa2c0a43517573d1d23e5da7773dc9b2da1",
+  "LegionCore/Transitions.lean": "474e5232668eb9cb5a31cc29688dc2f767977d4fd5aa9c63d8808cfb85b93923",
+  "LegionCore.lean": "aef4ef832ac8f2861f89339b9c7a6ea7f439bbaca1b2c009a741a8e9878a9355",
+  "Main.lean": "cb9333838ed27c365ba42755b28d46cbf778aa9de0707f2f770000b755e992e3",
+  "lakefile.toml": "dfa1920590668e2e8b925b3920af851784c9cb6820039cc946c7ae7f20bace65",
+  "lean-toolchain": "7dc000621e0046d1aada809e2b7177e64454645cf4c741e9daaf79c99ec2e7a2",
+  "AxiomAudit.lean": "6643e976405ff031e4e375474c5ccfb6d3141afa91029b0f30f60fb2f660ceeb",
+  "StatementDump.lean": "22f08d621ac47e3b953aa708d59d979f8945df1c31339b05bdba4d68ec00c68d"
+ },
+ "theorem_count": 52,
+ "families_covered": [
+  "J",
+  "T1",
+  "T10",
+  "T11",
+  "T12",
+  "T13",
+  "T14",
+  "T15",
+  "T2",
+  "T3",
+  "T4",
+  "T5",
+  "T6",
+  "T7",
+  "T8",
+  "T9"
+ ],
+ "nonstandard_axioms": [],
+ "forbidden_constructs": {
+  "sorry": 0,
+  "native_decide": 0,
+  "custom_axiom": 0,
+  "unsafe": 0
+ },
+ "theorems": [
+  {
+   "name": "LegionCore.admit_full_T",
+   "family": "core",
+   "family_title": "supporting",
+   "statement": "\u2200 {sp : Spec} {s : State} {r : Req}, admission Guards.full sp s r = V.T \u2192 s.phase = Phase.running \u2227 (\u2203 tk a, sp.task? r.task = some tk \u2227 sp.actorOf r.cred = some a \u2227 tk.owner = a \u2227 tk.write = true \u2227 tk.target = r.target \u2227 depsClosed s tk = true \u2227 s.used tk.resKey + tk.demand \u2264 sp.capOf tk.resKey \u2227 r.permit.actor = a) \u2227 r.permit \u2208 s.issued \u2227 r.permit.task = r.task \u2227 r.permit.cmd = r.cmd \u2227 r.permit.target = r.target \u2227 r.permit.mission = sp.mission \u2227 r.permit.epoch = s.epoch \u2227 r.permit.uid = s.uid \u2227 r.permit.wid = s.wid \u2227 \u00acr.permit.nonce \u2208 s.usedNonces \u2227 \u00acr.cmd \u2208 s.fenced \u2227 (\u2200 (e : Effect), e \u2208 s.ledger \u2192 e.cmd \u2260 r.cmd) \u2227 (\u2200 (e : Effect), e \u2208 s.ledger \u2192 e.task \u2260 r.task) \u2227 \u00acr.task \u2208 s.closed \u2227 ztl sp s r.task = V.T \u2227 s.chash = sp.mission \u2227 s.cver = 0",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ]
+  },
+  {
+   "name": "LegionCore.reach_inv",
+   "family": "core",
+   "family_title": "supporting",
+   "statement": "\u2200 {sp : Spec} {uid wid : Nat} {s : State}, Reach Guards.full sp uid wid s \u2192 LegionCore.Inv sp s",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ]
+  },
+  {
+   "name": "LegionCore.T1_admission_soundness",
+   "family": "T1",
+   "family_title": "Admission soundness",
+   "statement": "\u2200 {sp : Spec} {s s' : State} {c : Cmd} {e : Effect}, exec Guards.full sp s c = some s' \u2192 e \u2208 s'.ledger \u2192 \u00ace \u2208 s.ledger \u2192 \u2203 r, c = Cmd.actuate r \u2227 e = effectOf sp r \u2227 admission Guards.full sp s r = V.T \u2227 r.permit \u2208 s.issued \u2227 r.permit.epoch = s.epoch \u2227 s.phase = Phase.running \u2227 \u2203 tk a, sp.task? r.task = some tk \u2227 sp.actorOf r.cred = some a \u2227 tk.owner = a \u2227 e.actor = a",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ]
+  },
+  {
+   "name": "LegionCore.T2_effect_after_deps",
+   "family": "T2",
+   "family_title": "Causal preservation",
+   "statement": "\u2200 {sp : Spec} {s s' : State} {c : Cmd} {e : Effect}, exec Guards.full sp s c = some s' \u2192 e \u2208 s'.ledger \u2192 \u00ace \u2208 s.ledger \u2192 \u2203 tk, sp.task? e.task = some tk \u2227 \u2200 (d : Nat), d \u2208 tk.deps \u2192 d \u2208 s.closed",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ]
+  },
+  {
+   "name": "LegionCore.T2_evidence_while_eligible",
+   "family": "T2",
+   "family_title": "Causal preservation",
+   "statement": "\u2200 {sp : Spec} {s s' : State} {t cred : Nat}, exec Guards.full sp s (Cmd.evidence t cred) = some s' \u2192 \u2203 tk, sp.task? t = some tk \u2227 sp.actorOf cred = some tk.owner \u2227 \u2200 (d : Nat), d \u2208 tk.deps \u2192 d \u2208 s.closed",
+   "axioms": [
+    "propext",
+    "Quot.sound"
+   ]
+  },
+  {
+   "name": "LegionCore.T2_close_after_deps",
+   "family": "T2",
+   "family_title": "Causal preservation",
+   "statement": "\u2200 {sp : Spec} {s s' : State} {t : Nat}, exec Guards.full sp s (Cmd.close t) = some s' \u2192 \u2203 tk, sp.task? t = some tk \u2227 \u2200 (d : Nat), d \u2208 tk.deps \u2192 d \u2208 s.closed",
+   "axioms": [
+    "propext",
+    "Quot.sound"
+   ]
+  },
+  {
+   "name": "LegionCore.T2_causal_invariant",
+   "family": "T2",
+   "family_title": "Causal preservation",
+   "statement": "\u2200 {sp : Spec} {uid wid : Nat} {s : State}, Reach Guards.full sp uid wid s \u2192 \u2200 (e : Effect), e \u2208 s.ledger \u2192 \u2203 tk, sp.task? e.task = some tk \u2227 \u2200 (d : Nat), d \u2208 tk.deps \u2192 d \u2208 s.closed",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ]
+  },
+  {
+   "name": "LegionCore.T3_resource_conservation",
+   "family": "T3",
+   "family_title": "Resource conservation",
+   "statement": "\u2200 {sp : Spec} {uid wid : Nat} {s : State}, Reach Guards.full sp uid wid s \u2192 \u2200 (k : Nat), s.used k \u2264 sp.capOf k",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ]
+  },
+  {
+   "name": "LegionCore.T3_over_capacity_refused",
+   "family": "T3",
+   "family_title": "Resource conservation",
+   "statement": "\u2200 {sp : Spec} {s : State} {r : Req} {tk : LegionCore.Task}, sp.task? r.task = some tk \u2192 sp.capOf tk.resKey < s.used tk.resKey + tk.demand \u2192 admission Guards.full sp s r \u2260 V.T",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ]
+  },
+  {
+   "name": "LegionCore.T4_claimed_irrelevant",
+   "family": "T4",
+   "family_title": "Identity and authority isolation",
+   "statement": "\u2200 (g : Guards) (sp : Spec) (s : State) (r : Req) (x : Nat), admission g sp s { cred := r.cred, claimed := x, task := r.task, target := r.target, cmd := r.cmd, permit := r.permit } = admission g sp s r",
+   "axioms": [
+    "propext"
+   ]
+  },
+  {
+   "name": "LegionCore.T4_permit_actor_bound",
+   "family": "T4",
+   "family_title": "Identity and authority isolation",
+   "statement": "\u2200 {sp : Spec} {s : State} {r : Req} {a : Nat}, sp.actorOf r.cred = some a \u2192 r.permit.actor \u2260 a \u2192 admission Guards.full sp s r \u2260 V.T",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ]
+  },
+  {
+   "name": "LegionCore.T4_identity_isolation",
+   "family": "T4",
+   "family_title": "Identity and authority isolation",
+   "statement": "\u2200 {sp : Spec} {s : State} {r : Req} {a : Nat}, sp.actorOf r.cred = some a \u2192 (\u2200 (tk : LegionCore.Task), sp.task? r.task = some tk \u2192 tk.owner \u2260 a) \u2192 admission Guards.full sp s r \u2260 V.T",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ]
+  },
+  {
+   "name": "LegionCore.T4_no_credential",
+   "family": "T4",
+   "family_title": "Identity and authority isolation",
+   "statement": "\u2200 {sp : Spec} {s : State} {r : Req}, sp.actorOf r.cred = none \u2192 admission Guards.full sp s r \u2260 V.T",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ]
+  },
+  {
+   "name": "LegionCore.T5_stale_no_seat",
+   "family": "T5",
+   "family_title": "Evidence non-promotion",
+   "statement": "\u2200 (sp : Spec) (s : State) (r : Report) (t : Nat) (v : V), fresh sp s.now r = false \u2192 votes sp { phase := s.phase, uid := s.uid, wid := s.wid, epoch := s.epoch, now := s.now, issued := s.issued, usedNonces := s.usedNonces, fenced := s.fenced, ledger := s.ledger, verified := s.verified, evidenced := s.evidenced, closed := s.closed, reports := r :: s.reports, used := s.used, contract := s.contract, chash := s.chash, cver := s.cver, plan := s.plan } t v = votes sp s t v",
+   "axioms": [
+    "propext"
+   ]
+  },
+  {
+   "name": "LegionCore.T5_unknown_no_seat",
+   "family": "T5",
+   "family_title": "Evidence non-promotion",
+   "statement": "\u2200 (sp : Spec) (s : State) (r : Report) (t : Nat) (v : V), r.value = V.Z \u2192 v \u2260 V.Z \u2192 votes sp { phase := s.phase, uid := s.uid, wid := s.wid, epoch := s.epoch, now := s.now, issued := s.issued, usedNonces := s.usedNonces, fenced := s.fenced, ledger := s.ledger, verified := s.verified, evidenced := s.evidenced, closed := s.closed, reports := r :: s.reports, used := s.used, contract := s.contract, chash := s.chash, cver := s.cver, plan := s.plan } t v = votes sp s t v",
+   "axioms": [
+    "propext"
+   ]
+  },
+  {
+   "name": "LegionCore.T5_order_independent",
+   "family": "T5",
+   "family_title": "Evidence non-promotion",
+   "statement": "\u2200 (sp : Spec) (s s' : State), s.reports.Perm s'.reports \u2192 s.now = s'.now \u2192 \u2200 (t : Nat) (v : V), votes sp s t v = votes sp s' t v",
+   "axioms": [
+    "propext",
+    "Quot.sound"
+   ]
+  },
+  {
+   "name": "LegionCore.T5_ztl_T_needs_seats",
+   "family": "T5",
+   "family_title": "Evidence non-promotion",
+   "statement": "\u2200 {sp : Spec} {s : State} {t : Nat}, ztl sp s t = V.T \u2192 sp.f + 1 \u2264 votes sp s t V.T \u2227 votes sp s t V.F < sp.f + 1",
+   "axioms": [
+    "propext"
+   ]
+  },
+  {
+   "name": "LegionCore.T5_distinct_origins",
+   "family": "T5",
+   "family_title": "Evidence non-promotion",
+   "statement": "\u2200 {sp : Spec} {uid wid : Nat} {s : State}, Reach Guards.full sp uid wid s \u2192 \u2200 {t : Nat}, ztl sp s t = V.T \u2192 have L := List.filter (fun r => r.task == t && r.value == V.T && fresh sp s.now r) s.reports; (List.map (fun r => r.source) L).Nodup \u2227 sp.f + 1 \u2264 (List.map (fun r => r.source) L).length",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ]
+  },
+  {
+   "name": "LegionCore.T5_closure_needs_verification",
+   "family": "T5",
+   "family_title": "Evidence non-promotion",
+   "statement": "\u2200 {sp : Spec} {uid wid : Nat} {s : State}, Reach Guards.full sp uid wid s \u2192 \u2200 {t : Nat}, t \u2208 s.closed \u2192 \u2200 {tk : LegionCore.Task}, sp.task? t = some tk \u2192 tk.write = true \u2192 t \u2208 s.verified \u2227 \u2203 e, e \u2208 s.ledger \u2227 e.task = t",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ]
+  },
+  {
+   "name": "LegionCore.T6_epoch_binding",
+   "family": "T6",
+   "family_title": "Epoch safety",
+   "statement": "\u2200 {sp : Spec} {s s' : State} {c : Cmd} {e : Effect}, exec Guards.full sp s c = some s' \u2192 e \u2208 s'.ledger \u2192 \u00ace \u2208 s.ledger \u2192 \u2203 r, c = Cmd.actuate r \u2227 r.permit.epoch = s.epoch \u2227 r.permit.uid = s.uid \u2227 r.permit.wid = s.wid \u2227 r.permit.mission = sp.mission \u2227 s.phase = Phase.running",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ]
+  },
+  {
+   "name": "LegionCore.T6_epoch_revocation",
+   "family": "T6",
+   "family_title": "Epoch safety",
+   "statement": "\u2200 {sp : Spec} {uid wid : Nat} {s s' : State} {c : Cmd}, Reach Guards.full sp uid wid s \u2192 c = Cmd.start \u2228 c = Cmd.bump \u2228 c = Cmd.terminate \u2192 exec Guards.full sp s c = some s' \u2192 \u2200 {r : Req}, r.permit \u2208 s.issued \u2192 admission Guards.full sp s' r \u2260 V.T",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ]
+  },
+  {
+   "name": "LegionCore.T6_not_running",
+   "family": "T6",
+   "family_title": "Epoch safety",
+   "statement": "\u2200 {sp : Spec} {s : State} {r : Req}, s.phase \u2260 Phase.running \u2192 admission Guards.full sp s r \u2260 V.T",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ]
+  },
+  {
+   "name": "LegionCore.T7_exactly_once",
+   "family": "T7",
+   "family_title": "Logical exactly-once",
+   "statement": "\u2200 {sp : Spec} {uid wid : Nat} {s : State}, Reach Guards.full sp uid wid s \u2192 (\u2200 (t : Nat), (List.filter (fun e => e.task == t) s.ledger).length \u2264 1) \u2227 (\u2200 (c : Nat), (List.filter (fun e => e.cmd == c) s.ledger).length \u2264 1) \u2227 \u2200 (e : Effect), e \u2208 s.ledger \u2192 \u00ace.cmd \u2208 s.fenced",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ]
+  },
+  {
+   "name": "LegionCore.T8_recovery_preservation",
+   "family": "T8",
+   "family_title": "Recovery preservation",
+   "statement": "\u2200 {sp : Spec} {s s' : State} {c : Cmd}, LegionCore.Inv sp s \u2192 exec Guards.full sp s c = some s' \u2192 LegionCore.Inv sp s'",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ]
+  },
+  {
+   "name": "LegionCore.T8_retry_after_effect_refused",
+   "family": "T8",
+   "family_title": "Recovery preservation",
+   "statement": "\u2200 {sp : Spec} {s : State} {r : Req} {e : Effect}, e \u2208 s.ledger \u2192 e.task = r.task \u2192 admission Guards.full sp s r \u2260 V.T",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ]
+  },
+  {
+   "name": "LegionCore.T8_fenced_never_executes",
+   "family": "T8",
+   "family_title": "Recovery preservation",
+   "statement": "\u2200 {sp : Spec} {s : State} {r : Req}, r.cmd \u2208 s.fenced \u2192 admission Guards.full sp s r \u2260 V.T",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ]
+  },
+  {
+   "name": "LegionCore.T8_fence_requires_no_effect",
+   "family": "T8",
+   "family_title": "Recovery preservation",
+   "statement": "\u2200 {sp : Spec} {s s' : State} {c : Nat}, exec Guards.full sp s (Cmd.fence c) = some s' \u2192 \u2200 (e : Effect), e \u2208 s.ledger \u2192 e.cmd \u2260 c",
+   "axioms": [
+    "propext",
+    "Quot.sound"
+   ]
+  },
+  {
+   "name": "LegionCore.T8_crash_stutter",
+   "family": "T8",
+   "family_title": "Recovery preservation",
+   "statement": "\u2200 (g : Guards) (sp : Spec) (s : State), exec g sp s Cmd.crash = some s",
+   "axioms": [
+    "propext"
+   ]
+  },
+  {
+   "name": "LegionCore.T9_completion_soundness",
+   "family": "T9",
+   "family_title": "Completion soundness",
+   "statement": "\u2200 {sp : Spec} {uid wid : Nat} {s : State}, Reach Guards.full sp uid wid s \u2192 judgePass sp s \u2192 \u2200 (tk : LegionCore.Task), tk \u2208 sp.tasks \u2192 tk.mandatory = true \u2192 \u2203 tk', sp.task? tk.id = some tk' \u2227 tk.id \u2208 s.closed \u2227 (\u2200 (d : Nat), d \u2208 tk'.deps \u2192 d \u2208 s.closed) \u2227 (tk'.write = true \u2192 tk.id \u2208 s.verified \u2227 \u2203 e, e \u2208 s.ledger \u2227 e.task = tk.id) \u2227 (tk'.write = false \u2192 tk.id \u2208 s.evidenced)",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ]
+  },
+  {
+   "name": "LegionCore.T10_population_independence",
+   "family": "T10",
+   "family_title": "Population independence",
+   "statement": "\u2200 (sp : Spec) (uid wid : Nat) (s : State), Reach Guards.full sp uid wid s \u2192 LegionCore.Inv sp s",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ]
+  },
+  {
+   "name": "LegionCore.T11_mission_preserved",
+   "family": "T11",
+   "family_title": "Original mission preservation",
+   "statement": "\u2200 {sp : Spec} {uid wid : Nat} {s : State}, Reach Guards.full sp uid wid s \u2192 s.cver = 0 \u2192 s.contract = sp.tasks \u2227 s.chash = sp.mission",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ]
+  },
+  {
+   "name": "LegionCore.T11_immutable_without_authority",
+   "family": "T11",
+   "family_title": "Original mission preservation",
+   "statement": "\u2200 {sp : Spec} {uid wid : Nat}, sp.specAuthority = [] \u2192 \u2200 {s : State}, Reach Guards.full sp uid wid s \u2192 s.contract = sp.tasks \u2227 s.chash = sp.mission \u2227 s.cver = 0",
+   "axioms": [
+    "propext",
+    "Quot.sound"
+   ]
+  },
+  {
+   "name": "LegionCore.T12_spec_change_authority",
+   "family": "T12",
+   "family_title": "Specification modification authority",
+   "statement": "\u2200 {sp : Spec} {s s' : State} {c : Cmd}, exec Guards.full sp s c = some s' \u2192 s'.contract = s.contract \u2227 s'.chash = s.chash \u2227 s'.cver = s.cver \u2228 \u2203 cred tasks hh, c = Cmd.amend cred tasks hh \u2227 cred \u2208 sp.specAuthority \u2227 s'.contract = tasks \u2227 s'.chash = hh \u2227 s'.cver = s.cver + 1 \u2227 s'.epoch = s.epoch + 1 \u2227 s'.issued = []",
+   "axioms": [
+    "propext",
+    "Quot.sound"
+   ]
+  },
+  {
+   "name": "LegionCore.T12_epoch_changes",
+   "family": "T12",
+   "family_title": "Specification modification authority",
+   "statement": "\u2200 {sp : Spec} {s s' : State} {cred : Nat} {tasks : List LegionCore.Task} {hh : Nat}, exec Guards.full sp s (Cmd.amend cred tasks hh) = some s' \u2192 s'.epoch \u2260 s.epoch",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ]
+  },
+  {
+   "name": "LegionCore.T12_execution_agent_cannot_amend",
+   "family": "T12",
+   "family_title": "Specification modification authority",
+   "statement": "\u2200 {sp : Spec} {s : State} {cred a : Nat}, (\u2200 (c : Nat), (sp.actorOf c).isSome = true \u2192 \u00acc \u2208 sp.specAuthority) \u2192 sp.actorOf cred = some a \u2192 \u2200 (tasks : List LegionCore.Task) (hh : Nat), exec Guards.full sp s (Cmd.amend cred tasks hh) = none",
+   "axioms": [
+    "propext",
+    "Quot.sound"
+   ]
+  },
+  {
+   "name": "LegionCore.T12_change_requires_readmission",
+   "family": "T12",
+   "family_title": "Specification modification authority",
+   "statement": "\u2200 {sp : Spec} {s s' : State} {cred : Nat} {tasks : List LegionCore.Task} {hh : Nat}, exec Guards.full sp s (Cmd.amend cred tasks hh) = some s' \u2192 \u2200 (r : Req), admission Guards.full sp s' r \u2260 V.T",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ]
+  },
+  {
+   "name": "LegionCore.T13_admission_bound",
+   "family": "T13",
+   "family_title": "Proof-to-spec binding",
+   "statement": "\u2200 {sp : Spec} {s : State} {r : Req}, admission Guards.full sp s r = V.T \u2192 r.permit.mission = sp.mission \u2227 s.chash = sp.mission \u2227 s.cver = 0 \u2227 ztl sp s r.task = V.T",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ]
+  },
+  {
+   "name": "LegionCore.T13_effect_bound",
+   "family": "T13",
+   "family_title": "Proof-to-spec binding",
+   "statement": "\u2200 {sp : Spec} {uid wid : Nat} {s : State}, Reach Guards.full sp uid wid s \u2192 \u2200 (e : Effect), e \u2208 s.ledger \u2192 e.mission = sp.mission",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ]
+  },
+  {
+   "name": "LegionCore.T13_judge_bound",
+   "family": "T13",
+   "family_title": "Proof-to-spec binding",
+   "statement": "\u2200 {sp : Spec} {uid wid : Nat} {s : State}, Reach Guards.full sp uid wid s \u2192 judgePass sp s \u2192 judgeVerdict sp sp.mission s",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ]
+  },
+  {
+   "name": "LegionCore.T13_foreign_receipt_rejected",
+   "family": "T13",
+   "family_title": "Proof-to-spec binding",
+   "statement": "\u2200 {sp : Spec} {s : State} {h : Nat} {e : Effect}, e \u2208 s.ledger \u2192 e.mission \u2260 h \u2192 \u00acjudgeVerdict sp h s",
+   "axioms": []
+  },
+  {
+   "name": "LegionCore.T13_other_contract_rejected",
+   "family": "T13",
+   "family_title": "Proof-to-spec binding",
+   "statement": "\u2200 {sp : Spec} {s : State} {h : Nat}, h \u2260 sp.mission \u2192 \u00acjudgeVerdict sp h s",
+   "axioms": []
+  },
+  {
+   "name": "LegionCore.T14_nonvacuous_completion",
+   "family": "T14",
+   "family_title": "Non-vacuous completion",
+   "statement": "\u2200 {sp : Spec} {uid wid : Nat} {s : State}, Reach Guards.full sp uid wid s \u2192 judgePass sp s \u2192 \u2200 (o : LegionCore.Task), o \u2208 sp.tasks \u2192 o.mandatory = true \u2192 \u2203 o', sp.task? o.id = some o' \u2227 o.id \u2208 s.closed \u2227 (o'.write = true \u2192 o.id \u2208 s.verified \u2227 \u2203 e, e \u2208 s.ledger \u2227 e.task = o.id \u2227 e.mission = sp.mission) \u2227 (o'.write = false \u2192 o.id \u2208 s.evidenced)",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ]
+  },
+  {
+   "name": "LegionCore.T15_replan_preserves_mission",
+   "family": "T15",
+   "family_title": "Plan adaptation without goal mutation",
+   "statement": "\u2200 {sp : Spec} {s s' : State} {cred : Nat} {plan : List Nat}, exec Guards.full sp s (Cmd.replan cred plan) = some s' \u2192 s'.contract = s.contract \u2227 s'.chash = s.chash \u2227 s'.cver = s.cver \u2227 s'.epoch = s.epoch \u2227 s'.issued = s.issued \u2227 s'.plan = plan",
+   "axioms": [
+    "propext"
+   ]
+  },
+  {
+   "name": "LegionCore.T15_plan_irrelevant_to_admission",
+   "family": "T15",
+   "family_title": "Plan adaptation without goal mutation",
+   "statement": "\u2200 (g : Guards) (sp : Spec) (s : State) (r : Req) (p : List Nat), admission g sp { phase := s.phase, uid := s.uid, wid := s.wid, epoch := s.epoch, now := s.now, issued := s.issued, usedNonces := s.usedNonces, fenced := s.fenced, ledger := s.ledger, verified := s.verified, evidenced := s.evidenced, closed := s.closed, reports := s.reports, used := s.used, contract := s.contract, chash := s.chash, cver := s.cver, plan := p } r = admission g sp s r",
+   "axioms": [
+    "propext"
+   ]
+  },
+  {
+   "name": "LegionCore.T15_replan_allowed",
+   "family": "T15",
+   "family_title": "Plan adaptation without goal mutation",
+   "statement": "\u2200 {sp : Spec} {s : State} {cred a : Nat}, sp.actorOf cred = some a \u2192 \u2200 (plan : List Nat), exec Guards.full sp s (Cmd.replan cred plan) = some { phase := s.phase, uid := s.uid, wid := s.wid, epoch := s.epoch, now := s.now, issued := s.issued, usedNonces := s.usedNonces, fenced := s.fenced, ledger := s.ledger, verified := s.verified, evidenced := s.evidenced, closed := s.closed, reports := s.reports, used := s.used, contract := s.contract, chash := s.chash, cver := s.cver, plan := plan }",
+   "axioms": [
+    "propext"
+   ]
+  },
+  {
+   "name": "LegionCore.Journal.inv_fold",
+   "family": "J",
+   "family_title": "Journal causal closure (PE3 strengthening)",
+   "statement": "\u2200 (ts : List Journal.JTask) (rs : List Journal.Rec), Journal.Inv ts (Journal.fold ts rs)",
+   "axioms": [
+    "propext",
+    "Quot.sound"
+   ]
+  },
+  {
+   "name": "LegionCore.Journal.confirmed_ordered",
+   "family": "J",
+   "family_title": "Journal causal closure (PE3 strengthening)",
+   "statement": "\u2200 (ts : List Journal.JTask) (rs : List Journal.Rec) {pre : List Nat} {t : Nat} {post : List Nat}, (Journal.fold ts rs).confirmed = pre ++ t :: post \u2192 \u2203 tk, Journal.taskOf ts t = some tk \u2227 \u2200 (d : Nat), d \u2208 tk.deps \u2192 d \u2208 pre \u2228 \u2203 dt, Journal.taskOf ts d = some dt \u2227 dt.na = true",
+   "axioms": [
+    "propext",
+    "Quot.sound"
+   ]
+  },
+  {
+   "name": "LegionCore.Journal.sat_witness",
+   "family": "J",
+   "family_title": "Journal causal closure (PE3 strengthening)",
+   "statement": "\u2200 (ts : List Journal.JTask) (rs : List Journal.Rec), (\u2200 (p : Nat \u00d7 Journal.K), p \u2208 (Journal.fold ts rs).sat \u2192 \u2203 r, r \u2208 rs \u2227 Journal.SatW ts p r) \u2227 \u2200 (e : Nat \u00d7 Nat \u00d7 Nat), e \u2208 (Journal.fold ts rs).effects \u2192 \u2203 r, r \u2208 rs \u2227 Journal.EffW e r",
+   "axioms": [
+    "propext",
+    "Quot.sound"
+   ]
+  },
+  {
+   "name": "LegionCore.Journal.fold_append_prefix",
+   "family": "J",
+   "family_title": "Journal causal closure (PE3 strengthening)",
+   "statement": "\u2200 (ts : List Journal.JTask) (rs rs' : List Journal.Rec), \u2203 ex, (Journal.fold ts (rs ++ rs')).confirmed = (Journal.fold ts rs).confirmed ++ ex",
+   "axioms": [
+    "propext",
+    "Quot.sound"
+   ]
+  },
+  {
+   "name": "LegionCore.Journal.premature_never_counts",
+   "family": "J",
+   "family_title": "Journal causal closure (PE3 strengthening)",
+   "statement": "\u2200 {ts : List Journal.JTask} {s : Journal.FS} {r : Journal.Rec} {tk : Journal.JTask}, Journal.taskOf ts r.task = some tk \u2192 Journal.eligible ts s.confirmed tk = false \u2192 (Journal.ingest ts s r).sat = s.sat \u2227 (Journal.ingest ts s r).effects = s.effects \u2227 (Journal.ingest ts s r).obsOk = s.obsOk",
+   "axioms": [
+    "propext"
+   ]
+  },
+  {
+   "name": "LegionCore.Journal.closed_grounded",
+   "family": "J",
+   "family_title": "Journal causal closure (PE3 strengthening)",
+   "statement": "\u2200 (ts : List Journal.JTask) (rs : List Journal.Rec) {d : Nat}, d \u2208 Journal.closedSet ts rs \u2192 d \u2208 (Journal.fold ts rs).confirmed \u2228 \u2203 dt, dt \u2208 ts \u2227 dt.id = d \u2227 dt.na = true",
+   "axioms": [
+    "propext",
+    "Quot.sound"
+   ]
+  },
+  {
+   "name": "LegionCore.Journal.decision_deps_grounded",
+   "family": "J",
+   "family_title": "Journal causal closure (PE3 strengthening)",
+   "statement": "\u2200 {sp : Spec} {s : State} {r : Req} (ts : List Journal.JTask) (rs : List Journal.Rec), admission Guards.full sp { phase := s.phase, uid := s.uid, wid := s.wid, epoch := s.epoch, now := s.now, issued := s.issued, usedNonces := s.usedNonces, fenced := s.fenced, ledger := s.ledger, verified := s.verified, evidenced := s.evidenced, closed := Journal.closedSet ts rs, reports := s.reports, used := s.used, contract := s.contract, chash := s.chash, cver := s.cver, plan := s.plan } r = V.T \u2192 \u2203 tk, sp.task? r.task = some tk \u2227 \u2200 (d : Nat), d \u2208 tk.deps \u2192 d \u2208 (Journal.fold ts rs).confirmed \u2228 \u2203 dt, dt \u2208 ts \u2227 dt.id = d \u2227 dt.na = true",
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ]
+  }
+ ],
+ "trusted_inputs_not_proved": [
+  "per-record content verdict Rec.ok",
+  "per-task activation JTask.na",
+  "runtime->model abstraction alpha (lean_admission.py)",
+  "HMAC unforgeability A-C1, hash injectivity A-H1",
+  "Lean compiler + C toolchain + JSON parse layer (Main.lean)"
+ ]
+}

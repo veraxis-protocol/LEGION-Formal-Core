@@ -1,0 +1,280 @@
+@admit_full_T : ∀ {sp : Spec} {s : State} {r : Req},
+  admission Guards.full sp s r = V.T →
+    s.phase = Phase.running ∧
+      (∃ tk a,
+          sp.task? r.task = some tk ∧
+            sp.actorOf r.cred = some a ∧
+              tk.owner = a ∧
+                tk.write = true ∧
+                  tk.target = r.target ∧
+                    depsClosed s tk = true ∧ s.used tk.resKey + tk.demand ≤ sp.capOf tk.resKey ∧ r.permit.actor = a) ∧
+        r.permit ∈ s.issued ∧
+          r.permit.task = r.task ∧
+            r.permit.cmd = r.cmd ∧
+              r.permit.target = r.target ∧
+                r.permit.mission = sp.mission ∧
+                  r.permit.epoch = s.epoch ∧
+                    r.permit.uid = s.uid ∧
+                      r.permit.wid = s.wid ∧
+                        ¬r.permit.nonce ∈ s.usedNonces ∧
+                          ¬r.cmd ∈ s.fenced ∧
+                            (∀ (e : Effect), e ∈ s.ledger → e.cmd ≠ r.cmd) ∧
+                              (∀ (e : Effect), e ∈ s.ledger → e.task ≠ r.task) ∧
+                                ¬r.task ∈ s.closed ∧ ztl sp s r.task = V.T ∧ s.chash = sp.mission ∧ s.cver = 0
+'LegionCore.admit_full_T' depends on axioms: [propext, Classical.choice, Quot.sound]
+@reach_inv : ∀ {sp : Spec} {uid wid : Nat} {s : State}, Reach Guards.full sp uid wid s → LegionCore.Inv sp s
+'LegionCore.reach_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+@T1_admission_soundness : ∀ {sp : Spec} {s s' : State} {c : Cmd} {e : Effect},
+  exec Guards.full sp s c = some s' →
+    e ∈ s'.ledger →
+      ¬e ∈ s.ledger →
+        ∃ r,
+          c = Cmd.actuate r ∧
+            e = effectOf sp r ∧
+              admission Guards.full sp s r = V.T ∧
+                r.permit ∈ s.issued ∧
+                  r.permit.epoch = s.epoch ∧
+                    s.phase = Phase.running ∧
+                      ∃ tk a, sp.task? r.task = some tk ∧ sp.actorOf r.cred = some a ∧ tk.owner = a ∧ e.actor = a
+'LegionCore.T1_admission_soundness' depends on axioms: [propext, Classical.choice, Quot.sound]
+@T2_effect_after_deps : ∀ {sp : Spec} {s s' : State} {c : Cmd} {e : Effect},
+  exec Guards.full sp s c = some s' →
+    e ∈ s'.ledger → ¬e ∈ s.ledger → ∃ tk, sp.task? e.task = some tk ∧ ∀ (d : Nat), d ∈ tk.deps → d ∈ s.closed
+'LegionCore.T2_effect_after_deps' depends on axioms: [propext, Classical.choice, Quot.sound]
+@T2_evidence_while_eligible : ∀ {sp : Spec} {s s' : State} {t cred : Nat},
+  exec Guards.full sp s (Cmd.evidence t cred) = some s' →
+    ∃ tk, sp.task? t = some tk ∧ sp.actorOf cred = some tk.owner ∧ ∀ (d : Nat), d ∈ tk.deps → d ∈ s.closed
+'LegionCore.T2_evidence_while_eligible' depends on axioms: [propext, Quot.sound]
+@T2_close_after_deps : ∀ {sp : Spec} {s s' : State} {t : Nat},
+  exec Guards.full sp s (Cmd.close t) = some s' → ∃ tk, sp.task? t = some tk ∧ ∀ (d : Nat), d ∈ tk.deps → d ∈ s.closed
+'LegionCore.T2_close_after_deps' depends on axioms: [propext, Quot.sound]
+@T2_causal_invariant : ∀ {sp : Spec} {uid wid : Nat} {s : State},
+  Reach Guards.full sp uid wid s →
+    ∀ (e : Effect), e ∈ s.ledger → ∃ tk, sp.task? e.task = some tk ∧ ∀ (d : Nat), d ∈ tk.deps → d ∈ s.closed
+'LegionCore.T2_causal_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]
+@T3_resource_conservation : ∀ {sp : Spec} {uid wid : Nat} {s : State},
+  Reach Guards.full sp uid wid s → ∀ (k : Nat), s.used k ≤ sp.capOf k
+'LegionCore.T3_resource_conservation' depends on axioms: [propext, Classical.choice, Quot.sound]
+@T3_over_capacity_refused : ∀ {sp : Spec} {s : State} {r : Req} {tk : LegionCore.Task},
+  sp.task? r.task = some tk → sp.capOf tk.resKey < s.used tk.resKey + tk.demand → admission Guards.full sp s r ≠ V.T
+'LegionCore.T3_over_capacity_refused' depends on axioms: [propext, Classical.choice, Quot.sound]
+T4_claimed_irrelevant : ∀ (g : Guards) (sp : Spec) (s : State) (r : Req) (x : Nat),
+  admission g sp s
+      { cred := r.cred, claimed := x, task := r.task, target := r.target, cmd := r.cmd, permit := r.permit } =
+    admission g sp s r
+'LegionCore.T4_claimed_irrelevant' depends on axioms: [propext]
+@T4_permit_actor_bound : ∀ {sp : Spec} {s : State} {r : Req} {a : Nat},
+  sp.actorOf r.cred = some a → r.permit.actor ≠ a → admission Guards.full sp s r ≠ V.T
+'LegionCore.T4_permit_actor_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+@T4_identity_isolation : ∀ {sp : Spec} {s : State} {r : Req} {a : Nat},
+  sp.actorOf r.cred = some a →
+    (∀ (tk : LegionCore.Task), sp.task? r.task = some tk → tk.owner ≠ a) → admission Guards.full sp s r ≠ V.T
+'LegionCore.T4_identity_isolation' depends on axioms: [propext, Classical.choice, Quot.sound]
+@T4_no_credential : ∀ {sp : Spec} {s : State} {r : Req}, sp.actorOf r.cred = none → admission Guards.full sp s r ≠ V.T
+'LegionCore.T4_no_credential' depends on axioms: [propext, Classical.choice, Quot.sound]
+T5_stale_no_seat : ∀ (sp : Spec) (s : State) (r : Report) (t : Nat) (v : V),
+  fresh sp s.now r = false →
+    votes sp
+        { phase := s.phase, uid := s.uid, wid := s.wid, epoch := s.epoch, now := s.now, issued := s.issued,
+          usedNonces := s.usedNonces, fenced := s.fenced, ledger := s.ledger, verified := s.verified,
+          evidenced := s.evidenced, closed := s.closed, reports := r :: s.reports, used := s.used,
+          contract := s.contract, chash := s.chash, cver := s.cver, plan := s.plan }
+        t v =
+      votes sp s t v
+'LegionCore.T5_stale_no_seat' depends on axioms: [propext]
+T5_unknown_no_seat : ∀ (sp : Spec) (s : State) (r : Report) (t : Nat) (v : V),
+  r.value = V.Z →
+    v ≠ V.Z →
+      votes sp
+          { phase := s.phase, uid := s.uid, wid := s.wid, epoch := s.epoch, now := s.now, issued := s.issued,
+            usedNonces := s.usedNonces, fenced := s.fenced, ledger := s.ledger, verified := s.verified,
+            evidenced := s.evidenced, closed := s.closed, reports := r :: s.reports, used := s.used,
+            contract := s.contract, chash := s.chash, cver := s.cver, plan := s.plan }
+          t v =
+        votes sp s t v
+'LegionCore.T5_unknown_no_seat' depends on axioms: [propext]
+T5_order_independent : ∀ (sp : Spec) (s s' : State),
+  s.reports.Perm s'.reports → s.now = s'.now → ∀ (t : Nat) (v : V), votes sp s t v = votes sp s' t v
+'LegionCore.T5_order_independent' depends on axioms: [propext, Quot.sound]
+@T5_ztl_T_needs_seats : ∀ {sp : Spec} {s : State} {t : Nat},
+  ztl sp s t = V.T → sp.f + 1 ≤ votes sp s t V.T ∧ votes sp s t V.F < sp.f + 1
+'LegionCore.T5_ztl_T_needs_seats' depends on axioms: [propext]
+@T5_distinct_origins : ∀ {sp : Spec} {uid wid : Nat} {s : State},
+  Reach Guards.full sp uid wid s →
+    ∀ {t : Nat},
+      ztl sp s t = V.T →
+        have L := List.filter (fun r => r.task == t && r.value == V.T && fresh sp s.now r) s.reports;
+        (List.map (fun r => r.source) L).Nodup ∧ sp.f + 1 ≤ (List.map (fun r => r.source) L).length
+'LegionCore.T5_distinct_origins' depends on axioms: [propext, Classical.choice, Quot.sound]
+@T5_closure_needs_verification : ∀ {sp : Spec} {uid wid : Nat} {s : State},
+  Reach Guards.full sp uid wid s →
+    ∀ {t : Nat},
+      t ∈ s.closed →
+        ∀ {tk : LegionCore.Task},
+          sp.task? t = some tk → tk.write = true → t ∈ s.verified ∧ ∃ e, e ∈ s.ledger ∧ e.task = t
+'LegionCore.T5_closure_needs_verification' depends on axioms: [propext, Classical.choice, Quot.sound]
+@T6_epoch_binding : ∀ {sp : Spec} {s s' : State} {c : Cmd} {e : Effect},
+  exec Guards.full sp s c = some s' →
+    e ∈ s'.ledger →
+      ¬e ∈ s.ledger →
+        ∃ r,
+          c = Cmd.actuate r ∧
+            r.permit.epoch = s.epoch ∧
+              r.permit.uid = s.uid ∧ r.permit.wid = s.wid ∧ r.permit.mission = sp.mission ∧ s.phase = Phase.running
+'LegionCore.T6_epoch_binding' depends on axioms: [propext, Classical.choice, Quot.sound]
+@T6_epoch_revocation : ∀ {sp : Spec} {uid wid : Nat} {s s' : State} {c : Cmd},
+  Reach Guards.full sp uid wid s →
+    c = Cmd.start ∨ c = Cmd.bump ∨ c = Cmd.terminate →
+      exec Guards.full sp s c = some s' → ∀ {r : Req}, r.permit ∈ s.issued → admission Guards.full sp s' r ≠ V.T
+'LegionCore.T6_epoch_revocation' depends on axioms: [propext, Classical.choice, Quot.sound]
+@T6_not_running : ∀ {sp : Spec} {s : State} {r : Req}, s.phase ≠ Phase.running → admission Guards.full sp s r ≠ V.T
+'LegionCore.T6_not_running' depends on axioms: [propext, Classical.choice, Quot.sound]
+@T7_exactly_once : ∀ {sp : Spec} {uid wid : Nat} {s : State},
+  Reach Guards.full sp uid wid s →
+    (∀ (t : Nat), (List.filter (fun e => e.task == t) s.ledger).length ≤ 1) ∧
+      (∀ (c : Nat), (List.filter (fun e => e.cmd == c) s.ledger).length ≤ 1) ∧
+        ∀ (e : Effect), e ∈ s.ledger → ¬e.cmd ∈ s.fenced
+'LegionCore.T7_exactly_once' depends on axioms: [propext, Classical.choice, Quot.sound]
+@T8_recovery_preservation : ∀ {sp : Spec} {s s' : State} {c : Cmd},
+  LegionCore.Inv sp s → exec Guards.full sp s c = some s' → LegionCore.Inv sp s'
+'LegionCore.T8_recovery_preservation' depends on axioms: [propext, Classical.choice, Quot.sound]
+@T8_retry_after_effect_refused : ∀ {sp : Spec} {s : State} {r : Req} {e : Effect},
+  e ∈ s.ledger → e.task = r.task → admission Guards.full sp s r ≠ V.T
+'LegionCore.T8_retry_after_effect_refused' depends on axioms: [propext, Classical.choice, Quot.sound]
+@T8_fenced_never_executes : ∀ {sp : Spec} {s : State} {r : Req}, r.cmd ∈ s.fenced → admission Guards.full sp s r ≠ V.T
+'LegionCore.T8_fenced_never_executes' depends on axioms: [propext, Classical.choice, Quot.sound]
+@T8_fence_requires_no_effect : ∀ {sp : Spec} {s s' : State} {c : Nat},
+  exec Guards.full sp s (Cmd.fence c) = some s' → ∀ (e : Effect), e ∈ s.ledger → e.cmd ≠ c
+'LegionCore.T8_fence_requires_no_effect' depends on axioms: [propext, Quot.sound]
+T8_crash_stutter : ∀ (g : Guards) (sp : Spec) (s : State), exec g sp s Cmd.crash = some s
+'LegionCore.T8_crash_stutter' depends on axioms: [propext]
+@T9_completion_soundness : ∀ {sp : Spec} {uid wid : Nat} {s : State},
+  Reach Guards.full sp uid wid s →
+    judgePass sp s →
+      ∀ (tk : LegionCore.Task),
+        tk ∈ sp.tasks →
+          tk.mandatory = true →
+            ∃ tk',
+              sp.task? tk.id = some tk' ∧
+                tk.id ∈ s.closed ∧
+                  (∀ (d : Nat), d ∈ tk'.deps → d ∈ s.closed) ∧
+                    (tk'.write = true → tk.id ∈ s.verified ∧ ∃ e, e ∈ s.ledger ∧ e.task = tk.id) ∧
+                      (tk'.write = false → tk.id ∈ s.evidenced)
+'LegionCore.T9_completion_soundness' depends on axioms: [propext, Classical.choice, Quot.sound]
+T10_population_independence : ∀ (sp : Spec) (uid wid : Nat) (s : State),
+  Reach Guards.full sp uid wid s → LegionCore.Inv sp s
+'LegionCore.T10_population_independence' depends on axioms: [propext, Classical.choice, Quot.sound]
+@T11_mission_preserved : ∀ {sp : Spec} {uid wid : Nat} {s : State},
+  Reach Guards.full sp uid wid s → s.cver = 0 → s.contract = sp.tasks ∧ s.chash = sp.mission
+'LegionCore.T11_mission_preserved' depends on axioms: [propext, Classical.choice, Quot.sound]
+@T11_immutable_without_authority : ∀ {sp : Spec} {uid wid : Nat},
+  sp.specAuthority = [] →
+    ∀ {s : State}, Reach Guards.full sp uid wid s → s.contract = sp.tasks ∧ s.chash = sp.mission ∧ s.cver = 0
+'LegionCore.T11_immutable_without_authority' depends on axioms: [propext, Quot.sound]
+@T12_spec_change_authority : ∀ {sp : Spec} {s s' : State} {c : Cmd},
+  exec Guards.full sp s c = some s' →
+    s'.contract = s.contract ∧ s'.chash = s.chash ∧ s'.cver = s.cver ∨
+      ∃ cred tasks hh,
+        c = Cmd.amend cred tasks hh ∧
+          cred ∈ sp.specAuthority ∧
+            s'.contract = tasks ∧ s'.chash = hh ∧ s'.cver = s.cver + 1 ∧ s'.epoch = s.epoch + 1 ∧ s'.issued = []
+'LegionCore.T12_spec_change_authority' depends on axioms: [propext, Quot.sound]
+@T12_epoch_changes : ∀ {sp : Spec} {s s' : State} {cred : Nat} {tasks : List LegionCore.Task} {hh : Nat},
+  exec Guards.full sp s (Cmd.amend cred tasks hh) = some s' → s'.epoch ≠ s.epoch
+'LegionCore.T12_epoch_changes' depends on axioms: [propext, Classical.choice, Quot.sound]
+@T12_execution_agent_cannot_amend : ∀ {sp : Spec} {s : State} {cred a : Nat},
+  (∀ (c : Nat), (sp.actorOf c).isSome = true → ¬c ∈ sp.specAuthority) →
+    sp.actorOf cred = some a →
+      ∀ (tasks : List LegionCore.Task) (hh : Nat), exec Guards.full sp s (Cmd.amend cred tasks hh) = none
+'LegionCore.T12_execution_agent_cannot_amend' depends on axioms: [propext, Quot.sound]
+@T12_change_requires_readmission : ∀ {sp : Spec} {s s' : State} {cred : Nat} {tasks : List LegionCore.Task} {hh : Nat},
+  exec Guards.full sp s (Cmd.amend cred tasks hh) = some s' → ∀ (r : Req), admission Guards.full sp s' r ≠ V.T
+'LegionCore.T12_change_requires_readmission' depends on axioms: [propext, Classical.choice, Quot.sound]
+@T13_admission_bound : ∀ {sp : Spec} {s : State} {r : Req},
+  admission Guards.full sp s r = V.T →
+    r.permit.mission = sp.mission ∧ s.chash = sp.mission ∧ s.cver = 0 ∧ ztl sp s r.task = V.T
+'LegionCore.T13_admission_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+@T13_effect_bound : ∀ {sp : Spec} {uid wid : Nat} {s : State},
+  Reach Guards.full sp uid wid s → ∀ (e : Effect), e ∈ s.ledger → e.mission = sp.mission
+'LegionCore.T13_effect_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+@T13_judge_bound : ∀ {sp : Spec} {uid wid : Nat} {s : State},
+  Reach Guards.full sp uid wid s → judgePass sp s → judgeVerdict sp sp.mission s
+'LegionCore.T13_judge_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+@T13_foreign_receipt_rejected : ∀ {sp : Spec} {s : State} {h : Nat} {e : Effect},
+  e ∈ s.ledger → e.mission ≠ h → ¬judgeVerdict sp h s
+'LegionCore.T13_foreign_receipt_rejected' does not depend on any axioms
+@T13_other_contract_rejected : ∀ {sp : Spec} {s : State} {h : Nat}, h ≠ sp.mission → ¬judgeVerdict sp h s
+'LegionCore.T13_other_contract_rejected' does not depend on any axioms
+@T14_nonvacuous_completion : ∀ {sp : Spec} {uid wid : Nat} {s : State},
+  Reach Guards.full sp uid wid s →
+    judgePass sp s →
+      ∀ (o : LegionCore.Task),
+        o ∈ sp.tasks →
+          o.mandatory = true →
+            ∃ o',
+              sp.task? o.id = some o' ∧
+                o.id ∈ s.closed ∧
+                  (o'.write = true → o.id ∈ s.verified ∧ ∃ e, e ∈ s.ledger ∧ e.task = o.id ∧ e.mission = sp.mission) ∧
+                    (o'.write = false → o.id ∈ s.evidenced)
+'LegionCore.T14_nonvacuous_completion' depends on axioms: [propext, Classical.choice, Quot.sound]
+@T15_replan_preserves_mission : ∀ {sp : Spec} {s s' : State} {cred : Nat} {plan : List Nat},
+  exec Guards.full sp s (Cmd.replan cred plan) = some s' →
+    s'.contract = s.contract ∧
+      s'.chash = s.chash ∧ s'.cver = s.cver ∧ s'.epoch = s.epoch ∧ s'.issued = s.issued ∧ s'.plan = plan
+'LegionCore.T15_replan_preserves_mission' depends on axioms: [propext]
+T15_plan_irrelevant_to_admission : ∀ (g : Guards) (sp : Spec) (s : State) (r : Req) (p : List Nat),
+  admission g sp
+      { phase := s.phase, uid := s.uid, wid := s.wid, epoch := s.epoch, now := s.now, issued := s.issued,
+        usedNonces := s.usedNonces, fenced := s.fenced, ledger := s.ledger, verified := s.verified,
+        evidenced := s.evidenced, closed := s.closed, reports := s.reports, used := s.used, contract := s.contract,
+        chash := s.chash, cver := s.cver, plan := p }
+      r =
+    admission g sp s r
+'LegionCore.T15_plan_irrelevant_to_admission' depends on axioms: [propext]
+@T15_replan_allowed : ∀ {sp : Spec} {s : State} {cred a : Nat},
+  sp.actorOf cred = some a →
+    ∀ (plan : List Nat),
+      exec Guards.full sp s (Cmd.replan cred plan) =
+        some
+          { phase := s.phase, uid := s.uid, wid := s.wid, epoch := s.epoch, now := s.now, issued := s.issued,
+            usedNonces := s.usedNonces, fenced := s.fenced, ledger := s.ledger, verified := s.verified,
+            evidenced := s.evidenced, closed := s.closed, reports := s.reports, used := s.used, contract := s.contract,
+            chash := s.chash, cver := s.cver, plan := plan }
+'LegionCore.T15_replan_allowed' depends on axioms: [propext]
+Journal.inv_fold : ∀ (ts : List Journal.JTask) (rs : List Journal.Rec), Journal.Inv ts (Journal.fold ts rs)
+'LegionCore.Journal.inv_fold' depends on axioms: [propext, Quot.sound]
+Journal.confirmed_ordered : ∀ (ts : List Journal.JTask) (rs : List Journal.Rec) {pre : List Nat} {t : Nat}
+  {post : List Nat},
+  (Journal.fold ts rs).confirmed = pre ++ t :: post →
+    ∃ tk,
+      Journal.taskOf ts t = some tk ∧
+        ∀ (d : Nat), d ∈ tk.deps → d ∈ pre ∨ ∃ dt, Journal.taskOf ts d = some dt ∧ dt.na = true
+'LegionCore.Journal.confirmed_ordered' depends on axioms: [propext, Quot.sound]
+Journal.sat_witness : ∀ (ts : List Journal.JTask) (rs : List Journal.Rec),
+  (∀ (p : Nat × Journal.K), p ∈ (Journal.fold ts rs).sat → ∃ r, r ∈ rs ∧ Journal.SatW ts p r) ∧
+    ∀ (e : Nat × Nat × Nat), e ∈ (Journal.fold ts rs).effects → ∃ r, r ∈ rs ∧ Journal.EffW e r
+'LegionCore.Journal.sat_witness' depends on axioms: [propext, Quot.sound]
+Journal.fold_append_prefix : ∀ (ts : List Journal.JTask) (rs rs' : List Journal.Rec),
+  ∃ ex, (Journal.fold ts (rs ++ rs')).confirmed = (Journal.fold ts rs).confirmed ++ ex
+'LegionCore.Journal.fold_append_prefix' depends on axioms: [propext, Quot.sound]
+@Journal.premature_never_counts : ∀ {ts : List Journal.JTask} {s : Journal.FS} {r : Journal.Rec} {tk : Journal.JTask},
+  Journal.taskOf ts r.task = some tk →
+    Journal.eligible ts s.confirmed tk = false →
+      (Journal.ingest ts s r).sat = s.sat ∧
+        (Journal.ingest ts s r).effects = s.effects ∧ (Journal.ingest ts s r).obsOk = s.obsOk
+'LegionCore.Journal.premature_never_counts' depends on axioms: [propext]
+Journal.closed_grounded : ∀ (ts : List Journal.JTask) (rs : List Journal.Rec) {d : Nat},
+  d ∈ Journal.closedSet ts rs → d ∈ (Journal.fold ts rs).confirmed ∨ ∃ dt, dt ∈ ts ∧ dt.id = d ∧ dt.na = true
+'LegionCore.Journal.closed_grounded' depends on axioms: [propext, Quot.sound]
+@Journal.decision_deps_grounded : ∀ {sp : Spec} {s : State} {r : Req} (ts : List Journal.JTask) (rs : List Journal.Rec),
+  admission Guards.full sp
+        { phase := s.phase, uid := s.uid, wid := s.wid, epoch := s.epoch, now := s.now, issued := s.issued,
+          usedNonces := s.usedNonces, fenced := s.fenced, ledger := s.ledger, verified := s.verified,
+          evidenced := s.evidenced, closed := Journal.closedSet ts rs, reports := s.reports, used := s.used,
+          contract := s.contract, chash := s.chash, cver := s.cver, plan := s.plan }
+        r =
+      V.T →
+    ∃ tk,
+      sp.task? r.task = some tk ∧
+        ∀ (d : Nat), d ∈ tk.deps → d ∈ (Journal.fold ts rs).confirmed ∨ ∃ dt, dt ∈ ts ∧ dt.id = d ∧ dt.na = true
+'LegionCore.Journal.decision_deps_grounded' depends on axioms: [propext, Classical.choice, Quot.sound]
