@@ -1,0 +1,19 @@
+{
+ "roots": [
+  {"name": "LEGION-R2", "path": "C:/Users/Administrator/LEGION_R2",
+   "boundary_role": "qualified LEGION runtime: world commit boundary (/actuate) with authoritative Lean admission",
+   "include": ["tests/legion_struct/*.py", "tests/legion_struct/causal_007/*.py", "tests/legion_struct/causal_007/wo008_judge/*.py"],
+   "exclude": ["tests/legion_struct/causal_007/test_", "tests/legion_struct/test_", "tests/legion_struct/causal_007/make_sums.py"]},
+  {"name": "LEGION-Commerce", "path": "C:/Users/Administrator/Documents/ChatGPT/Hackathons/LEGION-Commerce-Q002",
+   "boundary_role": "external consequential effects: PayPal Sandbox order create / capture through the A04 Gateway",
+   "include": ["commerce_adapter/*.py", "commerce_bridge/*.py", "commerce_authority/*.py", "commerce_demo/*.py",
+               "latency004/*.py", "tools/*.py"],
+   "exclude": []},
+  {"name": "LEGION-Federation", "path": "C:/Users/Administrator/Documents/ChatGPT/Hackathons/MARKET_GENESIS/LEGION-Federation",
+   "boundary_role": "owner-isolated federation peers (simulated world effects)",
+   "include": ["legion_federation/*.py", "tools/*.py"], "exclude": []},
+  {"name": "LEGION-Marketplace", "path": "C:/Users/Administrator/Documents/ChatGPT/Hackathons/MARKET_GENESIS/LEGION-Marketplace",
+   "boundary_role": "marketplace registry, hub-driven E2E, Judge, dashboard (simulated world effects)",
+   "include": ["legion_marketplace/*.py", "fixtures/*.py"], "exclude": []}
+ ]
+}

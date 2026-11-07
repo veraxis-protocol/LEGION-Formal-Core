@@ -1,0 +1,11 @@
+{"wo": "FORMAL-004", "title": "Executable Judge conformance to the Lean completion specification, including T9/T14",
+ "verdict": "T", "scope": "Judge PASS vs Lean judgePass over the proved journal fold; differential (13 runs + 48 mutations), Judge Python not proved",
+ "source_commits": {"LEGION-R2": "73660d1 (branch formal-closure-001)", "legion_decide_sha256": "99cda684f29afba33e69b8f4811d754c499987c30c07ac1c67f19ec250ade73a",
+                    "judge": "STRUCTURAL_001/code/judge_s1 + CAUSAL_007/code/adapter_s2 (unchanged)"},
+ "theorems": ["judgeSpecB_iff", "journal_judge_grounded", "judge_ignores_contract_record", "amended_list_can_pass"],
+ "axioms": ["propext", "Quot.sound"], "sorry": 0,
+ "differential": {"cases": 61, "agree": 61, "orig_judge_pass": "13/13", "t9_violations": 0, "t14_violations": 0, "amend_vacuous_rejected": "11/11", "judge_stricter": 0},
+ "preserved_failure": "differential run 1 crashed on a hidden .attempt_registry directory (harness defect)",
+ "uncovered_assumptions": ["Judge Python not proved", "judgePass covers obligation closure only (goal predicates, causation, budgets out of scope)",
+                           "Rec.ok / JTask.na trusted (PE3 residual)", "Judge re-run outside its namespace sandbox (verdicts reproduced 13/13)"],
+ "blockers": []}

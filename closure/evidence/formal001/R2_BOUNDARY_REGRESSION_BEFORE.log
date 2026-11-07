@@ -1,0 +1,192 @@
+bringing up nodes...
+bringing up nodes...
+
+..........................................................F..            [100%]
+=================================== FAILURES ===================================
+__________________ test_n6_replay_denied_and_positive_applies __________________
+[gw1] linux -- Python 3.12.3 /home/administrator/legion_pf/cage_r2/.venv/bin/python
+
+tmp_path = PosixPath('/tmp/pytest-of-administrator/pytest-166/popen-gw1/test_n6_replay_denied_and_posi0')
+authority = <attempt_authority.TestAuthority object at 0x725fef3b5d00>
+
+    def test_n6_replay_denied_and_positive_applies(tmp_path, authority):
+        w = WorldFixture(tmp_path, authority)
+        try:
+            permit = authority.gate_client().request_permit(
+                task_id="T2", command_id="cmd-n6")
+            # NOI write has error_first_n: first attempt 503, permit not consumed.
+            status, _ = w.actuate(permit, command_id="cmd-n6")
+>           assert status == 503
+E           assert 403 == 503
+
+tests/legion_struct/causal_007/test_attempt_authority_e6e.py:291: AssertionError
+==================================== PASSES ====================================
+____________________ test_SPEC_N01_agent_deletes_obligation ____________________
+[gw2] linux -- Python 3.12.3 /home/administrator/legion_pf/cage_r2/.venv/bin/python
+---------------------------- Captured stdout setup -----------------------------
+{"timestamp": "2026-11-07 14:27:56,678", "severity": "INFO", "name": "cage.plugin_loader", "message": "domain plugin finance loaded", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+{"timestamp": "2026-11-07 14:27:57,598", "severity": "INFO", "name": "ConsensusGate", "message": "[ConsensusRegistry] Risk Manager \u2192 http://localhost:8000/v1 (model=default)", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+{"timestamp": "2026-11-07 14:27:57,598", "severity": "WARNING", "name": "ConsensusGate", "message": "[ConsensusRegistry] Compliance Officer has no dedicated URL \u2014 will use default GatewayClient. This reduces model diversity and weakens consensus independence.", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+{"timestamp": "2026-11-07 14:27:57,598", "severity": "INFO", "name": "src.gateway.core.llm", "message": "\ud83d\udd27 Using Local Split-Brain Mode (Direct Connection)", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+{"timestamp": "2026-11-07 14:27:57,658", "severity": "WARNING", "name": "src.cage_finance.safety.bounding.providers", "message": "\u26a0\ufe0f  StubMarketDataProvider active (CAGE_ENV=test) \u2014 returns permissive mock data. Replace with real provider before production deployment.", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+{"timestamp": "2026-11-07 14:27:57,658", "severity": "WARNING", "name": "src.cage_finance.safety.bounding.providers", "message": "\u26a0\ufe0f  StubRollbackCapabilityProvider active (CAGE_ENV=test) \u2014 returns permissive mock data. Replace with real provider before production deployment.", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+{"timestamp": "2026-11-07 14:27:57,658", "severity": "INFO", "name": "src.cage_finance.safety.bounding.registry", "message": "BoundingContractRegistry initialized with 10 enabled contracts: ['B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7', 'B8', 'B9', 'B10']", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+{"timestamp": "2026-11-07 14:27:57,659", "severity": "INFO", "name": "Gateway.Governance.FTRA.Classifier", "message": "\u2705 FTRA registry manifest digest verified: 3c45c22fed34dc0c...", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+{"timestamp": "2026-11-07 14:27:57,660", "severity": "INFO", "name": "Gateway.Governance.FTRA.Classifier", "message": "\u2705 FTRA terminal registry loaded: 6 actions (2 with an autonomous envelope) from /home/administrator/legion_pf/cage_r2/config/ftra/terminal_registry.json", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+{"timestamp": "2026-11-07 14:27:57,660", "severity": "INFO", "name": "src.gateway.governance.governor.assembly", "message": "governor assembled: domains=['finance'] region=US_FED tiers=['trade_confidence', 'bounding', 'consensus', 'causal', 'cbf', 'fiscal'] posture=test unfilled=() warranted_norms=[]", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+{"timestamp": "2026-11-07 14:27:57,660", "severity": "INFO", "name": "Gateway.Governance.Constants", "message": "\u2705 Registered compliance overlay dir: /home/administrator/legion_pf/cage_r2/src/cage_finance/config/compliance", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+------------------------------ Captured log setup ------------------------------
+INFO     cage.plugin_loader:plugin_loader.py:77 domain plugin finance loaded
+INFO     ConsensusGate:engine.py:305 [ConsensusRegistry] Risk Manager → http://localhost:8000/v1 (model=default)
+WARNING  ConsensusGate:engine.py:316 [ConsensusRegistry] Compliance Officer has no dedicated URL — will use default GatewayClient. This reduces model diversity and weakens consensus independence.
+INFO     src.gateway.core.llm:llm.py:45 🔧 Using Local Split-Brain Mode (Direct Connection)
+WARNING  src.cage_finance.safety.bounding.providers:providers.py:169 ⚠️  StubMarketDataProvider active (CAGE_ENV=test) — returns permissive mock data. Replace with real provider before production deployment.
+WARNING  src.cage_finance.safety.bounding.providers:providers.py:245 ⚠️  StubRollbackCapabilityProvider active (CAGE_ENV=test) — returns permissive mock data. Replace with real provider before production deployment.
+INFO     src.cage_finance.safety.bounding.registry:registry.py:95 BoundingContractRegistry initialized with 10 enabled contracts: ['B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7', 'B8', 'B9', 'B10']
+INFO     Gateway.Governance.FTRA.Classifier:classifier.py:265 ✅ FTRA registry manifest digest verified: 3c45c22fed34dc0c...
+INFO     Gateway.Governance.FTRA.Classifier:classifier.py:300 ✅ FTRA terminal registry loaded: 6 actions (2 with an autonomous envelope) from /home/administrator/legion_pf/cage_r2/config/ftra/terminal_registry.json
+INFO     src.gateway.governance.governor.assembly:assembly.py:401 governor assembled: domains=['finance'] region=US_FED tiers=['trade_confidence', 'bounding', 'consensus', 'causal', 'cbf', 'fiscal'] posture=test unfilled=() warranted_norms=[]
+INFO     Gateway.Governance.Constants:constants.py:109 ✅ Registered compliance overlay dir: /home/administrator/legion_pf/cage_r2/src/cage_finance/config/compliance
+________ test_B07_weaker_action_not_in_public_contract_is_judge_caught _________
+[gw1] linux -- Python 3.12.3 /home/administrator/legion_pf/cage_r2/.venv/bin/python
+---------------------------- Captured stdout setup -----------------------------
+{"timestamp": "2026-11-07 14:27:56,678", "severity": "INFO", "name": "cage.plugin_loader", "message": "domain plugin finance loaded", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+{"timestamp": "2026-11-07 14:27:57,633", "severity": "INFO", "name": "ConsensusGate", "message": "[ConsensusRegistry] Risk Manager \u2192 http://localhost:8000/v1 (model=default)", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+{"timestamp": "2026-11-07 14:27:57,633", "severity": "WARNING", "name": "ConsensusGate", "message": "[ConsensusRegistry] Compliance Officer has no dedicated URL \u2014 will use default GatewayClient. This reduces model diversity and weakens consensus independence.", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+{"timestamp": "2026-11-07 14:27:57,633", "severity": "INFO", "name": "src.gateway.core.llm", "message": "\ud83d\udd27 Using Local Split-Brain Mode (Direct Connection)", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+{"timestamp": "2026-11-07 14:27:57,695", "severity": "WARNING", "name": "src.cage_finance.safety.bounding.providers", "message": "\u26a0\ufe0f  StubMarketDataProvider active (CAGE_ENV=test) \u2014 returns permissive mock data. Replace with real provider before production deployment.", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+{"timestamp": "2026-11-07 14:27:57,695", "severity": "WARNING", "name": "src.cage_finance.safety.bounding.providers", "message": "\u26a0\ufe0f  StubRollbackCapabilityProvider active (CAGE_ENV=test) \u2014 returns permissive mock data. Replace with real provider before production deployment.", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+{"timestamp": "2026-11-07 14:27:57,696", "severity": "INFO", "name": "src.cage_finance.safety.bounding.registry", "message": "BoundingContractRegistry initialized with 10 enabled contracts: ['B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7', 'B8', 'B9', 'B10']", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+{"timestamp": "2026-11-07 14:27:57,697", "severity": "INFO", "name": "Gateway.Governance.FTRA.Classifier", "message": "\u2705 FTRA registry manifest digest verified: 3c45c22fed34dc0c...", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+{"timestamp": "2026-11-07 14:27:57,697", "severity": "INFO", "name": "Gateway.Governance.FTRA.Classifier", "message": "\u2705 FTRA terminal registry loaded: 6 actions (2 with an autonomous envelope) from /home/administrator/legion_pf/cage_r2/config/ftra/terminal_registry.json", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+{"timestamp": "2026-11-07 14:27:57,698", "severity": "INFO", "name": "src.gateway.governance.governor.assembly", "message": "governor assembled: domains=['finance'] region=US_FED tiers=['trade_confidence', 'bounding', 'consensus', 'causal', 'cbf', 'fiscal'] posture=test unfilled=() warranted_norms=[]", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+{"timestamp": "2026-11-07 14:27:57,698", "severity": "INFO", "name": "Gateway.Governance.Constants", "message": "\u2705 Registered compliance overlay dir: /home/administrator/legion_pf/cage_r2/src/cage_finance/config/compliance", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+------------------------------ Captured log setup ------------------------------
+INFO     cage.plugin_loader:plugin_loader.py:77 domain plugin finance loaded
+INFO     ConsensusGate:engine.py:305 [ConsensusRegistry] Risk Manager → http://localhost:8000/v1 (model=default)
+WARNING  ConsensusGate:engine.py:316 [ConsensusRegistry] Compliance Officer has no dedicated URL — will use default GatewayClient. This reduces model diversity and weakens consensus independence.
+INFO     src.gateway.core.llm:llm.py:45 🔧 Using Local Split-Brain Mode (Direct Connection)
+WARNING  src.cage_finance.safety.bounding.providers:providers.py:169 ⚠️  StubMarketDataProvider active (CAGE_ENV=test) — returns permissive mock data. Replace with real provider before production deployment.
+WARNING  src.cage_finance.safety.bounding.providers:providers.py:245 ⚠️  StubRollbackCapabilityProvider active (CAGE_ENV=test) — returns permissive mock data. Replace with real provider before production deployment.
+INFO     src.cage_finance.safety.bounding.registry:registry.py:95 BoundingContractRegistry initialized with 10 enabled contracts: ['B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7', 'B8', 'B9', 'B10']
+INFO     Gateway.Governance.FTRA.Classifier:classifier.py:265 ✅ FTRA registry manifest digest verified: 3c45c22fed34dc0c...
+INFO     Gateway.Governance.FTRA.Classifier:classifier.py:300 ✅ FTRA terminal registry loaded: 6 actions (2 with an autonomous envelope) from /home/administrator/legion_pf/cage_r2/config/ftra/terminal_registry.json
+INFO     src.gateway.governance.governor.assembly:assembly.py:401 governor assembled: domains=['finance'] region=US_FED tiers=['trade_confidence', 'bounding', 'consensus', 'causal', 'cbf', 'fiscal'] posture=test unfilled=() warranted_norms=[]
+INFO     Gateway.Governance.Constants:constants.py:109 ✅ Registered compliance overlay dir: /home/administrator/legion_pf/cage_r2/src/cage_finance/config/compliance
+_____________________ test_B02_dependencies_open_rejected ______________________
+[gw3] linux -- Python 3.12.3 /home/administrator/legion_pf/cage_r2/.venv/bin/python
+---------------------------- Captured stdout setup -----------------------------
+{"timestamp": "2026-11-07 14:27:56,685", "severity": "INFO", "name": "cage.plugin_loader", "message": "domain plugin finance loaded", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+{"timestamp": "2026-11-07 14:27:57,593", "severity": "INFO", "name": "ConsensusGate", "message": "[ConsensusRegistry] Risk Manager \u2192 http://localhost:8000/v1 (model=default)", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+{"timestamp": "2026-11-07 14:27:57,594", "severity": "WARNING", "name": "ConsensusGate", "message": "[ConsensusRegistry] Compliance Officer has no dedicated URL \u2014 will use default GatewayClient. This reduces model diversity and weakens consensus independence.", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+{"timestamp": "2026-11-07 14:27:57,594", "severity": "INFO", "name": "src.gateway.core.llm", "message": "\ud83d\udd27 Using Local Split-Brain Mode (Direct Connection)", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+{"timestamp": "2026-11-07 14:27:57,663", "severity": "WARNING", "name": "src.cage_finance.safety.bounding.providers", "message": "\u26a0\ufe0f  StubMarketDataProvider active (CAGE_ENV=test) \u2014 returns permissive mock data. Replace with real provider before production deployment.", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+{"timestamp": "2026-11-07 14:27:57,664", "severity": "WARNING", "name": "src.cage_finance.safety.bounding.providers", "message": "\u26a0\ufe0f  StubRollbackCapabilityProvider active (CAGE_ENV=test) \u2014 returns permissive mock data. Replace with real provider before production deployment.", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+{"timestamp": "2026-11-07 14:27:57,664", "severity": "INFO", "name": "src.cage_finance.safety.bounding.registry", "message": "BoundingContractRegistry initialized with 10 enabled contracts: ['B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7', 'B8', 'B9', 'B10']", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+{"timestamp": "2026-11-07 14:27:57,666", "severity": "INFO", "name": "Gateway.Governance.FTRA.Classifier", "message": "\u2705 FTRA registry manifest digest verified: 3c45c22fed34dc0c...", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+{"timestamp": "2026-11-07 14:27:57,666", "severity": "INFO", "name": "Gateway.Governance.FTRA.Classifier", "message": "\u2705 FTRA terminal registry loaded: 6 actions (2 with an autonomous envelope) from /home/administrator/legion_pf/cage_r2/config/ftra/terminal_registry.json", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+{"timestamp": "2026-11-07 14:27:57,667", "severity": "INFO", "name": "src.gateway.governance.governor.assembly", "message": "governor assembled: domains=['finance'] region=US_FED tiers=['trade_confidence', 'bounding', 'consensus', 'causal', 'cbf', 'fiscal'] posture=test unfilled=() warranted_norms=[]", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+{"timestamp": "2026-11-07 14:27:57,667", "severity": "INFO", "name": "Gateway.Governance.Constants", "message": "\u2705 Registered compliance overlay dir: /home/administrator/legion_pf/cage_r2/src/cage_finance/config/compliance", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+------------------------------ Captured log setup ------------------------------
+INFO     cage.plugin_loader:plugin_loader.py:77 domain plugin finance loaded
+INFO     ConsensusGate:engine.py:305 [ConsensusRegistry] Risk Manager → http://localhost:8000/v1 (model=default)
+WARNING  ConsensusGate:engine.py:316 [ConsensusRegistry] Compliance Officer has no dedicated URL — will use default GatewayClient. This reduces model diversity and weakens consensus independence.
+INFO     src.gateway.core.llm:llm.py:45 🔧 Using Local Split-Brain Mode (Direct Connection)
+WARNING  src.cage_finance.safety.bounding.providers:providers.py:169 ⚠️  StubMarketDataProvider active (CAGE_ENV=test) — returns permissive mock data. Replace with real provider before production deployment.
+WARNING  src.cage_finance.safety.bounding.providers:providers.py:245 ⚠️  StubRollbackCapabilityProvider active (CAGE_ENV=test) — returns permissive mock data. Replace with real provider before production deployment.
+INFO     src.cage_finance.safety.bounding.registry:registry.py:95 BoundingContractRegistry initialized with 10 enabled contracts: ['B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7', 'B8', 'B9', 'B10']
+INFO     Gateway.Governance.FTRA.Classifier:classifier.py:265 ✅ FTRA registry manifest digest verified: 3c45c22fed34dc0c...
+INFO     Gateway.Governance.FTRA.Classifier:classifier.py:300 ✅ FTRA terminal registry loaded: 6 actions (2 with an autonomous envelope) from /home/administrator/legion_pf/cage_r2/config/ftra/terminal_registry.json
+INFO     src.gateway.governance.governor.assembly:assembly.py:401 governor assembled: domains=['finance'] region=US_FED tiers=['trade_confidence', 'bounding', 'consensus', 'causal', 'cbf', 'fiscal'] posture=test unfilled=() warranted_norms=[]
+INFO     Gateway.Governance.Constants:constants.py:109 ✅ Registered compliance overlay dir: /home/administrator/legion_pf/cage_r2/src/cage_finance/config/compliance
+______________ test_B06_admitted_effect_is_bound_and_exactly_once ______________
+[gw0] linux -- Python 3.12.3 /home/administrator/legion_pf/cage_r2/.venv/bin/python
+---------------------------- Captured stdout setup -----------------------------
+{"timestamp": "2026-11-07 14:27:56,696", "severity": "INFO", "name": "cage.plugin_loader", "message": "domain plugin finance loaded", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+{"timestamp": "2026-11-07 14:27:57,827", "severity": "INFO", "name": "ConsensusGate", "message": "[ConsensusRegistry] Risk Manager \u2192 http://localhost:8000/v1 (model=default)", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+{"timestamp": "2026-11-07 14:27:57,827", "severity": "WARNING", "name": "ConsensusGate", "message": "[ConsensusRegistry] Compliance Officer has no dedicated URL \u2014 will use default GatewayClient. This reduces model diversity and weakens consensus independence.", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+{"timestamp": "2026-11-07 14:27:57,828", "severity": "INFO", "name": "src.gateway.core.llm", "message": "\ud83d\udd27 Using Local Split-Brain Mode (Direct Connection)", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+{"timestamp": "2026-11-07 14:27:57,885", "severity": "WARNING", "name": "src.cage_finance.safety.bounding.providers", "message": "\u26a0\ufe0f  StubMarketDataProvider active (CAGE_ENV=test) \u2014 returns permissive mock data. Replace with real provider before production deployment.", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+{"timestamp": "2026-11-07 14:27:57,886", "severity": "WARNING", "name": "src.cage_finance.safety.bounding.providers", "message": "\u26a0\ufe0f  StubRollbackCapabilityProvider active (CAGE_ENV=test) \u2014 returns permissive mock data. Replace with real provider before production deployment.", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+{"timestamp": "2026-11-07 14:27:57,886", "severity": "INFO", "name": "src.cage_finance.safety.bounding.registry", "message": "BoundingContractRegistry initialized with 10 enabled contracts: ['B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7', 'B8', 'B9', 'B10']", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+{"timestamp": "2026-11-07 14:27:57,887", "severity": "INFO", "name": "Gateway.Governance.FTRA.Classifier", "message": "\u2705 FTRA registry manifest digest verified: 3c45c22fed34dc0c...", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+{"timestamp": "2026-11-07 14:27:57,887", "severity": "INFO", "name": "Gateway.Governance.FTRA.Classifier", "message": "\u2705 FTRA terminal registry loaded: 6 actions (2 with an autonomous envelope) from /home/administrator/legion_pf/cage_r2/config/ftra/terminal_registry.json", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+{"timestamp": "2026-11-07 14:27:57,888", "severity": "INFO", "name": "src.gateway.governance.governor.assembly", "message": "governor assembled: domains=['finance'] region=US_FED tiers=['trade_confidence', 'bounding', 'consensus', 'causal', 'cbf', 'fiscal'] posture=test unfilled=() warranted_norms=[]", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+{"timestamp": "2026-11-07 14:27:57,888", "severity": "INFO", "name": "Gateway.Governance.Constants", "message": "\u2705 Registered compliance overlay dir: /home/administrator/legion_pf/cage_r2/src/cage_finance/config/compliance", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+------------------------------ Captured log setup ------------------------------
+INFO     cage.plugin_loader:plugin_loader.py:77 domain plugin finance loaded
+INFO     ConsensusGate:engine.py:305 [ConsensusRegistry] Risk Manager → http://localhost:8000/v1 (model=default)
+WARNING  ConsensusGate:engine.py:316 [ConsensusRegistry] Compliance Officer has no dedicated URL — will use default GatewayClient. This reduces model diversity and weakens consensus independence.
+INFO     src.gateway.core.llm:llm.py:45 🔧 Using Local Split-Brain Mode (Direct Connection)
+WARNING  src.cage_finance.safety.bounding.providers:providers.py:169 ⚠️  StubMarketDataProvider active (CAGE_ENV=test) — returns permissive mock data. Replace with real provider before production deployment.
+WARNING  src.cage_finance.safety.bounding.providers:providers.py:245 ⚠️  StubRollbackCapabilityProvider active (CAGE_ENV=test) — returns permissive mock data. Replace with real provider before production deployment.
+INFO     src.cage_finance.safety.bounding.registry:registry.py:95 BoundingContractRegistry initialized with 10 enabled contracts: ['B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7', 'B8', 'B9', 'B10']
+INFO     Gateway.Governance.FTRA.Classifier:classifier.py:265 ✅ FTRA registry manifest digest verified: 3c45c22fed34dc0c...
+INFO     Gateway.Governance.FTRA.Classifier:classifier.py:300 ✅ FTRA terminal registry loaded: 6 actions (2 with an autonomous envelope) from /home/administrator/legion_pf/cage_r2/config/ftra/terminal_registry.json
+INFO     src.gateway.governance.governor.assembly:assembly.py:401 governor assembled: domains=['finance'] region=US_FED tiers=['trade_confidence', 'bounding', 'consensus', 'causal', 'cbf', 'fiscal'] posture=test unfilled=() warranted_norms=[]
+INFO     Gateway.Governance.Constants:constants.py:109 ✅ Registered compliance overlay dir: /home/administrator/legion_pf/cage_r2/src/cage_finance/config/compliance
+=========================== short test summary info ============================
+PASSED tests/legion_struct/causal_007/test_formal_core_boundary.py::test_SPEC_N01_agent_deletes_obligation
+PASSED tests/legion_struct/causal_007/test_formal_core_boundary.py::test_B07_weaker_action_not_in_public_contract_is_judge_caught
+PASSED tests/legion_struct/causal_007/test_formal_core_boundary.py::test_B02_dependencies_open_rejected
+PASSED tests/legion_struct/causal_007/test_formal_core_boundary.py::test_B07b_contract_declared_parameters_are_authoritative
+PASSED tests/legion_struct/causal_007/test_formal_core_boundary.py::test_SPEC_N05_old_epoch_admission
+PASSED tests/legion_struct/causal_007/test_formal_core_boundary.py::test_B04_args_not_bound_rejected
+PASSED tests/legion_struct/causal_007/test_formal_core_boundary.py::test_B06_admitted_effect_is_bound_and_exactly_once
+PASSED tests/legion_struct/causal_007/test_formal_core_boundary.py::test_SPEC_N07_replan_without_goal_change
+PASSED tests/legion_struct/causal_007/test_formal_core_boundary.py::test_SPEC_N02_agent_reduces_required_result
+PASSED tests/legion_struct/causal_007/test_formal_core_boundary.py::test_B10_ztl_Z_with_valid_credentials_no_effect
+PASSED tests/legion_struct/causal_007/test_formal_core_boundary.py::test_B03_lean_unavailable_fails_closed
+PASSED tests/legion_struct/causal_007/test_wo008_commit_boundary.py::test_zz_trace_artifact_with_hashes
+PASSED tests/legion_struct/causal_007/test_wo008_commit_boundary.py::test_wrong_epoch_commit_denied_and_world_unchanged
+PASSED tests/legion_struct/causal_007/test_wo008_commit_boundary.py::test_valid_a2a_quantity_cost_exactly_one_effect_verified
+PASSED tests/legion_struct/causal_007/test_formal_core_world_negatives.py::test_world_negative_authority[SYN-GAIA-EXE]
+PASSED tests/legion_struct/causal_007/test_formal_core_world_negatives.py::test_world_negative_authority[SYN-GAIA-SEA]
+PASSED tests/legion_struct/causal_007/test_formal_core_world_negatives.py::test_world_negative_authority[SYN-OTEL-01]
+PASSED tests/legion_struct/causal_007/test_formal_core_boundary.py::test_SPEC_N06_receipt_for_other_contract
+PASSED tests/legion_struct/causal_007/test_formal_core_world_negatives.py::test_world_negative_causal[SYN-GAIA-NOI]
+PASSED tests/legion_struct/causal_007/test_wo008_commit_boundary.py::test_denied_action_attempted_mutation_changes_nothing
+PASSED tests/legion_struct/causal_007/test_wo008_commit_boundary.py::test_valid_commit_receipt_readback_and_state_hash_match
+PASSED tests/legion_struct/causal_007/test_wo008_commit_boundary.py::test_valid_ada_failover_exactly_one_effect_verified
+PASSED tests/legion_struct/causal_007/test_wo008_commit_boundary.py::test_valid_otel03_remediation_exactly_one_effect_verified
+PASSED tests/legion_struct/causal_007/test_formal_core_world_negatives.py::test_world_negative_authority[SYN-OTEL-02]
+PASSED tests/legion_struct/causal_007/test_formal_core_world_negatives.py::test_world_negative_authority[SYN-GAIA-TIM]
+PASSED tests/legion_struct/causal_007/test_formal_core_world_negatives.py::test_world_negative_authority[SYN-OTEL-03]
+PASSED tests/legion_struct/causal_007/test_formal_core_boundary.py::test_B08_concurrent_competing_claims_exactly_once
+PASSED tests/legion_struct/causal_007/test_formal_core_boundary.py::test_B09_ztl_F_with_valid_credentials_no_effect
+PASSED tests/legion_struct/causal_007/test_formal_core_world_negatives.py::test_world_negative_authority[SYN-OTEL-06]
+PASSED tests/legion_struct/causal_007/test_formal_core_world_negatives.py::test_world_negative_causal[SYN-GAIA-TIM]
+PASSED tests/legion_struct/causal_007/test_formal_core_boundary.py::test_B05_foreign_actor_rejected
+PASSED tests/legion_struct/causal_007/test_formal_core_world_negatives.py::test_world_negative_authority[SYN-OTEL-05]
+PASSED tests/legion_struct/causal_007/test_formal_core_world_negatives.py::test_world_negative_authority[SYN-GAIA-NOI]
+PASSED tests/legion_struct/causal_007/test_formal_core_boundary.py::test_SPEC_N03_objective_substitution
+PASSED tests/legion_struct/causal_007/test_formal_core_world_negatives.py::test_world_negative_causal[SYN-GAIA-SEA]
+PASSED tests/legion_struct/causal_007/test_formal_core_world_negatives.py::test_world_negative_causal[SYN-OTEL-03]
+PASSED tests/legion_struct/causal_007/test_formal_core_boundary.py::test_B01_unbound_permit_rejected
+PASSED tests/legion_struct/causal_007/test_formal_core_world_negatives.py::test_world_negative_causal[SYN-GAIA-ADA]
+PASSED tests/legion_struct/causal_007/test_formal_core_world_negatives.py::test_world_negative_causal[SYN-OTEL-02]
+PASSED tests/legion_struct/causal_007/test_formal_core_world_negatives.py::test_world_negative_causal[SYN-OTEL-01]
+PASSED tests/legion_struct/causal_007/test_formal_core_world_negatives.py::test_world_negative_authority[SYN-GAIA-A2A]
+PASSED tests/legion_struct/causal_007/test_formal_core_world_negatives.py::test_world_negative_causal[SYN-GAIA-AMB]
+PASSED tests/legion_struct/causal_007/test_formal_core_world_negatives.py::test_world_negative_causal[SYN-GAIA-A2A]
+PASSED tests/legion_struct/causal_007/test_formal_core_world_negatives.py::test_world_negative_causal[SYN-OTEL-04]
+PASSED tests/legion_struct/causal_007/test_formal_core_world_negatives.py::test_world_negative_causal[SYN-OTEL-05]
+PASSED tests/legion_struct/causal_007/test_formal_core_boundary.py::test_SPEC_N04_judge_criteria_change
+PASSED tests/legion_struct/causal_007/test_formal_core_world_negatives.py::test_world_negative_causal[SYN-OTEL-06]
+PASSED tests/legion_struct/causal_007/test_formal_core_world_negatives.py::test_world_negative_authority[SYN-GAIA-AMB]
+PASSED tests/legion_struct/causal_007/test_attempt_authority_e6e.py::test_n1_attempt_file_deleted_write_denied
+PASSED tests/legion_struct/causal_007/test_attempt_authority_e6e.py::test_n4_stale_and_expired_permit_denied
+PASSED tests/legion_struct/causal_007/test_formal_core_world_negatives.py::test_world_negative_authority[SYN-GAIA-ADA]
+PASSED tests/legion_struct/causal_007/test_attempt_authority_e6e.py::test_positive_gate_attempt_check_admits_running
+PASSED tests/legion_struct/causal_007/test_attempt_authority_e6e.py::test_n3_authority_killed_denies
+PASSED tests/legion_struct/causal_007/test_attempt_authority_e6e.py::test_n2_file_rewritten_running_after_terminal_denied{"timestamp": "2026-11-07 14:27:43,253", "severity": "INFO", "name": "Gateway.Governance.Constants", "message": "\u2705 ControlRegistry loaded 8 control mappings from /mnt/c/Users/Administrator/LEGION_R2/config/compliance/US_FED_BASELINE.json (region: US_FED, hash: 590ac063a5df)", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+{"timestamp": "2026-11-07 14:27:43,254", "severity": "INFO", "name": "Gateway.Governance.Constants", "message": "ControlRegistry reconfigured to region: US_FED", "trace_id": null, "span_id": null, "serviceContext": {"service": "financial-advisor", "version": "unknown"}}
+
+PASSED tests/legion_struct/causal_007/test_formal_core_world_negatives.py::test_world_negative_causal[SYN-GAIA-EXE]
+PASSED tests/legion_struct/causal_007/test_attempt_authority_e6e.py::test_n5_foreign_permit_denied
+PASSED tests/legion_struct/causal_007/test_attempt_authority_e6e.py::test_n7_actuator_token_without_permit_denied
+PASSED tests/legion_struct/causal_007/test_formal_core_world_negatives.py::test_world_negative_authority[SYN-OTEL-04]
+PASSED tests/legion_struct/causal_007/test_attempt_authority_e6e.py::test_n9_no_attempt_context_denies
+PASSED tests/legion_struct/causal_007/test_attempt_authority_e6e.py::test_n8_legacy_hosts_without_capability_no_world
+FAILED tests/legion_struct/causal_007/test_attempt_authority_e6e.py::test_n6_replay_denied_and_positive_applies
+1 failed, 60 passed in 34.42s

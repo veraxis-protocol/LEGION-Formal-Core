@@ -1,0 +1,2448 @@
+{
+ "schema": "legion.formal001.census.v1",
+ "verdict": "T",
+ "sink_primitives": {
+  "call_write": "WORLD_WRITE",
+  "_apply_effects": "WORLD_WRITE",
+  "_apply_prepared": "WORLD_WRITE",
+  "_run_derived": "WORLD_WRITE",
+  "fire": "WORLD_EXOGENOUS",
+  "analyze": "WORLD_ANSWER_RECORD",
+  "urlopen": "NETWORK",
+  "post": "NETWORK",
+  "put": "NETWORK",
+  "delete": "NETWORK",
+  "patch": "NETWORK",
+  "_wire": "NETWORK",
+  "request": "NETWORK",
+  "HTTPConnection": "NETWORK",
+  "HTTPSConnection": "NETWORK",
+  "create_connection": "NETWORK",
+  "Popen": "PROCESS",
+  "run": "PROCESS",
+  "check_call": "PROCESS",
+  "check_output": "PROCESS",
+  "system": "PROCESS",
+  "_exit": "PROCESS",
+  "eval": "REFLECTIVE",
+  "exec": "REFLECTIVE",
+  "__import__": "REFLECTIVE",
+  "import_module": "REFLECTIVE"
+ },
+ "roots": [
+  {
+   "name": "LEGION-R2",
+   "path": "C:/Users/Administrator/LEGION_R2",
+   "git": {
+    "head": "4c148109efd206ea4192ff3340bafe5ea26b514e",
+    "dirty_tracked_files": 0
+   },
+   "files_scanned": 30,
+   "files": [
+    {
+     "file": "tests/legion_struct/causal_007/__init__.py",
+     "sha256": "52ebdba38e937b2834b0231360e276394761dbc6a57959734ecf59b3a58b1cb2"
+    },
+    {
+     "file": "tests/legion_struct/causal_007/action_binding.py",
+     "sha256": "ad8f247d7ce5e4ac0d1f53d6bb4a3a43b868cdb03bcd06b57a1936dd8ce26d80"
+    },
+    {
+     "file": "tests/legion_struct/causal_007/attempt.py",
+     "sha256": "7fb32bef372ce9c317b1cb5cf549dcebce0b77913b7b1ad940139fc882af9d0c"
+    },
+    {
+     "file": "tests/legion_struct/causal_007/attempt_authority.py",
+     "sha256": "bc5ea4c86bc7ceee4dd42aaff1fd951a6ea1ff2eec5873368dfb3bca35b1f57b"
+    },
+    {
+     "file": "tests/legion_struct/causal_007/causal_host.py",
+     "sha256": "1b912822a0e7330586965ec11ec6e21c5d375d63e1a00f7d222d8212158c26d1"
+    },
+    {
+     "file": "tests/legion_struct/causal_007/causal_registry.py",
+     "sha256": "8f778785168125305a8a82b5225b84d6fb498770170f35c30a5683c9f8dea346"
+    },
+    {
+     "file": "tests/legion_struct/causal_007/contract_binding_check.py",
+     "sha256": "48cf975ed93fb3868481fa63ccea1742d9d38ae133c7265bb4dc05c6facffdc6"
+    },
+    {
+     "file": "tests/legion_struct/causal_007/contract_identity.py",
+     "sha256": "05417c3327c6bc7ecc792404d2d9f7822d2d74b3702fcf9ed81e6681e34ff97a"
+    },
+    {
+     "file": "tests/legion_struct/causal_007/delegation.py",
+     "sha256": "7e3aa2daa7566708ecd6350b71d54b9d5930b76df0f7fd022fd97a8d4521b68e"
+    },
+    {
+     "file": "tests/legion_struct/causal_007/incident_analysis.py",
+     "sha256": "3b2a1f76c63421a83193a70769d942a3c7307ab2e11de4644ac3fca891825b78"
+    },
+    {
+     "file": "tests/legion_struct/causal_007/lean_admission.py",
+     "sha256": "1cdb30ead411a647f5e1fe894e4bc7792903df689448f05427f4ea1ce6ae1b28"
+    },
+    {
+     "file": "tests/legion_struct/causal_007/lean_gated_world.py",
+     "sha256": "2bfac799f1379d22b84e78ec349712ef040d7b528d2bdbeae27cde4f4d4c4e4f"
+    },
+    {
+     "file": "tests/legion_struct/causal_007/mission_host.py",
+     "sha256": "3671461b0033bed2b2c054bff909b3994881d9f51abc236e3b69b2d92d47fae5"
+    },
+    {
+     "file": "tests/legion_struct/causal_007/nim_transport.py",
+     "sha256": "13dc55149a7e2a67bb6d9715b5a20874a43d248e761a06bcb9f16d56b604653d"
+    },
+    {
+     "file": "tests/legion_struct/causal_007/provider_proxy.py",
+     "sha256": "fac1a6b28e856fe574336de14af364c5cfe2eba51853af493575c815945b748c"
+    },
+    {
+     "file": "tests/legion_struct/causal_007/recovery.py",
+     "sha256": "7d0f84d98704b13af674ecf3b2188e41261b98ba6612df4a8ed54a4b74e71f43"
+    },
+    {
+     "file": "tests/legion_struct/causal_007/sidecar.py",
+     "sha256": "328f406344decdfd977fb37d95bdd3bd40d98959ed6e96f4c75fe0c04db39322"
+    },
+    {
+     "file": "tests/legion_struct/causal_007/sidecar_server.py",
+     "sha256": "ff1164783eac359210eb470c7f11adc2e6ab5e203d4e59626972976d8f943ebf"
+    },
+    {
+     "file": "tests/legion_struct/causal_007/stub_model_server.py",
+     "sha256": "a1dcbeebec30ea3ab5c1ffa7c80fe5326f6ee48b5016db85b3b87285d0fc89b3"
+    },
+    {
+     "file": "tests/legion_struct/causal_007/supervisor.py",
+     "sha256": "3461a11650d66e2611f4e0954afa8baf93c456df66335c394455c1608a8ade3b"
+    },
+    {
+     "file": "tests/legion_struct/causal_007/wo008_attempt_audit.py",
+     "sha256": "34ebc3b89a0f0465fcfbe5828d98577b2fb755fd4afe07debc50b06222aa5ecd"
+    },
+    {
+     "file": "tests/legion_struct/causal_007/wo008_judge/__init__.py",
+     "sha256": "b89afef6cb9953acdb96ea248c6a0017688e2f887f1608ec0a84ac67775df46d"
+    },
+    {
+     "file": "tests/legion_struct/causal_007/wo008_judge/core.py",
+     "sha256": "3ff667dfcf65ab8ed929247de1721dc0c1bc35610b7e6df549af956bcf4c20aa"
+    },
+    {
+     "file": "tests/legion_struct/conftest.py",
+     "sha256": "9f1c692c419218316b6553c76d3ee9e4d06596d81c99b859fe921fb98df505b1"
+    },
+    {
+     "file": "tests/legion_struct/struct_agent.py",
+     "sha256": "876ec557ea8ba7a5a73a8275e693b8e52e595ca7e9ff21292b20eca7f749093c"
+    },
+    {
+     "file": "tests/legion_struct/struct_controller.py",
+     "sha256": "6abfb0ae4f6660c44c5a7c073b736c9544c8c08eee9567b8e8bb6071257221e9"
+    },
+    {
+     "file": "tests/legion_struct/struct_plugin.py",
+     "sha256": "1fcde548f1a28f1da4fdc9edb1bc15365f8b410a2536a4211a8b8fb23a66a4cd"
+    },
+    {
+     "file": "tests/legion_struct/struct_readback.py",
+     "sha256": "608a9b63f2b3509dce66be31b39c4e9158a777b47e23ffe9d0539d0bb11d7519"
+    },
+    {
+     "file": "tests/legion_struct/world_engine.py",
+     "sha256": "aa8242d844e1d81f40edb7d40466fcd9e24a1e0e5dfa6d227f26ec38f98094c5"
+    },
+    {
+     "file": "tests/legion_struct/world_server.py",
+     "sha256": "45ac9a357f8fce9fc0446df8cf2cdda5072916207f281985a86559bcb69d9c9f"
+    }
+   ],
+   "parse_errors": [],
+   "include": [
+    "tests/legion_struct/*.py",
+    "tests/legion_struct/causal_007/*.py",
+    "tests/legion_struct/causal_007/wo008_judge/*.py"
+   ],
+   "exclude": [
+    "tests/legion_struct/causal_007/test_",
+    "tests/legion_struct/test_",
+    "tests/legion_struct/causal_007/make_sums.py"
+   ],
+   "boundary_role": "qualified LEGION runtime: world commit boundary (/actuate) with authoritative Lean admission"
+  },
+  {
+   "name": "LEGION-Commerce",
+   "path": "C:/Users/Administrator/Documents/ChatGPT/Hackathons/LEGION-Commerce-Q002",
+   "git": {
+    "head": "0da8501cf3729dd02a7d87ac9cc7c7ac71d4860c",
+    "dirty_tracked_files": 0
+   },
+   "files_scanned": 88,
+   "files": [
+    {
+     "file": "commerce_adapter/__init__.py",
+     "sha256": "f4b5a6451c984786b82936c80f1a08bfe977219a1d9efd5674b089b166abb536"
+    },
+    {
+     "file": "commerce_adapter/__main__.py",
+     "sha256": "8e72c9b3391fe6d79a9658ee42f6e1ebbcc1b6f10ea0b97137e568cb4a25dec5"
+    },
+    {
+     "file": "commerce_adapter/approval.py",
+     "sha256": "03fd03bde61168bb9b0f6526824a18290ec5a57b53df27d8cb798fa3f0d10937"
+    },
+    {
+     "file": "commerce_adapter/contracts.py",
+     "sha256": "ed44966830509ee97a28765eefd23a0f68f49be7b82129ad6dc49e8056c6fbac"
+    },
+    {
+     "file": "commerce_adapter/gateway.py",
+     "sha256": "85a899fdbda0446c1173b319b6ca12b47cbc30cb4689f5edb19151896757ba22"
+    },
+    {
+     "file": "commerce_adapter/paypal.py",
+     "sha256": "9e0f582ce01e261fca18ab4b5273755f122ef33c52cf4754f5d6083d6c7dba4c"
+    },
+    {
+     "file": "commerce_adapter/readback.py",
+     "sha256": "66c38645f5aadaa7447800b14d3245e8a4657d63ec0944643460ef0a09c5a5e7"
+    },
+    {
+     "file": "commerce_authority/__init__.py",
+     "sha256": "fe0c13612fb9a52b0b064fc72bec8c4f3c00ade3975334b216f12a3e00b21eb5"
+    },
+    {
+     "file": "commerce_authority/__main__.py",
+     "sha256": "0557f42659de9053847ec820fe640795a429f1ec80f5edf893e387a0cb236814"
+    },
+    {
+     "file": "commerce_authority/authority.py",
+     "sha256": "4777ca1d2ac83caaadf61b26fc02e367245182fb74508e6e446a8e7559dbac63"
+    },
+    {
+     "file": "commerce_authority/custody.py",
+     "sha256": "3ad1aefacd571b9674f4a28e1c746b4aae207f5398e93e6fa9874f16a2596e01"
+    },
+    {
+     "file": "commerce_authority/roles.py",
+     "sha256": "c23eea39933b8c3226872ed953ec9811d00dc34b452c6ae74c483ebcb22423d6"
+    },
+    {
+     "file": "commerce_bridge/__init__.py",
+     "sha256": "a0da880a13feead9e47252ec193ae868b716b057602431a3a6e2af393f685ec5"
+    },
+    {
+     "file": "commerce_bridge/__main__.py",
+     "sha256": "f3cb08980be23e38dc6955caed5e1a27d53b345dbb7968a37aa3e05396187e13"
+    },
+    {
+     "file": "commerce_bridge/admission.py",
+     "sha256": "caee3fcda3ce24f7ebbd9a6cdf97ffc3daac47e1649ed9c795b4f7597d4514d1"
+    },
+    {
+     "file": "commerce_bridge/consolidated.py",
+     "sha256": "bf488d5c862fd4d5776f224da844827f67e9e4268dff4090a9c8e91fb78b9b31"
+    },
+    {
+     "file": "commerce_bridge/consolidated_worker.py",
+     "sha256": "5e437b4a72993a2d8e3432c4b033b1581495b1b303a5e1fd01547161ecd130c3"
+    },
+    {
+     "file": "commerce_bridge/core_worker.py",
+     "sha256": "e69f5c3f27e1e83f3523b282a70c9ebe998c42b1ed668f426c0f007106fd6c70"
+    },
+    {
+     "file": "commerce_bridge/installation.py",
+     "sha256": "99dcad9dc930219f5b309daa18c9efc257d52b2bda95a8e4c2499a3ce6ba1d6b"
+    },
+    {
+     "file": "commerce_bridge/locked_readiness.py",
+     "sha256": "38a01448f3f9802135a57c4d2eb775f06c6408890d13c702686f5ad86a5ece3a"
+    },
+    {
+     "file": "commerce_bridge/prepared.py",
+     "sha256": "b50dd67e564334500f75a91359abca62183e98684b93b8ff42dd7c92a55a04f2"
+    },
+    {
+     "file": "commerce_bridge/qualified.py",
+     "sha256": "5aae762b6ec2269c747f5d383e8964b2656acc16e89be5368097d0b06279e51b"
+    },
+    {
+     "file": "commerce_bridge/qualified_worker.py",
+     "sha256": "67fd5a646d2ae9b80e62bd9b3846254d30df5f50b714de8aa1883f69a54ab8aa"
+    },
+    {
+     "file": "commerce_bridge/runtime.py",
+     "sha256": "b18d78e145affaaa2e855ab019abfd301eb50cc222f03d2abe7e520c9662a10d"
+    },
+    {
+     "file": "commerce_bridge/sources.py",
+     "sha256": "edf80bc01665f5b80b7147b771616d859885a8f1ef2aacdb09c2cddce494ea77"
+    },
+    {
+     "file": "commerce_bridge/transport.py",
+     "sha256": "c6da9de63cdbe1ae888768a3f47ebcfb3e230080c03c49c28e46fc9960f2150b"
+    },
+    {
+     "file": "commerce_bridge/witness.py",
+     "sha256": "75347919cdef4da6ea2a257632202292d3ce5b00695f3d8b6b51425cf26efa93"
+    },
+    {
+     "file": "commerce_demo/__init__.py",
+     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+     "file": "commerce_demo/catalog.py",
+     "sha256": "05b27467c1b0f99bb5586590fcba401e1d488d553834248ebdd858a9ad6a2aa9"
+    },
+    {
+     "file": "commerce_demo/collective.py",
+     "sha256": "9122f050f4585a637f010cf289229ba705e6558f9fac5879ee6fd7b95a3b9a0a"
+    },
+    {
+     "file": "commerce_demo/events.py",
+     "sha256": "d63d4214f75677096116990e61844125cbbb6c9515f7ad1e6da4bc7660634610"
+    },
+    {
+     "file": "commerce_demo/formal001_negatives.py",
+     "sha256": "565a528379b38fa359bd9a5bc73685bd57bdc0f13d3ea9941424651a61add75c"
+    },
+    {
+     "file": "commerce_demo/judge.py",
+     "sha256": "6baa03947498b40d618125fb595db3b6d2880111695ac236f54d8d1f7b2824a2"
+    },
+    {
+     "file": "commerce_demo/lmf007.py",
+     "sha256": "ccab05a4fd192e03f77697f7b0d160990750e1db73995ddd4003352f722f5270"
+    },
+    {
+     "file": "commerce_demo/lmf007_judge.py",
+     "sha256": "61d7eae139162ace4ce062a78d4909b3be6b537f5167b8910a1b931a0c89c274"
+    },
+    {
+     "file": "commerce_demo/lmf007_negatives.py",
+     "sha256": "90e25d1f6729652c62eadf98874463be2e481fcc3d37ff60441533f1194a4799"
+    },
+    {
+     "file": "commerce_demo/mission.py",
+     "sha256": "786c83034ad78d6e1737e1fc8020ec13d6bed212ab3b51dd261b0795630894c1"
+    },
+    {
+     "file": "commerce_demo/negatives.py",
+     "sha256": "d403b090fa925b6534002eac41c9c04d88b343376e1d604d5028eb9565e3fc72"
+    },
+    {
+     "file": "commerce_demo/nim.py",
+     "sha256": "f6e6cfc2bcf012ec973ef91d10364085652a4cb7b16e183592cc15b0e0ceb750"
+    },
+    {
+     "file": "commerce_demo/readback.py",
+     "sha256": "948523369a9e775fa7bc7152efc67adad783750914698c0ab0bf7bf6844d4ec7"
+    },
+    {
+     "file": "commerce_demo/run.py",
+     "sha256": "7089c3fd0b0c15547a7f0dfdbf93d669087d5c9b3d7a6c8d3c01c5f30e4002e2"
+    },
+    {
+     "file": "commerce_demo/sandbox_admission.py",
+     "sha256": "f52b353dc210ea189d8d4dd06b994dec6e7ed513fe7122092cd1fd725ac1467a"
+    },
+    {
+     "file": "latency004/arch.py",
+     "sha256": "909986bcece0df58981c8edf7774c9bcbe339ce7265b6a7db8a248a82841020f"
+    },
+    {
+     "file": "latency004/bench.py",
+     "sha256": "82a066efd64431b142383451dce8fd29b742e3617fa767ed7121095b7dd3f5e0"
+    },
+    {
+     "file": "latency004/compare_equivalence_runs.py",
+     "sha256": "711cdd54620ca2a10f468fc7e1ef4e3d8bc3ebf8a02a78eb63811cbd235fa386"
+    },
+    {
+     "file": "latency004/equivalence.py",
+     "sha256": "68ae667ed3ca8c078ce48fa720715807efcb0e1e0fc724052ac80174e1a6b613"
+    },
+    {
+     "file": "latency004/exp_ecoqos.py",
+     "sha256": "d24bc3417e6d1d30818dadcdf4d1dc5b6275e51b3826673c15cf4a1e0a817bda"
+    },
+    {
+     "file": "latency004/exp_file_open.py",
+     "sha256": "e8a6004ccd9d41bd2a49436c360d17f1835baae4623b19306397c735fe1433d5"
+    },
+    {
+     "file": "latency004/exp_idle.py",
+     "sha256": "f134c196ac3a9ba62c34689b0936212581d4965171a3f7f95af7ccb334297f38"
+    },
+    {
+     "file": "latency004/exp_overlap.py",
+     "sha256": "7b83c984678274599a4ae20c1cb86344f75b387f7b52a2de272d6238f9267c83"
+    },
+    {
+     "file": "latency004/exp_qos.py",
+     "sha256": "4686606dd79c37b6ac3dc20e1d79a3dfcaab71b25d255faef498ba1a726b4eb2"
+    },
+    {
+     "file": "latency004/exp_worker_glue.py",
+     "sha256": "e80a6c2d3f7a16727ac72c8046df2ddcd2679e4b25d8df78f2ec1b90b287d211"
+    },
+    {
+     "file": "latency004/hoststate.py",
+     "sha256": "b2835aef426bd6dfdd09f26fced56d502056cfc2641bc7bf873755904afe965c"
+    },
+    {
+     "file": "latency004/latency004_cpu.py",
+     "sha256": "392c8a46cc062406b027cd70e2c3e7f53e43162cc10a2547f3f6a0869c7dccf7"
+    },
+    {
+     "file": "latency004/micro_crypto.py",
+     "sha256": "ffaab8f595b6301773615600ee84e27a0c0aec6bbcb8b490a36df9bb874cae91"
+    },
+    {
+     "file": "latency004/prof_arch.py",
+     "sha256": "918dbcdb3151bc5fb19ff3b6051b34272e72d5450babb479cf02345cdc442399"
+    },
+    {
+     "file": "latency004/prof_consolidated_worker.py",
+     "sha256": "0b0042af29632819ad5f802846f5432e62a59362fa0685b45f8cd90980cb97b1"
+    },
+    {
+     "file": "latency004/prof_parent.py",
+     "sha256": "6054ed05c9e0ef896ea0733ce832ba14163ec75c2a3fdd8988762c9237914789"
+    },
+    {
+     "file": "latency004/prof_worker.py",
+     "sha256": "d7a324c4a1de3a35f012a2fab0529a50399d024237b951758dabf2ae8cb4ddf5"
+    },
+    {
+     "file": "latency004/prof_worker_internals.py",
+     "sha256": "81faabad2835e4c5c7ecdb628f35a5aea8021c376cbd302943ca74e127aa4263"
+    },
+    {
+     "file": "latency004/profile_arch.py",
+     "sha256": "4bed0829b71f4af81e8edc99eff28f5aa69ad1ec9bd05983f5ecd00f5e2f6aff"
+    },
+    {
+     "file": "latency004/profile_paced.py",
+     "sha256": "3168abb4c4803deb870767211e832a98f971f574c2932c6c86be37935ab2a7d1"
+    },
+    {
+     "file": "latency004/profile_wp1.py",
+     "sha256": "deda2cc8da1938a9bfd5a21473e88235ea05c1795e45ae7904b2371edc7d3064"
+    },
+    {
+     "file": "latency004/robustness.py",
+     "sha256": "5fd0d49471dca39e5c22f2bc487200deffb82365c0303756b3e8e164141272c6"
+    },
+    {
+     "file": "latency004/smoke.py",
+     "sha256": "364075a7f2a371ac7985e3475b7bb0912ac75e563c157b3d240c655f18b74da6"
+    },
+    {
+     "file": "latency004/test_clock_skew.py",
+     "sha256": "98883139ef87d0db7ec032a5ad2ea43f75dbea8d3bbc633baf934e09566b8b2d"
+    },
+    {
+     "file": "tools/bootstrap_bridge_sources.py",
+     "sha256": "fabcc3d943ed947c032f91e3f3c5a656a15100d4e35b26bf9d8068375b3681a8"
+    },
+    {
+     "file": "tools/bridge_differential.py",
+     "sha256": "04b45921b75598f4bcfe3586fe4f6f4be56ff76a84e42c9f1593b5094d35a8cc"
+    },
+    {
+     "file": "tools/collect_native_preflight.py",
+     "sha256": "4a73119b4186583dfb9e4accfc353b25e89a997b4438b498087a537338bdd9a3"
+    },
+    {
+     "file": "tools/compare_replay.py",
+     "sha256": "0880ca14bb5985db230c2b9c0e13c51ba36b40ece87f911ed6aa628707010085"
+    },
+    {
+     "file": "tools/core_correspondence.py",
+     "sha256": "8e060f98e6c205a21429f8f375d87bffdb7fba55e175dd72291d44cb56706bd7"
+    },
+    {
+     "file": "tools/decider_binary_equivalence.py",
+     "sha256": "3873a5df28376f7cb10d018d3580e3cbb2a0c33416dd9c04780b3ccb0712c2e6"
+    },
+    {
+     "file": "tools/execution_closure.py",
+     "sha256": "a0f72443a5508cdbb6c5d6e7588081a15e7a48c40fd7123b08c4d3c059fb7ff6"
+    },
+    {
+     "file": "tools/freeze_sources.py",
+     "sha256": "6827ac34fa553d4dd7ba7fcad331854975b8fed7047a127eec26a3806f9785ba"
+    },
+    {
+     "file": "tools/latency_phases.py",
+     "sha256": "d134216286fee45d1353d7d4a8baa3674c513ff87e704e226487156203881ddb"
+    },
+    {
+     "file": "tools/prepare_bch_review.py",
+     "sha256": "710630b370f9c681ce8e9510d7f194967de27896a9a4d44e2d00aacd8e09e7bd"
+    },
+    {
+     "file": "tools/prepare_bridge_review.py",
+     "sha256": "7d94d26aa9dbc17d873c8e31510ea7a98bff6b043362ce7179f167db1865516b"
+    },
+    {
+     "file": "tools/prepare_qualified_review.py",
+     "sha256": "3ce3e597f686fb21f62b761d375b21be62e818c1b575c7dc937dddb66e6e0df3"
+    },
+    {
+     "file": "tools/profile_bridge_phases.py",
+     "sha256": "b90eb3cc346b43aab5a0d6b25c0be88188ae246c05630ab357f05096166905df"
+    },
+    {
+     "file": "tools/profile_qualified_admission.py",
+     "sha256": "0c0fcc8e77190d49d20ed0243fdeed2103a81bfdee00b69dad384230ff8ce407"
+    },
+    {
+     "file": "tools/qualify_commerce.py",
+     "sha256": "37eb7fac7e23a6e8aa1d6daf556dca368dfa19e1fb16eb706ee50d9567354e9f"
+    },
+    {
+     "file": "tools/ready_equivalence.py",
+     "sha256": "a2cf1bccb63594268323ca630d0dc6159ab00d8cc088e4ea6df963e4bb061900"
+    },
+    {
+     "file": "tools/replay_bridge_evidence.py",
+     "sha256": "a30d4f0644a4bdebd46a2757d7ee48631370663010de21d213c8a859aca035fe"
+    },
+    {
+     "file": "tools/run_bridge_conformance.py",
+     "sha256": "99032eb62e55c31b02f50ed98ec409b8d6814c520595cef249e10664564b8f0e"
+    },
+    {
+     "file": "tools/run_bridge_integration.py",
+     "sha256": "da06c09ab216186087c808a262c3f729a1b724d1a80fd6ce1ed71cf852f0bfc7"
+    },
+    {
+     "file": "tools/run_checks.py",
+     "sha256": "422595be176f544cc1bddae6b69ec6c5881ce8a8dd17184e91bbfe0dfb58513f"
+    },
+    {
+     "file": "tools/verify_artifacts.py",
+     "sha256": "4feeca60356f34f6f6e6c4f9cf56e9038527bdc2a457f40b359e4782a994aec8"
+    },
+    {
+     "file": "tools/worker_phases.py",
+     "sha256": "cd8bf3f799c6e2c1a72e3de3f40694ffc0f6b01839daf63c1bfdcd9c6d43c9a6"
+    }
+   ],
+   "parse_errors": [],
+   "include": [
+    "commerce_adapter/*.py",
+    "commerce_bridge/*.py",
+    "commerce_authority/*.py",
+    "commerce_demo/*.py",
+    "latency004/*.py",
+    "tools/*.py"
+   ],
+   "exclude": [],
+   "boundary_role": "external consequential effects: PayPal Sandbox order create / capture through the A04 Gateway"
+  },
+  {
+   "name": "LEGION-Federation",
+   "path": "C:/Users/Administrator/Documents/ChatGPT/Hackathons/MARKET_GENESIS/LEGION-Federation",
+   "git": {
+    "head": "9d2a32a5c32758bea1ad2200955da1cc9213356c",
+    "dirty_tracked_files": 0
+   },
+   "files_scanned": 14,
+   "files": [
+    {
+     "file": "legion_federation/__init__.py",
+     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+     "file": "legion_federation/canonical.py",
+     "sha256": "7ee4099de96c10c10caa8fc334fc2a63778b2071246e9487233793347a4600bc"
+    },
+    {
+     "file": "legion_federation/crypto.py",
+     "sha256": "bd4f78d403fc2062afa2f8ee26907d216fed954828640a6b7884b6d995ba12b6"
+    },
+    {
+     "file": "legion_federation/hub.py",
+     "sha256": "ffba4fac87f6e7fe347a8945637e36424b8574f52eacdf255656fb818f06f002"
+    },
+    {
+     "file": "legion_federation/journal.py",
+     "sha256": "955a85cbbf5014ebdc7c8ffa1545b888f21b9c4a3a4909b64ea403026bf676ef"
+    },
+    {
+     "file": "legion_federation/nim.py",
+     "sha256": "95333564dc03fa85178671cfafe9891b9801d6c72b2e9b979841826a6c745098"
+    },
+    {
+     "file": "legion_federation/owner_peer.py",
+     "sha256": "09cfb50d1767069caacc021f10fc6c9dade3e6d9678d7c76296dbca8792bfd76"
+    },
+    {
+     "file": "legion_federation/policy.py",
+     "sha256": "d76f0989732387d4e0f6c4eeaede06d40b86d93811251b2ea53a8cd881b3dae5"
+    },
+    {
+     "file": "legion_federation/role_handlers.py",
+     "sha256": "37104ec87d8669cb99d6348846644c649ba44146aa9bdf5764537a2b1c530a8d"
+    },
+    {
+     "file": "legion_federation/schemas.py",
+     "sha256": "438fa3c67534c47018bd247f9ef7890c416bb6f3c44e96b4f64a9f82f1eb0dd9"
+    },
+    {
+     "file": "legion_federation/world_peer.py",
+     "sha256": "670c094bbcf2a2cd65fc20e5fdc35e4bc1da814024aa289e8a190234f7b321b0"
+    },
+    {
+     "file": "tools/judge_world_cases.py",
+     "sha256": "155d13cc82bda22c4036f8b9fd88d0fd1bdf085515726d0fe483d4560d7cd313"
+    },
+    {
+     "file": "tools/run_world_cases.py",
+     "sha256": "bdd9b1284a1f94b8519396f86552b2918eaad382c6b8fd8b68e600c2e8d6942f"
+    },
+    {
+     "file": "tools/source_pins.py",
+     "sha256": "a43c6207e5a1ffa1b378d947bbf28b75cd355b5445cb91f45c2ad6e8cec7f87e"
+    }
+   ],
+   "parse_errors": [],
+   "include": [
+    "legion_federation/*.py",
+    "tools/*.py"
+   ],
+   "exclude": [],
+   "boundary_role": "owner-isolated federation peers (simulated world effects)"
+  },
+  {
+   "name": "LEGION-Marketplace",
+   "path": "C:/Users/Administrator/Documents/ChatGPT/Hackathons/MARKET_GENESIS/LEGION-Marketplace",
+   "git": {
+    "head": "906ec0f553c0f8076127f7abab98825e188342ef",
+    "dirty_tracked_files": 0
+   },
+   "files_scanned": 11,
+   "files": [
+    {
+     "file": "fixtures/fed_world_cases.py",
+     "sha256": "64aba566c8a3d7425cc229e702102620cdc2d81417dbfda51a028cde280a9844"
+    },
+    {
+     "file": "fixtures/run_manifest.py",
+     "sha256": "f3dd1068c3438f7c979521191210a93f8653d8ed28e68b69ce9a4f080bee3696"
+    },
+    {
+     "file": "legion_marketplace/__init__.py",
+     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+     "file": "legion_marketplace/comparators.py",
+     "sha256": "b3a8425a92c4737777e7aab56548c7059df9538a1c532fb2caacce7ed6b0c0de"
+    },
+    {
+     "file": "legion_marketplace/dashboard.py",
+     "sha256": "161f9c848ff57f4a4bc94074e9e163189557b2fd8f46eeb30efdcbe091b2cd58"
+    },
+    {
+     "file": "legion_marketplace/e2e.py",
+     "sha256": "a8456f4e0df58650edfcc31aec61ce9bcc83667f2644255602e70f19f739e6a7"
+    },
+    {
+     "file": "legion_marketplace/judge.py",
+     "sha256": "4eccef1b653b47d23fee656fc171de605cdf2bd7f9aaa2ceee67a082ac9001fa"
+    },
+    {
+     "file": "legion_marketplace/matcher.py",
+     "sha256": "10fd3b89806a0cee2bef4ff0b6d1ab70ec0575c2d3c0193f91b2c9ed8f53482e"
+    },
+    {
+     "file": "legion_marketplace/negatives.py",
+     "sha256": "7559383d51397015faafc58735225f90f6f169ef883f5b1d2c5e8d1150b974f4"
+    },
+    {
+     "file": "legion_marketplace/registry.py",
+     "sha256": "d9bf65d8c87f60fd5b20b7e4d242f18ebef0fa1882d8f83bb127e5621157ca65"
+    },
+    {
+     "file": "legion_marketplace/scenario.py",
+     "sha256": "4baaaab444c247e692d60d4f71164b8878b4504f1e6723f82ec70ca69246bb3c"
+    }
+   ],
+   "parse_errors": [],
+   "include": [
+    "legion_marketplace/*.py",
+    "fixtures/*.py"
+   ],
+   "exclude": [],
+   "boundary_role": "marketplace registry, hub-driven E2E, Judge, dashboard (simulated world effects)"
+  }
+ ],
+ "site_count": 124,
+ "key_count": 110,
+ "by_class": {
+  "PRIMITIVE_INTERNAL": 8,
+  "LEAN_GATED": 3,
+  "AUTH_TOKEN_EXCHANGE": 1,
+  "READ_ONLY_EXTERNAL": 2,
+  "PROCESS_TOOLING": 34,
+  "MODEL_INFERENCE": 6,
+  "REFLECTIVE_REVIEWED": 9,
+  "LOOPBACK_IPC": 26,
+  "SIMULATED_OUTSIDE_LEAN_BOUNDARY": 4,
+  "FAULT_INJECTION_OR_EXIT": 9,
+  "SEPARATE_TEST_WORLD": 3,
+  "EXOGENOUS_WORLD_DYNAMICS": 4,
+  "ANSWER_RECORD": 1
+ },
+ "unclassified": [],
+ "stale_classifications": [],
+ "open_bypasses": [],
+ "rows": [
+  {
+   "key": "LEGION-Commerce:commerce_adapter/gateway.py::Gateway.call::self.provider.request",
+   "sites": [
+    {
+     "line": 181,
+     "code": "result = self.provider.request(method, path, body, request_id)"
+    }
+   ],
+   "kind": "NETWORK",
+   "repo": "LEGION-Commerce",
+   "file": "commerce_adapter/gateway.py",
+   "function": "Gateway.call",
+   "class": "PRIMITIVE_INTERNAL",
+   "gate": "Gateway.call enforces require_lean for every non-GET; PayPalSandbox(read_only=True) refuses POST (READ_ONLY_CLIENT)"
+  },
+  {
+   "key": "LEGION-Commerce:commerce_adapter/gateway.py::Gateway.capture::self.call[POST]",
+   "sites": [
+    {
+     "line": 350,
+     "code": "self.call(db, eid, \"POST\", f\"/v2/checkout/orders/{provider_id(r['order_id'])}/capture\", {}, r[\"capture_request_id\"])"
+    }
+   ],
+   "kind": "NETWORK",
+   "repo": "LEGION-Commerce",
+   "file": "commerce_adapter/gateway.py",
+   "function": "Gateway.capture",
+   "class": "LEAN_GATED",
+   "evidence": [
+    "formal001_evidence/FORMAL001_COMMERCE_NEGATIVES.json",
+    "SANDBOX_ADMISSION_TESTS_after_closure.json",
+    "LMF007_NEGATIVES_after_closure.json"
+   ],
+   "gate": "recheck(admission.check) in the SAME transaction immediately before; Gateway.require_lean demands that check's attestation lean_verdict == T bound to digest(intent) (FORMAL-001 B-COM-1/2); MOCK_ONLY test doubles exempt"
+  },
+  {
+   "key": "LEGION-Commerce:commerce_adapter/gateway.py::Gateway.create::self.call[POST]",
+   "sites": [
+    {
+     "line": 226,
+     "code": "order = self.call(db, eid, \"POST\", \"/v2/checkout/orders\", body, r[\"create_request_id\"])"
+    }
+   ],
+   "kind": "NETWORK",
+   "repo": "LEGION-Commerce",
+   "file": "commerce_adapter/gateway.py",
+   "function": "Gateway.create",
+   "class": "LEAN_GATED",
+   "evidence": [
+    "formal001_evidence/FORMAL001_COMMERCE_NEGATIVES.json",
+    "SANDBOX_ADMISSION_TESTS_after_closure.json",
+    "LMF007_NEGATIVES_after_closure.json"
+   ],
+   "gate": "recheck(admission.check) in the SAME transaction immediately before; Gateway.require_lean demands that check's attestation lean_verdict == T bound to digest(intent) (FORMAL-001 B-COM-1/2); MOCK_ONLY test doubles exempt"
+  },
+  {
+   "key": "LEGION-Commerce:commerce_adapter/paypal.py::PayPalSandbox._wire::urllib.request.Request[data/method]",
+   "sites": [
+    {
+     "line": 74,
+     "code": "req = urllib.request.Request(BASE + path, data=data, headers=headers, method=method)"
+    }
+   ],
+   "kind": "NETWORK",
+   "repo": "LEGION-Commerce",
+   "file": "commerce_adapter/paypal.py",
+   "function": "PayPalSandbox._wire",
+   "class": "PRIMITIVE_INTERNAL",
+   "gate": "Gateway.call enforces require_lean for every non-GET; PayPalSandbox(read_only=True) refuses POST (READ_ONLY_CLIENT)"
+  },
+  {
+   "key": "LEGION-Commerce:commerce_adapter/paypal.py::PayPalSandbox.oauth::self._wire",
+   "sites": [
+    {
+     "line": 106,
+     "code": "status, body = self._wire(\"POST\", \"/v1/oauth2/token\", b\"grant_type=client_credentials\","
+    }
+   ],
+   "kind": "NETWORK",
+   "repo": "LEGION-Commerce",
+   "file": "commerce_adapter/paypal.py",
+   "function": "PayPalSandbox.oauth",
+   "class": "AUTH_TOKEN_EXCHANGE"
+  },
+  {
+   "key": "LEGION-Commerce:commerce_adapter/paypal.py::PayPalSandbox.request::self._wire",
+   "sites": [
+    {
+     "line": 130,
+     "code": "return self._wire(method, path, canonical(body) if body is not None else None, headers)"
+    }
+   ],
+   "kind": "NETWORK",
+   "repo": "LEGION-Commerce",
+   "file": "commerce_adapter/paypal.py",
+   "function": "PayPalSandbox.request",
+   "class": "PRIMITIVE_INTERNAL",
+   "gate": "Gateway.call enforces require_lean for every non-GET; PayPalSandbox(read_only=True) refuses POST (READ_ONLY_CLIENT)"
+  },
+  {
+   "key": "LEGION-Commerce:commerce_adapter/readback.py::independent_readback::provider.request",
+   "sites": [
+    {
+     "line": 23,
+     "code": "order = provider.request(\"GET\", f\"/v2/checkout/orders/{provider_id(r['order_id'])}\")[1]"
+    },
+    {
+     "line": 29,
+     "code": "detail = provider.request(\"GET\", f\"/v2/payments/captures/{cid}\")[1]"
+    }
+   ],
+   "kind": "NETWORK",
+   "repo": "LEGION-Commerce",
+   "file": "commerce_adapter/readback.py",
+   "function": "independent_readback",
+   "class": "READ_ONLY_EXTERNAL",
+   "gate": "GET only; separate process; PayPalSandbox(read_only=True)"
+  },
+  {
+   "key": "LEGION-Commerce:commerce_authority/custody.py::acl_text::subprocess.run",
+   "sites": [
+    {
+     "line": 102,
+     "code": "r = subprocess.run([\"icacls.exe\", str(path)], capture_output=True, text=True, timeout=20,"
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-Commerce",
+   "file": "commerce_authority/custody.py",
+   "function": "acl_text",
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  {
+   "key": "LEGION-Commerce:commerce_authority/custody.py::restrict_acl::subprocess.run",
+   "sites": [
+    {
+     "line": 95,
+     "code": "r = subprocess.run([\"icacls.exe\", str(path), \"/inheritance:r\", \"/grant:r\", f\"*{sid}:(OI)(CI)F\","
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-Commerce",
+   "file": "commerce_authority/custody.py",
+   "function": "restrict_acl",
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  {
+   "key": "LEGION-Commerce:commerce_authority/custody.py::windows_identity::subprocess.run",
+   "sites": [
+    {
+     "line": 85,
+     "code": "out = subprocess.run([str(shell), \"-NoProfile\", \"-NonInteractive\", \"-Command\","
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-Commerce",
+   "file": "commerce_authority/custody.py",
+   "function": "windows_identity",
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  {
+   "key": "LEGION-Commerce:commerce_bridge/installation.py::install_package::subprocess.run",
+   "sites": [
+    {
+     "line": 113,
+     "code": "identity=subprocess.run([str(shell),\"-NoProfile\",\"-NonInteractive\",\"-Command\","
+    },
+    {
+     "line": 118,
+     "code": "acl=subprocess.run([\"icacls.exe\",str(stage),\"/inheritance:r\",\"/grant:r\",f\"*{sid}:(OI)(CI)F\","
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-Commerce",
+   "file": "commerce_bridge/installation.py",
+   "function": "install_package",
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  {
+   "key": "LEGION-Commerce:commerce_bridge/qualified.py::JsonProcess.__init__::subprocess.Popen",
+   "sites": [
+    {
+     "line": 32,
+     "code": "self.process=subprocess.Popen([str(v) for v in command],stdin=subprocess.PIPE,stdout=subprocess.PIPE,"
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-Commerce",
+   "file": "commerce_bridge/qualified.py",
+   "function": "JsonProcess.__init__",
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  {
+   "key": "LEGION-Commerce:commerce_bridge/qualified.py::QualifiedSources.__init__.git::subprocess.run",
+   "sites": [
+    {
+     "line": 105,
+     "code": "return subprocess.run([\"git\",\"-C\",str(self.core),*args],capture_output=True,check=True,timeout=30).stdout"
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-Commerce",
+   "file": "commerce_bridge/qualified.py",
+   "function": "QualifiedSources.__init__.git",
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  {
+   "key": "LEGION-Commerce:commerce_bridge/runtime.py::CoreRuntime.calculate::subprocess.run",
+   "sites": [
+    {
+     "line": 25,
+     "code": "p=subprocess.run(command,input=json.dumps({\"observation\":observation,\"policy\":policy,\"now\":now}),"
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-Commerce",
+   "file": "commerce_bridge/runtime.py",
+   "function": "CoreRuntime.calculate",
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  {
+   "key": "LEGION-Commerce:commerce_bridge/sources.py::Sources.verify.git::subprocess.run",
+   "sites": [
+    {
+     "line": 28,
+     "code": "return subprocess.run([\"git\",\"-C\",str(repo),*args],capture_output=True,check=True,timeout=20).stdout"
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-Commerce",
+   "file": "commerce_bridge/sources.py",
+   "function": "Sources.verify.git",
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  {
+   "key": "LEGION-Commerce:commerce_bridge/transport.py::Child._spawn::subprocess.Popen",
+   "sites": [
+    {
+     "line": 77,
+     "code": "self.process = subprocess.Popen(self.command, stdin=subprocess.PIPE, stdout=subprocess.PIPE,"
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-Commerce",
+   "file": "commerce_bridge/transport.py",
+   "function": "Child._spawn",
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  {
+   "key": "LEGION-Commerce:commerce_bridge/witness.py::LeanWitness.__init__::subprocess.Popen",
+   "sites": [
+    {
+     "line": 14,
+     "code": "self.process=subprocess.Popen([str(binary)],stdin=subprocess.PIPE,stdout=subprocess.PIPE,"
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-Commerce",
+   "file": "commerce_bridge/witness.py",
+   "function": "LeanWitness.__init__",
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  {
+   "key": "LEGION-Commerce:commerce_demo/lmf007.py::run::subprocess.run",
+   "sites": [
+    {
+     "line": 157,
+     "code": "subprocess.run([sys.executable, \"-B\", \"-m\", \"commerce_demo.readback\", str(d), eid], cwd=ROOT, check=True)"
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-Commerce",
+   "file": "commerce_demo/lmf007.py",
+   "function": "run",
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  {
+   "key": "LEGION-Commerce:commerce_demo/nim.py::chat::urllib.request.Request[data/method]",
+   "sites": [
+    {
+     "line": 26,
+     "code": "req = urllib.request.Request(ENDPOINT, data=json.dumps(body).encode(),"
+    }
+   ],
+   "kind": "NETWORK",
+   "repo": "LEGION-Commerce",
+   "file": "commerce_demo/nim.py",
+   "function": "chat",
+   "class": "MODEL_INFERENCE"
+  },
+  {
+   "key": "LEGION-Commerce:commerce_demo/nim.py::chat::urllib.request.urlopen",
+   "sites": [
+    {
+     "line": 31,
+     "code": "with urllib.request.urlopen(req, timeout=timeout) as resp:"
+    }
+   ],
+   "kind": "NETWORK",
+   "repo": "LEGION-Commerce",
+   "file": "commerce_demo/nim.py",
+   "function": "chat",
+   "class": "MODEL_INFERENCE"
+  },
+  {
+   "key": "LEGION-Commerce:commerce_demo/readback.py::main::provider.request",
+   "sites": [
+    {
+     "line": 31,
+     "code": "order = provider.request(\"GET\", f\"/v2/checkout/orders/{provider_id(r['order_id'])}\")[1]"
+    },
+    {
+     "line": 36,
+     "code": "detail = provider.request(\"GET\", f\"/v2/payments/captures/{cid}\")[1]"
+    }
+   ],
+   "kind": "NETWORK",
+   "repo": "LEGION-Commerce",
+   "file": "commerce_demo/readback.py",
+   "function": "main",
+   "class": "READ_ONLY_EXTERNAL",
+   "gate": "GET only; separate process; PayPalSandbox(read_only=True)"
+  },
+  {
+   "key": "LEGION-Commerce:commerce_demo/run.py::main::subprocess.run",
+   "sites": [
+    {
+     "line": 159,
+     "code": "subprocess.run([sys.executable, \"-B\", \"-m\", \"commerce_demo.readback\", str(run), eid], cwd=ROOT, check=True)"
+    },
+    {
+     "line": 172,
+     "code": "subprocess.run([sys.executable, \"-B\", \"-m\", \"commerce_demo.judge\", str(run)], cwd=ROOT)"
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-Commerce",
+   "file": "commerce_demo/run.py",
+   "function": "main",
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  {
+   "key": "LEGION-Commerce:latency004/equivalence.py::Faults.__exit__::getattr(<dynamic>)",
+   "sites": [
+    {
+     "line": 128,
+     "code": "injected = getattr(s, name)"
+    }
+   ],
+   "kind": "REFLECTIVE",
+   "repo": "LEGION-Commerce",
+   "file": "latency004/equivalence.py",
+   "function": "Faults.__exit__",
+   "class": "REFLECTIVE_REVIEWED",
+   "gate": "test monkeypatch shims, profiling wrappers and fixture loaders; reviewed: no effect primitive reachable by name"
+  },
+  {
+   "key": "LEGION-Commerce:latency004/exp_worker_glue.py::main::subprocess.run",
+   "sites": [
+    {
+     "line": 40,
+     "code": "old_src = subprocess.run([\"git\", \"-C\", str(ROOT), \"show\", \"ed8b3e1:commerce_bridge/core_worker.py\"], capture_output=True, check=True).stdout"
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-Commerce",
+   "file": "latency004/exp_worker_glue.py",
+   "function": "main",
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  {
+   "key": "LEGION-Commerce:latency004/hoststate.py::host_state::subprocess.run",
+   "sites": [
+    {
+     "line": 28,
+     "code": "scheme = subprocess.run([\"powercfg\", \"/getactivescheme\"], capture_output=True, text=True, timeout=10).stdout.strip()"
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-Commerce",
+   "file": "latency004/hoststate.py",
+   "function": "host_state",
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  {
+   "key": "LEGION-Commerce:latency004/profile_wp1.py::wrap::getattr(<dynamic>)",
+   "sites": [
+    {
+     "line": 83,
+     "code": "original = getattr(owner, name)"
+    }
+   ],
+   "kind": "REFLECTIVE",
+   "repo": "LEGION-Commerce",
+   "file": "latency004/profile_wp1.py",
+   "function": "wrap",
+   "class": "REFLECTIVE_REVIEWED",
+   "gate": "test monkeypatch shims, profiling wrappers and fixture loaders; reviewed: no effect primitive reachable by name"
+  },
+  {
+   "key": "LEGION-Commerce:latency004/robustness.py::descendants::subprocess.run",
+   "sites": [
+    {
+     "line": 37,
+     "code": "rows = subprocess.run([\"powershell\", \"-NoProfile\", \"-Command\","
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-Commerce",
+   "file": "latency004/robustness.py",
+   "function": "descendants",
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  {
+   "key": "LEGION-Commerce:tools/bootstrap_bridge_sources.py::main::subprocess.check_output",
+   "sites": [
+    {
+     "line": 26,
+     "code": "assert subprocess.check_output([\"git\",\"-C\",str(repo),\"rev-parse\",\"HEAD\"],text=True).strip()==pin,\"EXISTING_SOURCE_PIN_MISMATCH\""
+    },
+    {
+     "line": 27,
+     "code": "assert not subprocess.check_output([\"git\",\"-C\",str(repo),\"status\",\"--porcelain\",\"--untracked-files=no\"],text=True).strip(),\"EXISTING_SOURCE_DIRTY\""
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-Commerce",
+   "file": "tools/bootstrap_bridge_sources.py",
+   "function": "main",
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  {
+   "key": "LEGION-Commerce:tools/bootstrap_bridge_sources.py::main::subprocess.run",
+   "sites": [
+    {
+     "line": 23,
+     "code": "subprocess.run([\"git\",\"-c\",\"core.autocrlf=false\",\"clone\",\"--no-checkout\",urls[name],str(repo)],check=True,capture_output=True)"
+    },
+    {
+     "line": 24,
+     "code": "subprocess.run([\"git\",\"-C\",str(repo),\"config\",\"core.autocrlf\",\"false\"],check=True)"
+    },
+    {
+     "line": 25,
+     "code": "subprocess.run([\"git\",\"-C\",str(repo),\"checkout\",\"--detach\",pin],check=True,capture_output=True)"
+    },
+    {
+     "line": 35,
+     "code": "p=subprocess.run([str(lake),\"build\",*targets],cwd=sources/name/\"lean\",capture_output=True,timeout=300)"
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-Commerce",
+   "file": "tools/bootstrap_bridge_sources.py",
+   "function": "main",
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  {
+   "key": "LEGION-Commerce:tools/bridge_differential.py::run_case::__import__",
+   "sites": [
+    {
+     "line": 126,
+     "code": "bundle = f.bundle(); sig = bytearray(__import__(\"base64\").b64decode(bundle[\"observation\"][\"signature\"]))"
+    },
+    {
+     "line": 128,
+     "code": "bundle[\"observation\"][\"signature\"] = __import__(\"base64\").b64encode(bytes(sig)).decode()"
+    }
+   ],
+   "kind": "REFLECTIVE",
+   "repo": "LEGION-Commerce",
+   "file": "tools/bridge_differential.py",
+   "function": "run_case",
+   "class": "REFLECTIVE_REVIEWED",
+   "gate": "test monkeypatch shims, profiling wrappers and fixture loaders; reviewed: no effect primitive reachable by name"
+  },
+  {
+   "key": "LEGION-Commerce:tools/collect_native_preflight.py::main::subprocess.run",
+   "sites": [
+    {
+     "line": 43,
+     "code": "acl=subprocess.run([os.environ[\"SystemRoot\"]+r\"\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\","
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-Commerce",
+   "file": "tools/collect_native_preflight.py",
+   "function": "main",
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  {
+   "key": "LEGION-Commerce:tools/core_correspondence.py::git::subprocess.run",
+   "sites": [
+    {
+     "line": 14,
+     "code": "def git(*args): return subprocess.run([\"git\",\"-C\",str(CORE),*args],capture_output=True,check=True).stdout"
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-Commerce",
+   "file": "tools/core_correspondence.py",
+   "function": "git",
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  {
+   "key": "LEGION-Commerce:tools/core_correspondence.py::objects::subprocess.run",
+   "sites": [
+    {
+     "line": 18,
+     "code": "result=subprocess.run([\"git\",\"-C\",str(CORE),\"cat-file\",\"--batch\"],input=(\"\\n\".join(sorted(ids))+\"\\n\").encode(),capture_output=True,check=True).stdout"
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-Commerce",
+   "file": "tools/core_correspondence.py",
+   "function": "objects",
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  {
+   "key": "LEGION-Commerce:tools/execution_closure.py::blob::subprocess.run",
+   "sites": [
+    {
+     "line": 35,
+     "code": "r = subprocess.run([\"git\", \"-C\", str(CORE), \"rev-parse\", f\"{pin}:{path}\"], capture_output=True)"
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-Commerce",
+   "file": "tools/execution_closure.py",
+   "function": "blob",
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  {
+   "key": "LEGION-Commerce:tools/execution_closure.py::git::subprocess.run",
+   "sites": [
+    {
+     "line": 31,
+     "code": "return subprocess.run([\"git\", \"-C\", str(CORE), *args], capture_output=True, check=True).stdout"
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-Commerce",
+   "file": "tools/execution_closure.py",
+   "function": "git",
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  {
+   "key": "LEGION-Commerce:tools/latency_phases.py::wrap::getattr(<dynamic>)",
+   "sites": [
+    {
+     "line": 36,
+     "code": "original = getattr(owner, name)"
+    }
+   ],
+   "kind": "REFLECTIVE",
+   "repo": "LEGION-Commerce",
+   "file": "tools/latency_phases.py",
+   "function": "wrap",
+   "class": "REFLECTIVE_REVIEWED",
+   "gate": "test monkeypatch shims, profiling wrappers and fixture loaders; reviewed: no effect primitive reachable by name"
+  },
+  {
+   "key": "LEGION-Commerce:tools/prepare_bch_review.py::git::subprocess.check_output",
+   "sites": [
+    {
+     "line": 31,
+     "code": "def git(*a): return subprocess.check_output([\"git\", *a], cwd=ROOT).decode()"
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-Commerce",
+   "file": "tools/prepare_bch_review.py",
+   "function": "git",
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  {
+   "key": "LEGION-Commerce:tools/prepare_bridge_review.py::main::subprocess.check_output",
+   "sites": [
+    {
+     "line": 30,
+     "code": "\"source_commit\":subprocess.check_output([\"git\",\"rev-parse\",\"HEAD\"],cwd=ROOT,text=True).strip(),"
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-Commerce",
+   "file": "tools/prepare_bridge_review.py",
+   "function": "main",
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  {
+   "key": "LEGION-Commerce:tools/prepare_qualified_review.py::main::subprocess.check_output",
+   "sites": [
+    {
+     "line": 27,
+     "code": "head = subprocess.check_output([\"git\", \"rev-parse\", \"HEAD\"], cwd=ROOT, text=True).strip()"
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-Commerce",
+   "file": "tools/prepare_qualified_review.py",
+   "function": "main",
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  {
+   "key": "LEGION-Commerce:tools/run_bridge_conformance.py::main::__import__",
+   "sites": [
+    {
+     "line": 76,
+     "code": "p95=sorted(timings)[max(0,__import__('math').ceil(len(timings)*.95)-1)] if timings else None"
+    }
+   ],
+   "kind": "REFLECTIVE",
+   "repo": "LEGION-Commerce",
+   "file": "tools/run_bridge_conformance.py",
+   "function": "main",
+   "class": "REFLECTIVE_REVIEWED",
+   "gate": "test monkeypatch shims, profiling wrappers and fixture loaders; reviewed: no effect primitive reachable by name"
+  },
+  {
+   "key": "LEGION-Commerce:tools/verify_artifacts.py::main::subprocess.run",
+   "sites": [
+    {
+     "line": 23,
+     "code": "files=subprocess.run([\"git\",\"ls-files\",\"--cached\"],cwd=ROOT,capture_output=True,text=True,check=True).stdout.splitlines()"
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-Commerce",
+   "file": "tools/verify_artifacts.py",
+   "function": "main",
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  {
+   "key": "LEGION-Federation:legion_federation/hub.py::get::urllib.request.urlopen",
+   "sites": [
+    {
+     "line": 35,
+     "code": "with urllib.request.urlopen(url, timeout=timeout) as r:"
+    }
+   ],
+   "kind": "NETWORK",
+   "repo": "LEGION-Federation",
+   "file": "legion_federation/hub.py",
+   "function": "get",
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 signed-envelope HTTP between owner peers, hub, registry, judge, dashboard (simulated effects only)"
+  },
+  {
+   "key": "LEGION-Federation:legion_federation/hub.py::post::urllib.request.Request[data/method]",
+   "sites": [
+    {
+     "line": 28,
+     "code": "req = urllib.request.Request(url, data=json.dumps(body).encode(), method=\"POST\","
+    }
+   ],
+   "kind": "NETWORK",
+   "repo": "LEGION-Federation",
+   "file": "legion_federation/hub.py",
+   "function": "post",
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 signed-envelope HTTP between owner peers, hub, registry, judge, dashboard (simulated effects only)"
+  },
+  {
+   "key": "LEGION-Federation:legion_federation/hub.py::post::urllib.request.urlopen",
+   "sites": [
+    {
+     "line": 30,
+     "code": "with urllib.request.urlopen(req, timeout=timeout) as r:"
+    }
+   ],
+   "kind": "NETWORK",
+   "repo": "LEGION-Federation",
+   "file": "legion_federation/hub.py",
+   "function": "post",
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 signed-envelope HTTP between owner peers, hub, registry, judge, dashboard (simulated effects only)"
+  },
+  {
+   "key": "LEGION-Federation:legion_federation/nim.py::chat::urllib.request.Request[data/method]",
+   "sites": [
+    {
+     "line": 26,
+     "code": "req = urllib.request.Request(ENDPOINT, data=json.dumps(body).encode(),"
+    }
+   ],
+   "kind": "NETWORK",
+   "repo": "LEGION-Federation",
+   "file": "legion_federation/nim.py",
+   "function": "chat",
+   "class": "MODEL_INFERENCE"
+  },
+  {
+   "key": "LEGION-Federation:legion_federation/nim.py::chat::urllib.request.urlopen",
+   "sites": [
+    {
+     "line": 31,
+     "code": "with urllib.request.urlopen(req, timeout=timeout) as resp:"
+    }
+   ],
+   "kind": "NETWORK",
+   "repo": "LEGION-Federation",
+   "file": "legion_federation/nim.py",
+   "function": "chat",
+   "class": "MODEL_INFERENCE"
+  },
+  {
+   "key": "LEGION-Federation:legion_federation/owner_peer.py::Owner.native::self.world.call_write",
+   "sites": [
+    {
+     "line": 164,
+     "code": "status, result = self.world.call_write(command_id, tool, target, args)"
+    }
+   ],
+   "kind": "WORLD_WRITE",
+   "repo": "LEGION-Federation",
+   "file": "legion_federation/owner_peer.py",
+   "function": "Owner.native",
+   "class": "SIMULATED_OUTSIDE_LEAN_BOUNDARY",
+   "gate": "federation-edge T/F/Z policy (tested, not Lean-proved) + pinned Core native preconditions; SIMULATED world state only; the only external effect derived from a federation contract (PayPal) goes through the Lean-gated Commerce Gateway. Latent: admin event endpoints pass the request's event to pinned World.fire, whose fallback applies a caller dict (operator admin token only)."
+  },
+  {
+   "key": "LEGION-Federation:legion_federation/role_handlers.py::admin::o.world.fire",
+   "sites": [
+    {
+     "line": 33,
+     "code": "ev = o.world.fire(body[\"event\"])"
+    }
+   ],
+   "kind": "WORLD_EXOGENOUS",
+   "repo": "LEGION-Federation",
+   "file": "legion_federation/role_handlers.py",
+   "function": "admin",
+   "class": "SIMULATED_OUTSIDE_LEAN_BOUNDARY",
+   "gate": "federation-edge T/F/Z policy (tested, not Lean-proved) + pinned Core native preconditions; SIMULATED world state only; the only external effect derived from a federation contract (PayPal) goes through the Lean-gated Commerce Gateway. Latent: admin event endpoints pass the request's event to pinned World.fire, whose fallback applies a caller dict (operator admin token only)."
+  },
+  {
+   "key": "LEGION-Federation:legion_federation/role_handlers.py::admin::os._exit",
+   "sites": [
+    {
+     "line": 61,
+     "code": "os._exit(17)"
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-Federation",
+   "file": "legion_federation/role_handlers.py",
+   "function": "admin",
+   "class": "FAULT_INJECTION_OR_EXIT"
+  },
+  {
+   "key": "LEGION-Federation:legion_federation/role_handlers.py::post::urllib.request.Request[data/method]",
+   "sites": [
+    {
+     "line": 16,
+     "code": "req = urllib.request.Request(url, data=json.dumps(body).encode(), method=\"POST\","
+    }
+   ],
+   "kind": "NETWORK",
+   "repo": "LEGION-Federation",
+   "file": "legion_federation/role_handlers.py",
+   "function": "post",
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 signed-envelope HTTP between owner peers, hub, registry, judge, dashboard (simulated effects only)"
+  },
+  {
+   "key": "LEGION-Federation:legion_federation/role_handlers.py::post::urllib.request.urlopen",
+   "sites": [
+    {
+     "line": 18,
+     "code": "with urllib.request.urlopen(req, timeout=timeout) as r:"
+    }
+   ],
+   "kind": "NETWORK",
+   "repo": "LEGION-Federation",
+   "file": "legion_federation/role_handlers.py",
+   "function": "post",
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 signed-envelope HTTP between owner peers, hub, registry, judge, dashboard (simulated effects only)"
+  },
+  {
+   "key": "LEGION-Federation:legion_federation/world_peer.py::Peer.handle_request::c.world.call_write",
+   "sites": [
+    {
+     "line": 100,
+     "code": "status, result = c.world.call_write(p[\"command_id\"], p[\"tool\"], p[\"target\"], p[\"args\"])"
+    }
+   ],
+   "kind": "WORLD_WRITE",
+   "repo": "LEGION-Federation",
+   "file": "legion_federation/world_peer.py",
+   "function": "Peer.handle_request",
+   "class": "SIMULATED_OUTSIDE_LEAN_BOUNDARY",
+   "gate": "federation-edge T/F/Z policy (tested, not Lean-proved) + pinned Core native preconditions; SIMULATED world state only; the only external effect derived from a federation contract (PayPal) goes through the Lean-gated Commerce Gateway. Latent: admin event endpoints pass the request's event to pinned World.fire, whose fallback applies a caller dict (operator admin token only)."
+  },
+  {
+   "key": "LEGION-Federation:legion_federation/world_peer.py::make_handler.H.do_POST::<subscript>.world.fire",
+   "sites": [
+    {
+     "line": 206,
+     "code": "ev = peer.cases[cid].world.fire(body[\"event\"])"
+    }
+   ],
+   "kind": "WORLD_EXOGENOUS",
+   "repo": "LEGION-Federation",
+   "file": "legion_federation/world_peer.py",
+   "function": "make_handler.H.do_POST",
+   "class": "SIMULATED_OUTSIDE_LEAN_BOUNDARY",
+   "gate": "federation-edge T/F/Z policy (tested, not Lean-proved) + pinned Core native preconditions; SIMULATED world state only; the only external effect derived from a federation contract (PayPal) goes through the Lean-gated Commerce Gateway. Latent: admin event endpoints pass the request's event to pinned World.fire, whose fallback applies a caller dict (operator admin token only)."
+  },
+  {
+   "key": "LEGION-Federation:tools/judge_world_cases.py::get::urllib.request.urlopen",
+   "sites": [
+    {
+     "line": 30,
+     "code": "with urllib.request.urlopen(req, timeout=10) as r:"
+    }
+   ],
+   "kind": "NETWORK",
+   "repo": "LEGION-Federation",
+   "file": "tools/judge_world_cases.py",
+   "function": "get",
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 signed-envelope HTTP between owner peers, hub, registry, judge, dashboard (simulated effects only)"
+  },
+  {
+   "key": "LEGION-Federation:tools/run_world_cases.py::Client.post::urllib.request.Request[data/method]",
+   "sites": [
+    {
+     "line": 40,
+     "code": "req = urllib.request.Request(self.base + path, data=json.dumps(body).encode(), method=\"POST\","
+    }
+   ],
+   "kind": "NETWORK",
+   "repo": "LEGION-Federation",
+   "file": "tools/run_world_cases.py",
+   "function": "Client.post",
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 signed-envelope HTTP between owner peers, hub, registry, judge, dashboard (simulated effects only)"
+  },
+  {
+   "key": "LEGION-Federation:tools/run_world_cases.py::Client.post::urllib.request.urlopen",
+   "sites": [
+    {
+     "line": 43,
+     "code": "with urllib.request.urlopen(req, timeout=timeout) as r:"
+    }
+   ],
+   "kind": "NETWORK",
+   "repo": "LEGION-Federation",
+   "file": "tools/run_world_cases.py",
+   "function": "Client.post",
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 signed-envelope HTTP between owner peers, hub, registry, judge, dashboard (simulated effects only)"
+  },
+  {
+   "key": "LEGION-Federation:tools/run_world_cases.py::run_world::subprocess.Popen",
+   "sites": [
+    {
+     "line": 66,
+     "code": "proc = subprocess.Popen([py, \"-m\", \"legion_federation.world_peer\", \"--config\", str(wdir / \"operator_config.json\")],"
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-Federation",
+   "file": "tools/run_world_cases.py",
+   "function": "run_world",
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  {
+   "key": "LEGION-Federation:tools/run_world_cases.py::run_world::subprocess.run",
+   "sites": [
+    {
+     "line": 77,
+     "code": "jr = subprocess.run([py, str(ROOT / \"tools\" / \"judge_world_cases.py\"), \"--world\", world, \"--port\", str(port),"
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-Federation",
+   "file": "tools/run_world_cases.py",
+   "function": "run_world",
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  {
+   "key": "LEGION-Federation:tools/source_pins.py::git::subprocess.run",
+   "sites": [
+    {
+     "line": 18,
+     "code": "return subprocess.run([\"git\", \"-C\", str(repo), *args], capture_output=True, text=True, check=True).stdout.strip()"
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-Federation",
+   "file": "tools/source_pins.py",
+   "function": "git",
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  {
+   "key": "LEGION-Marketplace:legion_marketplace/dashboard.py::main.H.do_POST::urllib.request.Request[data/method]",
+   "sites": [
+    {
+     "line": 125,
+     "code": "req = urllib.request.Request(f + \"/query\", data=json.dumps({\"envelope\": env}).encode(), method=\"POST\","
+    }
+   ],
+   "kind": "NETWORK",
+   "repo": "LEGION-Marketplace",
+   "file": "legion_marketplace/dashboard.py",
+   "function": "main.H.do_POST",
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 signed-envelope HTTP between owner peers, hub, registry, judge, dashboard (simulated effects only)"
+  },
+  {
+   "key": "LEGION-Marketplace:legion_marketplace/dashboard.py::main.H.do_POST::urllib.request.urlopen",
+   "sites": [
+    {
+     "line": 127,
+     "code": "with urllib.request.urlopen(req, timeout=10) as r:"
+    }
+   ],
+   "kind": "NETWORK",
+   "repo": "LEGION-Marketplace",
+   "file": "legion_marketplace/dashboard.py",
+   "function": "main.H.do_POST",
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 signed-envelope HTTP between owner peers, hub, registry, judge, dashboard (simulated effects only)"
+  },
+  {
+   "key": "LEGION-Marketplace:legion_marketplace/e2e.py::Env.run::subprocess.run",
+   "sites": [
+    {
+     "line": 169,
+     "code": "jr = subprocess.run([sys.executable, \"-m\", \"legion_marketplace.judge\", \"--run\", str(self.out),"
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-Marketplace",
+   "file": "legion_marketplace/e2e.py",
+   "function": "Env.run",
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  {
+   "key": "LEGION-Marketplace:legion_marketplace/e2e.py::Env.spawn::subprocess.Popen",
+   "sites": [
+    {
+     "line": 73,
+     "code": "p = subprocess.Popen([sys.executable, *args], cwd=str(cwd), env=env, stdin=subprocess.PIPE, stdout=subprocess.PIPE,"
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-Marketplace",
+   "file": "legion_marketplace/e2e.py",
+   "function": "Env.spawn",
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  {
+   "key": "LEGION-Marketplace:legion_marketplace/e2e.py::get::urllib.request.urlopen",
+   "sites": [
+    {
+     "line": 50,
+     "code": "with urllib.request.urlopen(req, timeout=timeout) as r:"
+    }
+   ],
+   "kind": "NETWORK",
+   "repo": "LEGION-Marketplace",
+   "file": "legion_marketplace/e2e.py",
+   "function": "get",
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 signed-envelope HTTP between owner peers, hub, registry, judge, dashboard (simulated effects only)"
+  },
+  {
+   "key": "LEGION-Marketplace:legion_marketplace/e2e.py::post::urllib.request.Request[data/method]",
+   "sites": [
+    {
+     "line": 43,
+     "code": "req = urllib.request.Request(url, data=json.dumps(body).encode(), method=\"POST\", headers=h)"
+    }
+   ],
+   "kind": "NETWORK",
+   "repo": "LEGION-Marketplace",
+   "file": "legion_marketplace/e2e.py",
+   "function": "post",
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 signed-envelope HTTP between owner peers, hub, registry, judge, dashboard (simulated effects only)"
+  },
+  {
+   "key": "LEGION-Marketplace:legion_marketplace/e2e.py::post::urllib.request.urlopen",
+   "sites": [
+    {
+     "line": 44,
+     "code": "with urllib.request.urlopen(req, timeout=timeout) as r:"
+    }
+   ],
+   "kind": "NETWORK",
+   "repo": "LEGION-Marketplace",
+   "file": "legion_marketplace/e2e.py",
+   "function": "post",
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 signed-envelope HTTP between owner peers, hub, registry, judge, dashboard (simulated effects only)"
+  },
+  {
+   "key": "LEGION-Marketplace:legion_marketplace/judge.py::get::urllib.request.urlopen",
+   "sites": [
+    {
+     "line": 34,
+     "code": "with urllib.request.urlopen(req, timeout=30) as r:"
+    }
+   ],
+   "kind": "NETWORK",
+   "repo": "LEGION-Marketplace",
+   "file": "legion_marketplace/judge.py",
+   "function": "get",
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 signed-envelope HTTP between owner peers, hub, registry, judge, dashboard (simulated effects only)"
+  },
+  {
+   "key": "LEGION-Marketplace:legion_marketplace/negatives.py::run.n_kill::subprocess.Popen",
+   "sites": [
+    {
+     "line": 159,
+     "code": "p = subprocess.Popen([sys.executable, \"-m\", \"legion_federation.owner_peer\", \"--config\", str(cfg_path)], cwd=str(FED_ROOT),"
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-Marketplace",
+   "file": "legion_marketplace/negatives.py",
+   "function": "run.n_kill",
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/causal_007/attempt_authority.py::AuthorityClient._call::urllib.request.Request[data/method]",
+   "sites": [
+    {
+     "line": 777,
+     "code": "req = urllib.request.Request("
+    }
+   ],
+   "kind": "NETWORK",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/causal_007/attempt_authority.py",
+   "function": "AuthorityClient._call",
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 between LEGION processes; world effects only via /actuate (actuator token + Lean); provider_proxy forwards model calls (inference)"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/causal_007/attempt_authority.py::AuthorityClient._call::urllib.request.urlopen",
+   "sites": [
+    {
+     "line": 783,
+     "code": "with urllib.request.urlopen(req, timeout=self.timeout) as resp:"
+    }
+   ],
+   "kind": "NETWORK",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/causal_007/attempt_authority.py",
+   "function": "AuthorityClient._call",
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 between LEGION processes; world effects only via /actuate (actuator token + Lean); provider_proxy forwards model calls (inference)"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/causal_007/causal_host.py::CausalHost._apply::self.world.analyze",
+   "sites": [
+    {
+     "line": 113,
+     "code": "status, payload = self.world.analyze(task, action.get(\"answer\") or {},"
+    }
+   ],
+   "kind": "WORLD_ANSWER_RECORD",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/causal_007/causal_host.py",
+   "function": "CausalHost._apply",
+   "class": "SEPARATE_TEST_WORLD",
+   "evidence": [
+    "test_formal001_closure.py::test_causal_host_unreachable_from_qualified_runtime"
+   ],
+   "gate": "own in-memory World instance; unreachable from every qualified runtime entry point (import closure)"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/causal_007/causal_host.py::CausalHost._apply::self.world.call_write",
+   "sites": [
+    {
+     "line": 126,
+     "code": "status, result = self.world.call_write("
+    }
+   ],
+   "kind": "WORLD_WRITE",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/causal_007/causal_host.py",
+   "function": "CausalHost._apply",
+   "class": "SEPARATE_TEST_WORLD",
+   "evidence": [
+    "test_formal001_closure.py::test_causal_host_unreachable_from_qualified_runtime"
+   ],
+   "gate": "own in-memory World instance; unreachable from every qualified runtime entry point (import closure)"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/causal_007/causal_host.py::CausalHost._apply::self.world.fire",
+   "sites": [
+    {
+     "line": 104,
+     "code": "fired = self.world.fire(ev) if ev else None"
+    }
+   ],
+   "kind": "WORLD_EXOGENOUS",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/causal_007/causal_host.py",
+   "function": "CausalHost._apply",
+   "class": "SEPARATE_TEST_WORLD",
+   "evidence": [
+    "test_formal001_closure.py::test_causal_host_unreachable_from_qualified_runtime"
+   ],
+   "gate": "own in-memory World instance; unreachable from every qualified runtime entry point (import closure)"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/causal_007/lean_admission.py::LeanDecider._start::subprocess.Popen",
+   "sites": [
+    {
+     "line": 61,
+     "code": "self._p = subprocess.Popen([self.binary], stdin=subprocess.PIPE, stdout=subprocess.PIPE,"
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/causal_007/lean_admission.py",
+   "function": "LeanDecider._start",
+   "class": "PROCESS_TOOLING",
+   "evidence": [
+    "test_formal001_closure.py::test_b_r2_1_*"
+   ],
+   "gate": "starts the decider only if sha256 is the pinned qualified build (B-R2-1)"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/causal_007/lean_gated_world.py::LeanGatedWorld.call_write::<call>.call_write",
+   "sites": [
+    {
+     "line": 55,
+     "code": "return super().call_write(command_id, tool, target, args)"
+    }
+   ],
+   "kind": "WORLD_WRITE",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/causal_007/lean_gated_world.py",
+   "function": "LeanGatedWorld.call_write",
+   "class": "PRIMITIVE_INTERNAL",
+   "evidence": [
+    "test_formal001_closure.py::test_b_r2_2_*"
+   ],
+   "gate": "reached only after a single-use Lean ticket for (command_id, tool, target, args) or for an already applied command id (idempotent duplicate: no new effect)"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/causal_007/lean_gated_world.py::LeanGatedWorld.fire::<call>.fire",
+   "sites": [
+    {
+     "line": 43,
+     "code": "return super().fire(event_id)"
+    }
+   ],
+   "kind": "WORLD_EXOGENOUS",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/causal_007/lean_gated_world.py",
+   "function": "LeanGatedWorld.fire",
+   "class": "EXOGENOUS_WORLD_DYNAMICS",
+   "evidence": [
+    "test_formal001_closure.py::test_b_r2_4_invented_event_cannot_fire"
+   ],
+   "gate": "events of the frozen world spec only (B-R2-4 closure: invented event dicts refused); time/after-effect triggers"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/causal_007/mission_host.py::ShimPatch.setattr::getattr(<dynamic>)",
+   "sites": [
+    {
+     "line": 114,
+     "code": "owner = getattr(owner, attr)"
+    },
+    {
+     "line": 116,
+     "code": "old = getattr(owner, leaf)"
+    },
+    {
+     "line": 120,
+     "code": "old = getattr(target, name)"
+    }
+   ],
+   "kind": "REFLECTIVE",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/causal_007/mission_host.py",
+   "function": "ShimPatch.setattr",
+   "class": "REFLECTIVE_REVIEWED",
+   "gate": "test monkeypatch shims, profiling wrappers and fixture loaders; reviewed: no effect primitive reachable by name"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/causal_007/mission_host.py::ShimPatch.setattr::importlib.import_module",
+   "sites": [
+    {
+     "line": 105,
+     "code": "obj = importlib.import_module(\".\".join(parts[:i]))"
+    }
+   ],
+   "kind": "REFLECTIVE",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/causal_007/mission_host.py",
+   "function": "ShimPatch.setattr",
+   "class": "REFLECTIVE_REVIEWED",
+   "gate": "test monkeypatch shims, profiling wrappers and fixture loaders; reviewed: no effect primitive reachable by name"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/causal_007/mission_host.py::World.up::importlib.import_module",
+   "sites": [
+    {
+     "line": 609,
+     "code": "fin = importlib.import_module(\"src.cage_finance.plugin\").FinanceCagePlugin.domain_config"
+    },
+    {
+     "line": 612,
+     "code": "mp.setattr(importlib.import_module(modname).FinanceCagePlugin,"
+    },
+    {
+     "line": 618,
+     "code": "mod = importlib.import_module(modname)"
+    }
+   ],
+   "kind": "REFLECTIVE",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/causal_007/mission_host.py",
+   "function": "World.up",
+   "class": "REFLECTIVE_REVIEWED",
+   "gate": "test monkeypatch shims, profiling wrappers and fixture loaders; reviewed: no effect primitive reachable by name"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/causal_007/mission_host.py::World.up::urllib.request.urlopen",
+   "sites": [
+    {
+     "line": 577,
+     "code": "with urllib.request.urlopen(f\"{self.causal_url}/health\", timeout=2) as r:"
+    }
+   ],
+   "kind": "NETWORK",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/causal_007/mission_host.py",
+   "function": "World.up",
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 between LEGION processes; world effects only via /actuate (actuator token + Lean); provider_proxy forwards model calls (inference)"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/causal_007/mission_host.py::_get::urllib.request.Request[data/method]",
+   "sites": [
+    {
+     "line": 467,
+     "code": "req = urllib.request.Request(url, method=\"GET\")"
+    }
+   ],
+   "kind": "NETWORK",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/causal_007/mission_host.py",
+   "function": "_get",
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 between LEGION processes; world effects only via /actuate (actuator token + Lean); provider_proxy forwards model calls (inference)"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/causal_007/mission_host.py::_get::urllib.request.urlopen",
+   "sites": [
+    {
+     "line": 470,
+     "code": "with urllib.request.urlopen(req, timeout=5) as r:"
+    }
+   ],
+   "kind": "NETWORK",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/causal_007/mission_host.py",
+   "function": "_get",
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 between LEGION processes; world effects only via /actuate (actuator token + Lean); provider_proxy forwards model calls (inference)"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/causal_007/mission_host.py::_watch_parent._run::os._exit",
+   "sites": [
+    {
+     "line": 871,
+     "code": "os._exit(4)"
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/causal_007/mission_host.py",
+   "function": "_watch_parent._run",
+   "class": "FAULT_INJECTION_OR_EXIT"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/causal_007/provider_proxy.py::Handler.do_POST.call_fn::urllib.request.Request[data/method]",
+   "sites": [
+    {
+     "line": 168,
+     "code": "up = urllib.request.Request("
+    }
+   ],
+   "kind": "NETWORK",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/causal_007/provider_proxy.py",
+   "function": "Handler.do_POST.call_fn",
+   "class": "MODEL_INFERENCE",
+   "gate": "attested model-provider proxy: forwards agent LLM calls (inference only; no world or payment API)"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/causal_007/provider_proxy.py::Handler.do_POST.call_fn::urllib.request.urlopen",
+   "sites": [
+    {
+     "line": 173,
+     "code": "with urllib.request.urlopen(up, timeout=170) as r:"
+    }
+   ],
+   "kind": "NETWORK",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/causal_007/provider_proxy.py",
+   "function": "Handler.do_POST.call_fn",
+   "class": "MODEL_INFERENCE",
+   "gate": "attested model-provider proxy: forwards agent LLM calls (inference only; no world or payment API)"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/causal_007/provider_proxy.py::_watch_parent._run::os._exit",
+   "sites": [
+    {
+     "line": 225,
+     "code": "os._exit(4)"
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/causal_007/provider_proxy.py",
+   "function": "_watch_parent._run",
+   "class": "FAULT_INJECTION_OR_EXIT"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/causal_007/sidecar_server.py::CausalState._fetch_world_records::urllib.request.Request[data/method]",
+   "sites": [
+    {
+     "line": 198,
+     "code": "req = urllib.request.Request(f\"{self.world_url}/log\", method=\"GET\")"
+    }
+   ],
+   "kind": "NETWORK",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/causal_007/sidecar_server.py",
+   "function": "CausalState._fetch_world_records",
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 between LEGION processes; world effects only via /actuate (actuator token + Lean); provider_proxy forwards model calls (inference)"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/causal_007/sidecar_server.py::CausalState._fetch_world_records::urllib.request.urlopen",
+   "sites": [
+    {
+     "line": 201,
+     "code": "with urllib.request.urlopen(req, timeout=5) as r:"
+    }
+   ],
+   "kind": "NETWORK",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/causal_007/sidecar_server.py",
+   "function": "CausalState._fetch_world_records",
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 between LEGION processes; world effects only via /actuate (actuator token + Lean); provider_proxy forwards model calls (inference)"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/causal_007/sidecar_server.py::_watch_parent._run::os._exit",
+   "sites": [
+    {
+     "line": 649,
+     "code": "os._exit(4)"
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/causal_007/sidecar_server.py",
+   "function": "_watch_parent._run",
+   "class": "FAULT_INJECTION_OR_EXIT"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/causal_007/stub_model_server.py::_watch_parent._run::os._exit",
+   "sites": [
+    {
+     "line": 160,
+     "code": "os._exit(4)"
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/causal_007/stub_model_server.py",
+   "function": "_watch_parent._run",
+   "class": "FAULT_INJECTION_OR_EXIT"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/causal_007/supervisor.py::Supervisor._spawn::subprocess.Popen",
+   "sites": [
+    {
+     "line": 558,
+     "code": "proc = subprocess.Popen(argv, **kwargs)"
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/causal_007/supervisor.py",
+   "function": "Supervisor._spawn",
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/causal_007/supervisor.py::Supervisor._wait_health::urllib.request.urlopen",
+   "sites": [
+    {
+     "line": 740,
+     "code": "with urllib.request.urlopen("
+    }
+   ],
+   "kind": "NETWORK",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/causal_007/supervisor.py",
+   "function": "Supervisor._wait_health",
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 between LEGION processes; world effects only via /actuate (actuator token + Lean); provider_proxy forwards model calls (inference)"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/struct_agent.py::_watch_parent._run::os._exit",
+   "sites": [
+    {
+     "line": 1072,
+     "code": "os._exit(4)"
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/struct_agent.py",
+   "function": "_watch_parent._run",
+   "class": "FAULT_INJECTION_OR_EXIT"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/struct_agent.py::http::urllib.request.Request[data/method]",
+   "sites": [
+    {
+     "line": 134,
+     "code": "req = urllib.request.Request(url, data=data, method=method,"
+    }
+   ],
+   "kind": "NETWORK",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/struct_agent.py",
+   "function": "http",
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 between LEGION processes; world effects only via /actuate (actuator token + Lean); provider_proxy forwards model calls (inference)"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/struct_agent.py::http::urllib.request.urlopen",
+   "sites": [
+    {
+     "line": 137,
+     "code": "with urllib.request.urlopen(req, timeout=timeout) as r:"
+    }
+   ],
+   "kind": "NETWORK",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/struct_agent.py",
+   "function": "http",
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 between LEGION processes; world effects only via /actuate (actuator token + Lean); provider_proxy forwards model calls (inference)"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/struct_plugin.py::_verified_binding_records::__import__",
+   "sites": [
+    {
+     "line": 269,
+     "code": "now = __import__(\"time\").monotonic()"
+    }
+   ],
+   "kind": "REFLECTIVE",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/struct_plugin.py",
+   "function": "_verified_binding_records",
+   "class": "REFLECTIVE_REVIEWED",
+   "gate": "test monkeypatch shims, profiling wrappers and fixture loaders; reviewed: no effect primitive reachable by name"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/struct_readback.py::_watch_parent._run::os._exit",
+   "sites": [
+    {
+     "line": 119,
+     "code": "os._exit(4)"
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/struct_readback.py",
+   "function": "_watch_parent._run",
+   "class": "FAULT_INJECTION_OR_EXIT"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/struct_readback.py::get::urllib.request.Request[data/method]",
+   "sites": [
+    {
+     "line": 75,
+     "code": "req = urllib.request.Request("
+    }
+   ],
+   "kind": "NETWORK",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/struct_readback.py",
+   "function": "get",
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 between LEGION processes; world effects only via /actuate (actuator token + Lean); provider_proxy forwards model calls (inference)"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/struct_readback.py::get::urllib.request.urlopen",
+   "sites": [
+    {
+     "line": 78,
+     "code": "with urllib.request.urlopen(req, timeout=timeout) as resp:"
+    }
+   ],
+   "kind": "NETWORK",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/struct_readback.py",
+   "function": "get",
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 between LEGION processes; world effects only via /actuate (actuator token + Lean); provider_proxy forwards model calls (inference)"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/world_engine.py::World._apply_effects::self._apply_prepared",
+   "sites": [
+    {
+     "line": 425,
+     "code": "return self._apply_prepared(prepared)"
+    }
+   ],
+   "kind": "WORLD_WRITE",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/world_engine.py",
+   "function": "World._apply_effects",
+   "class": "PRIMITIVE_INTERNAL",
+   "gate": "World internals; in the qualified runtime the World is a LeanGatedWorld"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/world_engine.py::World._run_derived::self._apply_effects",
+   "sites": [
+    {
+     "line": 433,
+     "code": "self._apply_effects(rule.get(\"effects\") or [], {})"
+    }
+   ],
+   "kind": "WORLD_WRITE",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/world_engine.py",
+   "function": "World._run_derived",
+   "class": "PRIMITIVE_INTERNAL",
+   "gate": "World internals; in the qualified runtime the World is a LeanGatedWorld"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/world_engine.py::World.call_write::self._apply_effects",
+   "sites": [
+    {
+     "line": 513,
+     "code": "applied = self._apply_effects(tool_spec.get(\"effects\") or [], args)"
+    }
+   ],
+   "kind": "WORLD_WRITE",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/world_engine.py",
+   "function": "World.call_write",
+   "class": "PRIMITIVE_INTERNAL",
+   "gate": "World internals; in the qualified runtime the World is a LeanGatedWorld"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/world_engine.py::World.call_write::self._run_derived",
+   "sites": [
+    {
+     "line": 519,
+     "code": "self._run_derived()"
+    }
+   ],
+   "kind": "WORLD_WRITE",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/world_engine.py",
+   "function": "World.call_write",
+   "class": "PRIMITIVE_INTERNAL",
+   "gate": "World internals; in the qualified runtime the World is a LeanGatedWorld"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/world_engine.py::World.fire::self._apply_effects",
+   "sites": [
+    {
+     "line": 624,
+     "code": "self._apply_effects(canonical.get(\"effects\") or [], {})"
+    }
+   ],
+   "kind": "WORLD_WRITE",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/world_engine.py",
+   "function": "World.fire",
+   "class": "EXOGENOUS_WORLD_DYNAMICS",
+   "evidence": [
+    "test_formal001_closure.py::test_b_r2_4_invented_event_cannot_fire"
+   ],
+   "gate": "events of the frozen world spec only (B-R2-4 closure: invented event dicts refused); time/after-effect triggers"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/world_engine.py::World.fire::self._run_derived",
+   "sites": [
+    {
+     "line": 625,
+     "code": "self._run_derived()"
+    }
+   ],
+   "kind": "WORLD_WRITE",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/world_engine.py",
+   "function": "World.fire",
+   "class": "EXOGENOUS_WORLD_DYNAMICS",
+   "evidence": [
+    "test_formal001_closure.py::test_b_r2_4_invented_event_cannot_fire"
+   ],
+   "gate": "events of the frozen world spec only (B-R2-4 closure: invented event dicts refused); time/after-effect triggers"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/world_server.py::Handler._actuate::WORLD.call_write",
+   "sites": [
+    {
+     "line": 742,
+     "code": "status, result = WORLD.call_write(command_id, tool, target, args)"
+    }
+   ],
+   "kind": "WORLD_WRITE",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/world_server.py",
+   "function": "Handler._actuate",
+   "class": "LEAN_GATED",
+   "evidence": [
+    "test_formal_core_boundary.py (B01-B18)",
+    "test_formal_core_world_negatives.py",
+    "test_formal001_closure.py"
+   ],
+   "gate": "_actuate: verify_fresh + reservation + task/tool/target + semantic binding + LeanDecider.decide(build_payload) == T, then mint_lean_ticket(exact action); LeanGatedWorld.call_write refuses a new effect without that ticket"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/world_server.py::Handler._actuate::os._exit",
+   "sites": [
+    {
+     "line": 635,
+     "code": "os._exit(70)  # deterministic E8 injection: after reservation, before effect"
+    },
+    {
+     "line": 791,
+     "code": "os._exit(70)  # deterministic E8 injection: effect+receipt durable, finalize never sent"
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/world_server.py",
+   "function": "Handler._actuate",
+   "class": "FAULT_INJECTION_OR_EXIT"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/world_server.py::Handler.do_POST::WORLD.analyze",
+   "sites": [
+    {
+     "line": 413,
+     "code": "status, payload = WORLD.analyze(task, answer, agent_id=agent_id)"
+    }
+   ],
+   "kind": "WORLD_ANSWER_RECORD",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/world_server.py",
+   "function": "Handler.do_POST",
+   "class": "ANSWER_RECORD",
+   "evidence": [
+    "test_formal001_closure.py::test_b_r2_3_answer_channel_rejected_and_13_worlds_clean"
+   ],
+   "gate": "writes state.answers only; worlds whose effect rules read answers are refused at start (B-R2-3)"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/world_server.py::_watch_parent._run::os._exit",
+   "sites": [
+    {
+     "line": 848,
+     "code": "os._exit(4)"
+    }
+   ],
+   "kind": "PROCESS",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/world_server.py",
+   "function": "_watch_parent._run",
+   "class": "FAULT_INJECTION_OR_EXIT"
+  },
+  {
+   "key": "LEGION-R2:tests/legion_struct/world_server.py::fire_due_events::WORLD.fire",
+   "sites": [
+    {
+     "line": 236,
+     "code": "result = WORLD.fire(event)"
+    }
+   ],
+   "kind": "WORLD_EXOGENOUS",
+   "repo": "LEGION-R2",
+   "file": "tests/legion_struct/world_server.py",
+   "function": "fire_due_events",
+   "class": "EXOGENOUS_WORLD_DYNAMICS",
+   "evidence": [
+    "test_formal001_closure.py::test_b_r2_4_invented_event_cannot_fire"
+   ],
+   "gate": "events of the frozen world spec only (B-R2-4 closure: invented event dicts refused); time/after-effect triggers"
+  }
+ ],
+ "classification_sha256": "f9e9371ab6ce465058d1fa5d3b15d1d41b25da03501ac9a9a0fb54c3b8a3d30e",
+ "scope_note": "Static census relative to SINKS and the scanned roots. Non-reflective dynamic dispatch, code modification and OS-level tampering are out of scope (trusted code base assumption TCB-1)."
+}

@@ -1,4 +1,4 @@
-# Proof scope: LEGION Formal Core v1.0.0
+# Proof scope: LEGION Formal Core v1.0.0, with the v1.1.0 closure release
 
 Four kinds of statement are kept strictly apart. Only category 1 is established by this repository.
 
@@ -43,6 +43,19 @@ they are not reproducible from this repository alone and are not part of its cla
 | **PE2** | Every new runtime effect passes the Lean gate for that exact action (gating completeness) | **Not formally proved.** Code inspection plus tests |
 | **PE3** | The runtime-to-model abstraction is faithful | **Only partly proved.** Dependency closure is proved here (J1–J6). Per-record content verdicts (`Rec.ok`), activation (`JTask.na`) and the rest of the abstraction are trusted inputs |
 | **PE4** | Each runtime step refines a model step | **Not proved** |
+
+### Closure release v1.1.0 (FORMAL-001 … FORMAL-005, 2026-11-07): status of PE1–PE4
+
+The v1.0.0 statements above are unchanged. v1.1.0 adds the separate library `LegionAbstraction` (not imported by
+`LegionCore` or `Main`; the decider binary is unchanged) and closure evidence in `closure/`.
+
+| Id | What v1.1.0 adds | What it still does NOT establish |
+|---|---|---|
+| PE1 | <ul><li>Two clean rebuilds generate C that is byte-identical to the qualified build.</li><li>The rebuilt binaries give byte-identical outputs on 4,033 inputs.</li><li>The axiom audit is identical to the qualified one.</li></ul> | <ul><li>The native binary is not byte-reproducible (its bytes depend on the build path).</li><li>The Lean compiler, the C toolchain and the JSON layer of `Main.lean` remain trusted.</li></ul> |
+| PE2 | <ul><li>A complete static census of every effect-primitive call site in the runtime, Commerce, Federation and Marketplace sources: 124 sites, 0 unclassified, 0 open bypasses.</li><li>Four bypasses closed in the runtime with enforcement, each with before/after negative tests: the A04 signed-claim permit, the v1 bridge without the qualified decider, the unpinned decider binary, and world writes without a Lean ticket.</li></ul> | <ul><li>Not a Lean theorem: Python control flow is not modelled.</li><li>Federation/Marketplace simulated world effects are outside the Lean boundary (F) and are not claimed.</li></ul> |
+| PE3 | <ul><li>M1 (`decision_rn`, `grounds_rn`, `closedSet_rn`): the decision, its grounds and the journal closure depend only on the equality of identifiers.</li><li>M0: the interner model is injective.</li><li>M2/M3 (`alpha_T_requires`, `alpha_sound`): the meaning of T for the raw runtime strings under α's shape.</li><li>Python's serializer satisfies α's shape on 1,500 randomized states, 7,640 renamed decisions through the binary and 28 recorded payloads, with 0 violations.</li></ul> | <ul><li>The Python serializer is not proved to equal Lean α; it is validated.</li><li>`Rec.ok` and `JTask.na` remain trusted inputs.</li></ul> |
+| PE4 | <ul><li>RF1/RF2 (`step_refines`, `trace_effects_admitted`, `trace_once`): every disciplined boundary step is a model step, including uncertain outcomes.</li><li>RF3 (`grun_one_create`, `grun_one_capture`, `uncertainty_sound`): under provider uncertainty, at most one create and one capture per effect, each Lean-attested, for every resolution of the uncertainty.</li><li>Trace conformance: 13 recorded runs with 28/28 decision digests replayed; 6 gateway uncertainty scenarios; the recorded PayPal Sandbox ledger.</li></ul> | <ul><li>That the Python implements the step relations: validated, not proved.</li><li>Non-boundary model steps are not simulated.</li><li>Provider semantics are abstracted.</li></ul> |
+| Judge | <ul><li>JC1–JC4 (`judgeSpecB_iff`, `journal_judge_grounded`, `judge_ignores_contract_record`, `amended_list_can_pass`).</li><li>The unchanged qualification Judge agrees with Lean `judgePass` on 61/61 runs and mutations, with 0 T9 and 0 T14 violations.</li></ul> | <ul><li>The Judge's Python is not proved.</li><li>Judge checks beyond obligation closure (goal predicates, causation, budgets) are not covered by T9/T14.</li></ul> |
 
 **Consequence:** citing this repository supports the claim *"the admission decision gating consequential
 effects is compiled from Lean definitions whose safety properties are machine-checked over the model"*. It does

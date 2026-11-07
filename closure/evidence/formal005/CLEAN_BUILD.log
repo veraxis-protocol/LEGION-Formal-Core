@@ -1,0 +1,135 @@
+elan 4.2.4 (227caca13 2026-08-25)
+Lake version 5.0.0-src+f72c35b (Lean version 4.29.1)
+Lean (version 4.29.1, x86_64-w64-windows-gnu, commit f72c35b3f637c8c6571d353742168ab66cc22c00, Release)
+✔ [2/40] Built LegionCore.State (1.8s)
+✔ [3/40] Built LegionCore.State:c.o (2.1s)
+✔ [4/40] Built LegionCore.Admission (2.2s)
+✔ [5/40] Built LegionCore.Transitions (2.6s)
+✔ [6/40] Built LegionCore.Admission:c.o (2.6s)
+⚠ [7/40] Built LegionCore.Journal (2.7s)
+warning: LegionCore/Journal.lean:291:11: unused variable `ts`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [8/40] Built LegionCore.Transitions:c.o (1.9s)
+✔ [9/40] Built LegionCore.SystemSafety (1.0s)
+✔ [10/40] Built LegionCore.Journal:c.o (2.1s)
+✔ [11/40] Built LegionCore.Resources (1.2s)
+✔ [12/40] Built LegionCore.SystemSafety:c.o (1.2s)
+✔ [13/40] Built LegionCore.Authority (1.3s)
+✔ [14/40] Built LegionCore.Resources:c.o (146ms)
+✔ [15/40] Built LegionCore.Recovery (1.2s)
+✔ [16/40] Built LegionCore.SpecAuthority (1.3s)
+✔ [17/40] Built LegionCore.Authority:c.o (1.2s)
+✔ [18/40] Built LegionCore.Completion (1.0s)
+✔ [19/40] Built LegionCore.MissionPreservation (921ms)
+✔ [20/40] Built LegionCore.Recovery:c.o (985ms)
+✔ [21/40] Built LegionCore.SpecAuthority:c.o (894ms)
+✔ [22/40] Built LegionCore.MissionPreservation:c.o (135ms)
+✔ [23/40] Built LegionCore.Countermodels (1.3s)
+✔ [24/40] Built LegionCore.Completion:c.o (1.2s)
+✔ [25/40] Built LegionCore.Countermodels:c.o (913ms)
+✔ [26/40] Built LegionCore.ProofSpecBinding (957ms)
+✔ [27/40] Built LegionCore (825ms)
+✔ [29/40] Built LegionCore.ProofSpecBinding:c.o (782ms)
+✔ [30/40] Built LegionAbstraction.Renaming (1.4s)
+⚠ [31/40] Built LegionAbstraction.JournalRenaming (1.8s)
+warning: LegionAbstraction/JournalRenaming.lean:66:40: This simp argument is unused:
+  h
+
+Hint: Omit it from the simp argument list.
+  simp only [h̵,̵ ̵↓reduceIte, ih]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: LegionAbstraction/JournalRenaming.lean:66:43: This simp argument is unused:
+  ↓reduceIte
+
+Hint: Omit it from the simp argument list.
+  simp only [h, ↓̵r̵e̵d̵u̵c̵e̵I̵t̵e̵,̵ ̵ih]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: LegionAbstraction/JournalRenaming.lean:75:55: This simp argument is unused:
+  List.any_map
+
+Hint: Omit it from the simp argument list.
+  simp only [Function.comp_apply, L̵i̵s̵t̵.̵a̵n̵y̵_̵m̵a̵p̵,̵ ̵rnPair]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: LegionAbstraction/JournalRenaming.lean:75:69: This simp argument is unused:
+  rnPair
+
+Hint: Omit it from the simp argument list.
+  simp only [Function.comp_apply, List.any_map,̵ ̵r̵n̵P̵a̵i̵r̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: LegionAbstraction/JournalRenaming.lean:77:55: This simp argument is unused:
+  List.any_map
+
+Hint: Omit it from the simp argument list.
+  simp only [Function.comp_apply, L̵i̵s̵t̵.̵a̵n̵y̵_̵m̵a̵p̵,̵ ̵rnPair]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: LegionAbstraction/JournalRenaming.lean:77:69: This simp argument is unused:
+  rnPair
+
+Hint: Omit it from the simp argument list.
+  simp only [Function.comp_apply, List.any_map,̵ ̵r̵n̵P̵a̵i̵r̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: LegionAbstraction/JournalRenaming.lean:104:50: This simp argument is unused:
+  h
+
+Hint: Omit it from the simp argument list.
+  simp only [h̵,̵ ̵↓reduceIte, Bool.false_eq_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: LegionAbstraction/JournalRenaming.lean:104:53: This simp argument is unused:
+  ↓reduceIte
+
+Hint: Omit it from the simp argument list.
+  simp only [h, ↓̵r̵e̵d̵u̵c̵e̵I̵t̵e̵,̵ ̵Bool.false_eq_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: LegionAbstraction/JournalRenaming.lean:104:65: This simp argument is unused:
+  Bool.false_eq_true
+
+Hint: Omit it from the simp argument list.
+  simp only [h, ↓reduceIte,̵ ̵B̵o̵o̵l̵.̵f̵a̵l̵s̵e̵_̵e̵q̵_̵t̵r̵u̵e̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: LegionAbstraction/JournalRenaming.lean:123:50: This simp argument is unused:
+  List.any_map
+
+Hint: Omit it from the simp argument list.
+  simp only [Function.comp_apply, beq_rn hf, hrc,̵ ̵L̵i̵s̵t̵.̵a̵n̵y̵_̵m̵a̵p̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [32/40] Built LegionCore:c.o (3.5s)
+⚠ [33/40] Built Main (3.5s)
+warning: Main.lean:117:16: `String.trimRight` has been deprecated: Use `String.trimAsciiEnd` instead
+
+Note: The updated constant has a different type:
+  String → String.Slice
+instead of
+  String → String
+⚠ [34/40] Built LegionAbstraction.Alpha (2.1s)
+warning: LegionAbstraction/Alpha.lean:35:17: This simp argument is unused:
+  hcb
+
+Hint: Omit it from the simp argument list.
+  simp [hca,̵ ̵h̵c̵b̵] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: LegionAbstraction/Alpha.lean:36:12: This simp argument is unused:
+  hca
+
+Hint: Omit it from the simp argument list.
+  simp [hca̵,̵ ̵h̵c̵b] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✔ [35/40] Built Main:c.o (2.1s)
+✔ [36/40] Built LegionAbstraction.Refinement (2.1s)
+✔ [37/40] Built LegionAbstraction.JudgeConformance (964ms)
+✔ [38/40] Built legion_decide:exe (3.7s)
+✔ [39/40] Built LegionAbstraction (1.0s)
+Build completed successfully (40 jobs).
+exit=0

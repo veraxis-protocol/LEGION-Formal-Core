@@ -1,0 +1,14 @@
+{"world": "SYN-GAIA-EXE", "summary": {"P": "PASS", "N": "PASS", "R": "PASS", "A": "PASS"}, "error": null}
+{"world": "SYN-GAIA-SEA", "summary": {"P": "PASS", "N": "PASS", "R": "PASS", "A": "PASS"}, "error": null}
+{"world": "SYN-GAIA-ADA", "summary": {"P": "PASS", "N": "PASS", "R": "PASS", "A": "PASS"}, "error": null}
+{"world": "SYN-GAIA-TIM", "summary": {"P": "PASS", "N": "PASS", "R": "PASS", "A": "PASS"}, "error": null}
+{"world": "SYN-GAIA-AMB", "summary": {"P": "PASS", "N": "PASS", "R": "PASS", "A": "PASS"}, "error": null}
+{"world": "SYN-GAIA-A2A", "summary": {"P": "PASS", "N": "PASS", "R": "PASS", "A": "PASS"}, "error": null}
+{"world": "SYN-GAIA-NOI", "summary": {"P": "PASS", "N": "PASS", "R": "PASS", "A": "PASS"}, "error": null}
+{"world": "SYN-OTEL-01", "summary": {"P": "PASS", "N": "PASS", "R": "PASS", "A": "PASS"}, "error": null}
+{"world": "SYN-OTEL-02", "summary": {"P": "PASS", "N": "PASS", "R": "PASS", "A": "PASS"}, "error": null}
+{"world": "SYN-OTEL-03", "summary": {"P": "PASS", "N": "PASS", "R": "PASS", "A": "PASS"}, "error": null}
+{"world": "SYN-OTEL-04", "summary": {"P": "PASS", "N": "PASS", "R": "PASS", "A": "PASS"}, "error": null}
+{"world": "SYN-OTEL-05", "summary": {"P": "PASS", "N": "PASS", "R": "PASS", "A": "PASS"}, "error": null}
+{"world": "SYN-OTEL-06", "summary": {"P": "PASS", "N": "PASS", "R": "PASS", "A": "PASS"}, "error": null}
+worlds_exit=0

@@ -1,0 +1,30 @@
+{
+ "inputs": 4033,
+ "recorded": 28,
+ "pinned": {
+  "exe": "C:/Users/Administrator/LEGION_R2/formal/LegionCore/.lake/build/bin/legion_decide.exe",
+  "sha256": "99cda684f29afba33e69b8f4811d754c499987c30c07ac1c67f19ec250ade73a"
+ },
+ "verdicts": {
+  "T": 834,
+  "F": 2452,
+  "Z": 747
+ },
+ "rebuilds": [
+  {
+   "exe": "C:/Users/Administrator/FORMAL_CLEAN_BUILD/.lake/build/bin/legion_decide.exe",
+   "sha256": "afc43e9025ebf8a6fa53c237acf4da1379fade1ee821ebf7b74dd6b23a8ee6b5",
+   "outputs": 4033,
+   "differing_outputs": 0,
+   "first_diffs": []
+  },
+  {
+   "exe": "C:/Users/Administrator/FCB2_other_path/.lake/build/bin/legion_decide.exe",
+   "sha256": "48ad3457ef9a0a0c91a2786868fc2a90af22e309425a431dda0ca4ab66fccda2",
+   "outputs": 4033,
+   "differing_outputs": 0,
+   "first_diffs": []
+  }
+ ],
+ "verdict": "PASS"
+}

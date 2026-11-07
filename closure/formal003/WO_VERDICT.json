@@ -1,0 +1,12 @@
+{"wo": "FORMAL-003", "title": "Runtime-step-to-model-step refinement for the qualified execution boundary, including external-effect uncertainty",
+ "verdict": "T", "scope": "boundary steps of world_server._actuate and the Gateway effect lifecycle; implementation link validated by conformance, not proved",
+ "source_commits": {"LEGION-R2": "386341b", "LEGION-Commerce": "61dd814 (branch claude/formal-closure-001)", "legion_decide_sha256": "99cda684f29afba33e69b8f4811d754c499987c30c07ac1c67f19ec250ade73a"},
+ "theorems": ["step_refines", "runtime_effect_admitted", "trace_effects_admitted", "ledger_continuity", "trace_once", "grun_one_create", "grun_one_capture",
+              "dispatch_needs_lean", "uncertainty_sound"], "axioms": ["propext", "Quot.sound", "Classical.choice"], "sorry": 0,
+ "conformance": {"r2_runs": 13, "r2_effects": 27, "r2_decisions": 28, "r2_digest_replays": "28/28", "r2_violations": 0,
+                 "gateway_uncertainty_scenarios": "6/6 PASS", "lmf007_recorded_ledger": "PASS (C2 NOT_LOGGED pre-closure)",
+                 "preserved_failure": "conformance run 1: checker defect (NETWORK_ERROR operation); provider saw exactly 1 create + 1 capture"},
+ "regressions": {"a04": "42/42", "sandbox": "22/22", "lmf007_negatives": "6/6", "formal001_negatives": "6/6"},
+ "uncovered_assumptions": ["Python implements RStep/gstep (validated only)", "append-only log continuity (checked on recorded runs)",
+                           "non-boundary model steps not simulated", "provider semantics abstracted"],
+ "no_payment_made": true, "blockers": []}

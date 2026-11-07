@@ -1,0 +1,131 @@
+@guards_rn : ∀ {f : Nat → Nat},
+  Inj f →
+    ∀ (g : LegionCore.Guards) (sp : LegionCore.Spec) (s : LegionCore.State) (r : LegionCore.Req),
+      LegionCore.guards g (rnSpec f sp) (rnState f s) (rnReq f r) = LegionCore.guards g sp s r
+@admission_rn : ∀ {f : Nat → Nat},
+  Inj f →
+    ∀ (g : LegionCore.Guards) (sp : LegionCore.Spec) (s : LegionCore.State) (r : LegionCore.Req),
+      LegionCore.admission g (rnSpec f sp) (rnState f s) (rnReq f r) = LegionCore.admission g sp s r
+@closedSet_rn : ∀ {f : Nat → Nat},
+  Inj f →
+    ∀ (ts : List LegionCore.Journal.JTask) (rs : List LegionCore.Journal.Rec),
+      LegionCore.Journal.closedSet (List.map (rnJTask f) ts) (List.map (rnRec f) rs) =
+        List.map f (LegionCore.Journal.closedSet ts rs)
+@decision_rn : ∀ {f : Nat → Nat},
+  Inj f →
+    ∀ (sp : LegionCore.Spec) (s : LegionCore.State) (r : LegionCore.Req) (ts : List LegionCore.Journal.JTask)
+      (rs : List LegionCore.Journal.Rec),
+      decision (rnSpec f sp) (rnState f s) (rnReq f r) (List.map (rnJTask f) ts) (List.map (rnRec f) rs) =
+        decision sp s r ts rs
+@grounds_rn : ∀ {f : Nat → Nat},
+  Inj f →
+    ∀ (sp : LegionCore.Spec) (s : LegionCore.State) (r : LegionCore.Req) (ts : List LegionCore.Journal.JTask)
+      (rs : List LegionCore.Journal.Rec),
+      grounds (rnSpec f sp) (rnState f s) (rnReq f r) (List.map (rnJTask f) ts) (List.map (rnRec f) rs) =
+        grounds sp s r ts rs
+@intern_inj : ∀ {κ : Type u_1} [inst : BEq κ] [LawfulBEq κ] {seen : List κ} {a b : κ},
+  a ∈ seen → b ∈ seen → internAt seen a = internAt seen b → a = b
+@intern_pos : ∀ {κ : Type u_1} [inst : BEq κ] (seen : List κ) (k : κ), 0 < internAt seen k
+@alpha_T_requires : ∀ {enc : Key → Nat} {sp : LegionCore.Spec} {s : LegionCore.State} {r : LegionCore.Req} {rr : RawReq}
+  {tasks : List RawTask} {agents : List String} {ledger : List RawEffect} {nonces fenced : List String}
+  {uid wid chash mission : String} {pv : Bool} {gv : LegionCore.V},
+  AlphaShape enc sp s r rr tasks agents ledger nonces fenced uid wid chash mission pv gv →
+    ∀ {ts : List LegionCore.Journal.JTask} {rs : List LegionCore.Journal.Rec},
+      decision sp s r ts rs = LegionCore.V.T → pv = true ∧ gv = LegionCore.V.T
+@alpha_sound : ∀ {enc : Key → Nat} {sp : LegionCore.Spec} {s : LegionCore.State} {r : LegionCore.Req} {rr : RawReq}
+  {tasks : List RawTask} {agents : List String} {ledger : List RawEffect} {nonces fenced : List String}
+  {uid wid chash mission : String} {pv : Bool} {gv : LegionCore.V},
+  (∀ (a b : Key), enc a = enc b → a = b) →
+    AlphaShape enc sp s r rr tasks agents ledger nonces fenced uid wid chash mission pv gv →
+      ∀ {ts : List LegionCore.Journal.JTask} {rs : List LegionCore.Journal.Rec},
+        decision sp s r ts rs = LegionCore.V.T →
+          pv = true ∧
+            gv = LegionCore.V.T ∧
+              rr.permit.task = rr.task ∧
+                rr.permit.cmd = rr.cmd ∧
+                  rr.permit.target = rr.target ∧
+                    rr.permit.actor = rr.agent ∧
+                      rr.agent ∈ agents ∧
+                        rr.permit.uid = uid ∧
+                          rr.permit.wid = wid ∧
+                            rr.permit.mission = mission ∧
+                              chash = mission ∧
+                                ¬rr.permit.nonce ∈ nonces ∧
+                                  ¬rr.cmd ∈ fenced ∧
+                                    (∀ (e : RawEffect), e ∈ ledger → e.cmd ≠ rr.cmd ∧ e.task ≠ rr.task) ∧
+                                      ∃ t,
+                                        t ∈ tasks ∧
+                                          t.id = rr.task ∧ t.owner = rr.agent ∧ t.write = true ∧ t.target = rr.target
+step_refines : ∀ (x : RStep),
+  x.disciplined →
+    ∃ c s',
+      LegionCore.exec LegionCore.Guards.full x.sp x.pre c = some s' ∧
+        s'.ledger = x.newEffects ++ x.pre.ledger ∧
+          (x.outcome.creates = true →
+              c = LegionCore.Cmd.actuate x.r ∧ s'.usedNonces = x.r.permit.nonce :: x.pre.usedNonces) ∧
+            (x.outcome.creates = false → c = LegionCore.Cmd.crash ∧ s' = x.pre)
+runtime_effect_admitted : ∀ (x : RStep),
+  x.disciplined →
+    ∀ {e : LegionCore.Effect},
+      e ∈ x.newEffects →
+        x.outcome.creates = true ∧
+          e = LegionCore.effectOf x.sp x.r ∧ LegionCore.admission LegionCore.Guards.full x.sp x.pre x.r = LegionCore.V.T
+trace_effects_admitted : ∀ (tr : List RStep),
+  (∀ (x : RStep), x ∈ tr → x.disciplined) →
+    ∀ {e : LegionCore.Effect},
+      e ∈ appended tr →
+        ∃ x,
+          x ∈ tr ∧
+            x.outcome.creates = true ∧
+              e = LegionCore.effectOf x.sp x.r ∧
+                LegionCore.admission LegionCore.Guards.full x.sp x.pre x.r = LegionCore.V.T
+ledger_continuity : ∀ (tr : List RStep) (x : RStep),
+  Continuous (x :: tr) →
+    ∀ (y : RStep), y ∈ (x :: tr).getLast? → (y.newEffects ++ y.s.ledger).Perm (appended (x :: tr) ++ x.s.ledger)
+trace_once : ∀ (tr : List RStep) (x : RStep),
+  (∀ (y : RStep), y ∈ x :: tr → y.disciplined) →
+    Continuous (x :: tr) →
+      (List.map (fun x => x.task) x.s.ledger).Nodup →
+        ∀ (y : RStep), y ∈ x :: tr → (List.map (fun x => x.task) (y.newEffects ++ y.s.ledger)).Nodup
+grun_one_create : ∀ (es : List GEv) (g g' : GSt),
+  grun g es = some g' → (g.st ≠ GS.reserved → g'.creates = g.creates) ∧ g'.creates ≤ g.creates + 1
+grun_one_capture : ∀ (es : List GEv) (g g' : GSt),
+  grun g es = some g' → (g.captureStarted = true → g'.captures = g.captures) ∧ g'.captures ≤ g.captures + 1
+@dispatch_needs_lean : ∀ {g g' : GSt} {lean : Bool},
+  (gstep g (GEv.dispatchCreate lean) = some g' → lean = true) ∧
+    (gstep g (GEv.dispatchCapture lean) = some g' → lean = true)
+uncertainty_sound : ∀ (es : List GEv) (g' : GSt),
+  grun GSt.init es = some g' →
+    ∀ (n : Nat), consistentCaptures g' n → n ≤ 1 ∧ (n = 1 → ∃ e, e ∈ es ∧ e = GEv.dispatchCapture true)
+judgeSpecB_iff : ∀ (sp : LegionCore.Spec) (s : LegionCore.State),
+  judgeSpecB sp.tasks s.closed = true ↔ LegionCore.judgePass sp s
+journal_judge_grounded : ∀ (sp : LegionCore.Spec) (ts : List LegionCore.Journal.JTask)
+  (rs : List LegionCore.Journal.Rec),
+  judgeSpecB sp.tasks (LegionCore.Journal.closedSet ts rs) = true →
+    ∀ (tk : LegionCore.Task),
+      tk ∈ sp.tasks →
+        tk.mandatory = true →
+          tk.id ∈ (LegionCore.Journal.fold ts rs).confirmed ∨ ∃ dt, dt ∈ ts ∧ dt.id = tk.id ∧ dt.na = true
+judge_ignores_contract_record : ∀ (sp : LegionCore.Spec) (s : LegionCore.State) (c : List LegionCore.Task) (h v : Nat),
+  LegionCore.judgePass sp
+      { phase := s.phase, uid := s.uid, wid := s.wid, epoch := s.epoch, now := s.now, issued := s.issued,
+        usedNonces := s.usedNonces, fenced := s.fenced, ledger := s.ledger, verified := s.verified,
+        evidenced := s.evidenced, closed := s.closed, reports := s.reports, used := s.used, contract := c, chash := h,
+        cver := v, plan := s.plan } ↔
+    LegionCore.judgePass sp s
+amended_list_can_pass : ∃ orig amended closed,
+  amended.Sublist orig ∧ judgeSpecB orig closed = false ∧ judgeSpecB amended closed = true
+'LegionAbstraction.judgeSpecB_iff' depends on axioms: [propext, Quot.sound]
+'LegionAbstraction.journal_judge_grounded' depends on axioms: [propext, Quot.sound]
+'LegionAbstraction.judge_ignores_contract_record' does not depend on any axioms
+'LegionAbstraction.amended_list_can_pass' does not depend on any axioms
+'LegionAbstraction.decision_rn' depends on axioms: [propext, Quot.sound]
+'LegionAbstraction.grounds_rn' depends on axioms: [propext, Quot.sound]
+'LegionAbstraction.intern_inj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LegionAbstraction.alpha_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LegionAbstraction.step_refines' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LegionAbstraction.trace_effects_admitted' depends on axioms: [propext]
+'LegionAbstraction.trace_once' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LegionAbstraction.grun_one_create' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LegionAbstraction.grun_one_capture' depends on axioms: [propext, Classical.choice, Quot.sound]
+'LegionAbstraction.uncertainty_sound' depends on axioms: [propext, Classical.choice, Quot.sound]

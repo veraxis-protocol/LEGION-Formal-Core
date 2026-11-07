@@ -1,0 +1,27 @@
+{"case": "P2-1", "pass": true, "observed": "{'available_capacity': 150, 'minimum_quantity': 100}"}
+{"case": "P2-2", "pass": true, "observed": "['T', 'T', 'T', 'T', 'T', 'T', 'T']"}
+{"case": "N2-1", "pass": true, "observed": "[{'field': 'unit_cost_cents', 'reason': 'field is always private', 'verdict': 'F'}, {'field': 'customer_ids', 'reason': 'field is always private', 'verdict': 'F"}
+{"case": "N2-2", "pass": true, "observed": "[[{'field': 'minimum_quantity', 'reason': 'unverified identity', 'verdict': 'F'}], [{'field': 'minimum_quantity', 'reason': 'unverified identity', 'verdict': 'F"}
+{"case": "N2-3", "pass": true, "observed": "[{'max_payment_cents': 10000}, [{'field': 'max_payment_cents', 'reason': 'grant revoked', 'verdict': 'F'}]]"}
+{"case": "N2-4", "pass": true, "observed": "[{'field': 'service', 'reason': 'wrong recipient', 'verdict': 'F'}]"}
+{"case": "N2-5", "pass": true, "observed": "[{'available_capacity': 150}, [{'field': '*', 'reason': 'replayed query', 'verdict': 'F'}]]"}
+{"case": "N2-6", "pass": true, "observed": "{'intent_id': 'intent-277505b1b763451a', 'reasons': ['identity: signer not in trusted registry'], 'verdict': 'F'}"}
+{"case": "N2-7a", "pass": true, "observed": "[{'field': 'description', 'reason': 'public discovery field', 'verdict': 'T'}, {'field': 'unit_cost_cents', 'reason': 'field is always private', 'verdict': 'F'}"}
+{"case": "N2-8", "pass": true, "observed": "[[{'field': '*', 'reason': 'bulk query disallowed', 'verdict': 'F'}], [{'field': '*', 'reason': 'bulk query disallowed', 'verdict': 'F'}]]"}
+{"case": "N2-9", "pass": true, "observed": "{'during': 'unavailable (URLError)', 'same_owner_key_after_restart': True, 'after': {'service': 'qualification'}}"}
+{"case": "N3-1", "pass": true, "observed": "{'error': 'identity: invalid envelope: InvalidSignature', 'verdict': 'F'}"}
+{"case": "N3-2", "pass": true, "observed": "{'owner:b1': 'REJECT'}"}
+{"case": "N3-3", "pass": true, "observed": "{'owner:b1': 'REJECT'}"}
+{"case": "N3-4", "pass": true, "observed": "{'owner:b1': 'REJECT', 'owner:b2': 'REJECT'}"}
+{"case": "N6-1", "pass": true, "observed": "{'decision': 'REJECT', 'agent_decision': 'REJECT', 'policy': 'F'}"}
+{"case": "N6-2", "pass": true, "observed": "{'owner:f1': 'REJECT'}"}
+{"case": "N3-5", "pass": true, "observed": "{'verdict': 'F', 'missing': ['owner:b5', 'owner:e1', 'owner:f1']}"}
+{"case": "N3-6", "pass": true, "observed": "F"}
+{"case": "N3-7", "pass": true, "observed": "F"}
+{"case": "N3-8", "pass": true, "observed": "{'first': 'T', 'retry': 'T', 'manufacture_effects': 1}"}
+{"case": "N3-9", "pass": true, "observed": "{'lot': 'T', 'ship': 'RECONCILING', 'buyer_response': {'checks': [['sender_is_contract_factory', True], ['shipment_bound_to_contract', True], ['my_permit_valid'"}
+{"case": "N3-10", "pass": true, "observed": "{'first': 'T', 'second': 'T', 'b1_units': 20}"}
+{"case": "N6-3", "pass": true, "observed": "F"}
+{"case": "N3-11", "pass": true, "observed": "{'active': False, 'contract_version_hash': '0693ecc5e1129d6ac3c6f5df44f63779b006ebc28730e086a9df68b5765575a8', 'epoch': 2, 'owner_id': 'owner:b5', 't': 17940862"}
+{"total": 25, "passed": 25, "forbidden_effects": 0}
+neg_exit=0

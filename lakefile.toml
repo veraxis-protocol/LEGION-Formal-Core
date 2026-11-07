@@ -1,6 +1,6 @@
 name = "legioncore"
 version = "0.1.0"
-defaultTargets = ["LegionCore", "legion_decide"]
+defaultTargets = ["LegionCore", "legion_decide", "LegionAbstraction"]
 
 [[lean_lib]]
 name = "LegionCore"
@@ -8,3 +8,8 @@ name = "LegionCore"
 [[lean_exe]]
 name = "legion_decide"
 root = "Main"
+
+# FORMAL-002..004: abstraction, refinement and Judge-conformance proofs. A SEPARATE library, not imported by
+# LegionCore or Main: the qualified decider binary (legion_decide) is unaffected.
+[[lean_lib]]
+name = "LegionAbstraction"

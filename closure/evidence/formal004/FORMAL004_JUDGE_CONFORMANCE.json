@@ -1,0 +1,1781 @@
+{
+ "summary": {
+  "cases": 61,
+  "judge_pass": 15,
+  "lean_pass": 15,
+  "agree": 61,
+  "t9_violations": 0,
+  "t14_violations": 0,
+  "judge_stricter": 0,
+  "orig_judge_pass": 13,
+  "decider_sha256": "99cda684f29afba33e69b8f4811d754c499987c30c07ac1c67f19ec250ade73a",
+  "verdict": "PASS"
+ },
+ "cases": [
+  {
+   "world": "SYN-GAIA-A2A",
+   "mutation": "orig",
+   "dropped_task": null,
+   "judge": "PASS",
+   "judge_non_pass": [],
+   "lean_pass": true,
+   "lean_missing": [],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-GAIA-A2A",
+   "mutation": "no_readback",
+   "dropped_task": null,
+   "judge": "INDETERMINATE",
+   "judge_non_pass": [
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J10",
+     "status": "INDETERMINATE"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T5"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-GAIA-A2A",
+   "mutation": "no_observation",
+   "dropped_task": null,
+   "judge": "FAIL",
+   "judge_non_pass": [
+    {
+     "check_id": "J12",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T2",
+    "T3",
+    "T4",
+    "T5"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-GAIA-A2A",
+   "mutation": "drop_effect",
+   "dropped_task": "T5",
+   "judge": "FAIL",
+   "judge_non_pass": [
+    {
+     "check_id": "J12",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J10",
+     "status": "FAIL"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T5"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-GAIA-A2A",
+   "mutation": "amend_vacuous",
+   "dropped_task": "T5",
+   "judge": "FAIL",
+   "judge_non_pass": [
+    {
+     "check_id": "J12",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J10",
+     "status": "FAIL"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T5"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-GAIA-ADA",
+   "mutation": "orig",
+   "dropped_task": null,
+   "judge": "PASS",
+   "judge_non_pass": [],
+   "lean_pass": true,
+   "lean_missing": [],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-GAIA-ADA",
+   "mutation": "no_readback",
+   "dropped_task": null,
+   "judge": "FAIL",
+   "judge_non_pass": [
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J10",
+     "status": "INDETERMINATE"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T2",
+    "T3",
+    "T5",
+    "T4",
+    "T6"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-GAIA-ADA",
+   "mutation": "no_observation",
+   "dropped_task": null,
+   "judge": "FAIL",
+   "judge_non_pass": [
+    {
+     "check_id": "J12",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J10",
+     "status": "FAIL"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T1",
+    "T2",
+    "T3",
+    "T5",
+    "T4",
+    "T6"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-GAIA-ADA",
+   "mutation": "drop_effect",
+   "dropped_task": "T4",
+   "judge": "FAIL",
+   "judge_non_pass": [
+    {
+     "check_id": "J12",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T4",
+    "T6"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-GAIA-ADA",
+   "mutation": "amend_vacuous",
+   "dropped_task": "T4",
+   "judge": "INVALID_TEST",
+   "judge_non_pass": [
+    {
+     "check_id": "J09",
+     "status": "INVALID_TEST"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T4",
+    "T6"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-GAIA-AMB",
+   "mutation": "orig",
+   "dropped_task": null,
+   "judge": "PASS",
+   "judge_non_pass": [],
+   "lean_pass": true,
+   "lean_missing": [],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-GAIA-AMB",
+   "mutation": "no_readback",
+   "dropped_task": null,
+   "judge": "PASS",
+   "judge_non_pass": [],
+   "lean_pass": true,
+   "lean_missing": [],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-GAIA-AMB",
+   "mutation": "no_observation",
+   "dropped_task": null,
+   "judge": "FAIL",
+   "judge_non_pass": [
+    {
+     "check_id": "J12",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T1",
+    "T2",
+    "T3",
+    "T4"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-GAIA-EXE",
+   "mutation": "orig",
+   "dropped_task": null,
+   "judge": "PASS",
+   "judge_non_pass": [],
+   "lean_pass": true,
+   "lean_missing": [],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-GAIA-EXE",
+   "mutation": "no_readback",
+   "dropped_task": null,
+   "judge": "FAIL",
+   "judge_non_pass": [
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T2",
+    "T3",
+    "T4",
+    "T5",
+    "T6",
+    "T7"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-GAIA-EXE",
+   "mutation": "no_observation",
+   "dropped_task": null,
+   "judge": "FAIL",
+   "judge_non_pass": [
+    {
+     "check_id": "J12",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J10",
+     "status": "FAIL"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T1",
+    "T2",
+    "T3",
+    "T4",
+    "T5",
+    "T6",
+    "T7"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-GAIA-EXE",
+   "mutation": "drop_effect",
+   "dropped_task": "T6",
+   "judge": "FAIL",
+   "judge_non_pass": [
+    {
+     "check_id": "J12",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J10",
+     "status": "FAIL"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T6",
+    "T7"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-GAIA-EXE",
+   "mutation": "amend_vacuous",
+   "dropped_task": "T6",
+   "judge": "INVALID_TEST",
+   "judge_non_pass": [
+    {
+     "check_id": "J09",
+     "status": "INVALID_TEST"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T6",
+    "T7"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-GAIA-NOI",
+   "mutation": "orig",
+   "dropped_task": null,
+   "judge": "PASS",
+   "judge_non_pass": [],
+   "lean_pass": true,
+   "lean_missing": [],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-GAIA-NOI",
+   "mutation": "no_readback",
+   "dropped_task": null,
+   "judge": "FAIL",
+   "judge_non_pass": [
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T2",
+    "T3",
+    "T4"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-GAIA-NOI",
+   "mutation": "no_observation",
+   "dropped_task": null,
+   "judge": "FAIL",
+   "judge_non_pass": [
+    {
+     "check_id": "J12",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J10",
+     "status": "FAIL"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T1",
+    "T2",
+    "T3",
+    "T4"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-GAIA-NOI",
+   "mutation": "drop_effect",
+   "dropped_task": "T2",
+   "judge": "FAIL",
+   "judge_non_pass": [
+    {
+     "check_id": "J12",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T2",
+    "T3",
+    "T4"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-GAIA-NOI",
+   "mutation": "amend_vacuous",
+   "dropped_task": "T2",
+   "judge": "INVALID_TEST",
+   "judge_non_pass": [
+    {
+     "check_id": "J09",
+     "status": "INVALID_TEST"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T2",
+    "T3",
+    "T4"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-GAIA-SEA",
+   "mutation": "orig",
+   "dropped_task": null,
+   "judge": "PASS",
+   "judge_non_pass": [],
+   "lean_pass": true,
+   "lean_missing": [],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-GAIA-SEA",
+   "mutation": "no_readback",
+   "dropped_task": null,
+   "judge": "PASS",
+   "judge_non_pass": [],
+   "lean_pass": true,
+   "lean_missing": [],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-GAIA-SEA",
+   "mutation": "no_observation",
+   "dropped_task": null,
+   "judge": "FAIL",
+   "judge_non_pass": [
+    {
+     "check_id": "J12",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T1",
+    "T2",
+    "T3",
+    "T4",
+    "T5",
+    "T6",
+    "T7"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-GAIA-TIM",
+   "mutation": "orig",
+   "dropped_task": null,
+   "judge": "PASS",
+   "judge_non_pass": [],
+   "lean_pass": true,
+   "lean_missing": [],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-GAIA-TIM",
+   "mutation": "no_readback",
+   "dropped_task": null,
+   "judge": "FAIL",
+   "judge_non_pass": [
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J10",
+     "status": "INDETERMINATE"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T2",
+    "T4"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-GAIA-TIM",
+   "mutation": "no_observation",
+   "dropped_task": null,
+   "judge": "FAIL",
+   "judge_non_pass": [
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J10",
+     "status": "FAIL"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T4"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-GAIA-TIM",
+   "mutation": "drop_effect",
+   "dropped_task": "T2",
+   "judge": "FAIL",
+   "judge_non_pass": [
+    {
+     "check_id": "J12",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J10",
+     "status": "FAIL"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T2",
+    "T4"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-GAIA-TIM",
+   "mutation": "amend_vacuous",
+   "dropped_task": "T2",
+   "judge": "INVALID_TEST",
+   "judge_non_pass": [
+    {
+     "check_id": "J09",
+     "status": "INVALID_TEST"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T2",
+    "T4"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-OTEL-01",
+   "mutation": "orig",
+   "dropped_task": null,
+   "judge": "PASS",
+   "judge_non_pass": [],
+   "lean_pass": true,
+   "lean_missing": [],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-OTEL-01",
+   "mutation": "no_readback",
+   "dropped_task": null,
+   "judge": "FAIL",
+   "judge_non_pass": [
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J10",
+     "status": "INDETERMINATE"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T4",
+    "T5"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-OTEL-01",
+   "mutation": "no_observation",
+   "dropped_task": null,
+   "judge": "FAIL",
+   "judge_non_pass": [
+    {
+     "check_id": "J12",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J10",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J10",
+     "status": "FAIL"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T1",
+    "T2",
+    "T3",
+    "T4",
+    "T5"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-OTEL-01",
+   "mutation": "drop_effect",
+   "dropped_task": "T4",
+   "judge": "FAIL",
+   "judge_non_pass": [
+    {
+     "check_id": "J12",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J10",
+     "status": "FAIL"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T4",
+    "T5"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-OTEL-01",
+   "mutation": "amend_vacuous",
+   "dropped_task": "T4",
+   "judge": "INVALID_TEST",
+   "judge_non_pass": [
+    {
+     "check_id": "J09",
+     "status": "INVALID_TEST"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T4",
+    "T5"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-OTEL-02",
+   "mutation": "orig",
+   "dropped_task": null,
+   "judge": "PASS",
+   "judge_non_pass": [],
+   "lean_pass": true,
+   "lean_missing": [],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-OTEL-02",
+   "mutation": "no_readback",
+   "dropped_task": null,
+   "judge": "FAIL",
+   "judge_non_pass": [
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J10",
+     "status": "INDETERMINATE"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T3",
+    "T4",
+    "T5"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-OTEL-02",
+   "mutation": "no_observation",
+   "dropped_task": null,
+   "judge": "FAIL",
+   "judge_non_pass": [
+    {
+     "check_id": "J12",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J10",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J10",
+     "status": "FAIL"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T1",
+    "T2",
+    "T3",
+    "T4",
+    "T5"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-OTEL-02",
+   "mutation": "drop_effect",
+   "dropped_task": "T3",
+   "judge": "FAIL",
+   "judge_non_pass": [
+    {
+     "check_id": "J12",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J10",
+     "status": "FAIL"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T3",
+    "T4",
+    "T5"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-OTEL-02",
+   "mutation": "amend_vacuous",
+   "dropped_task": "T3",
+   "judge": "INVALID_TEST",
+   "judge_non_pass": [
+    {
+     "check_id": "J09",
+     "status": "INVALID_TEST"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T3",
+    "T4",
+    "T5"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-OTEL-03",
+   "mutation": "orig",
+   "dropped_task": null,
+   "judge": "PASS",
+   "judge_non_pass": [],
+   "lean_pass": true,
+   "lean_missing": [],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-OTEL-03",
+   "mutation": "no_readback",
+   "dropped_task": null,
+   "judge": "FAIL",
+   "judge_non_pass": [
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J10",
+     "status": "INDETERMINATE"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T3",
+    "T4",
+    "T5"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-OTEL-03",
+   "mutation": "no_observation",
+   "dropped_task": null,
+   "judge": "FAIL",
+   "judge_non_pass": [
+    {
+     "check_id": "J12",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J10",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J10",
+     "status": "FAIL"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T1",
+    "T2",
+    "T3",
+    "T4",
+    "T5"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-OTEL-03",
+   "mutation": "drop_effect",
+   "dropped_task": "T4",
+   "judge": "FAIL",
+   "judge_non_pass": [
+    {
+     "check_id": "J12",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T4",
+    "T5"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-OTEL-03",
+   "mutation": "amend_vacuous",
+   "dropped_task": "T4",
+   "judge": "INVALID_TEST",
+   "judge_non_pass": [
+    {
+     "check_id": "J09",
+     "status": "INVALID_TEST"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T4",
+    "T5"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-OTEL-04",
+   "mutation": "orig",
+   "dropped_task": null,
+   "judge": "PASS",
+   "judge_non_pass": [],
+   "lean_pass": true,
+   "lean_missing": [],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-OTEL-04",
+   "mutation": "no_readback",
+   "dropped_task": null,
+   "judge": "FAIL",
+   "judge_non_pass": [
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T2",
+    "Rp0",
+    "Wp0",
+    "Cp0",
+    "Rp1",
+    "Wp1",
+    "Cp1",
+    "Rp2",
+    "Wp2",
+    "Cp2",
+    "Rp3",
+    "Wp3",
+    "Cp3",
+    "Rp4",
+    "Wp4",
+    "Cp4",
+    "Rp5",
+    "Wp5",
+    "Cp5",
+    "Rp6",
+    "Wp6",
+    "Cp6",
+    "Rp7",
+    "Wp7",
+    "Cp7",
+    "Rp8",
+    "Wp8",
+    "Cp8",
+    "Rp9",
+    "Wp9",
+    "Cp9",
+    "T3",
+    "T4"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-OTEL-04",
+   "mutation": "no_observation",
+   "dropped_task": null,
+   "judge": "FAIL",
+   "judge_non_pass": [
+    {
+     "check_id": "J12",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T1",
+    "T2",
+    "Rp0",
+    "Wp0",
+    "Cp0",
+    "Rp1",
+    "Wp1",
+    "Cp1",
+    "Rp2",
+    "Wp2",
+    "Cp2",
+    "Rp3",
+    "Wp3",
+    "Cp3",
+    "Rp4",
+    "Wp4",
+    "Cp4",
+    "Rp5",
+    "Wp5",
+    "Cp5",
+    "Rp6",
+    "Wp6",
+    "Cp6",
+    "Rp7",
+    "Wp7",
+    "Cp7",
+    "Rp8",
+    "Wp8",
+    "Cp8",
+    "Rp9",
+    "Wp9",
+    "Cp9",
+    "T3",
+    "T4"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-OTEL-04",
+   "mutation": "drop_effect",
+   "dropped_task": "Wp1",
+   "judge": "FAIL",
+   "judge_non_pass": [
+    {
+     "check_id": "J12",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "Wp1",
+    "Cp1",
+    "T3",
+    "T4"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-OTEL-04",
+   "mutation": "amend_vacuous",
+   "dropped_task": "Wp1",
+   "judge": "INVALID_TEST",
+   "judge_non_pass": [
+    {
+     "check_id": "J09",
+     "status": "INVALID_TEST"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "Wp1",
+    "Cp1",
+    "T3",
+    "T4"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-OTEL-05",
+   "mutation": "orig",
+   "dropped_task": null,
+   "judge": "PASS",
+   "judge_non_pass": [],
+   "lean_pass": true,
+   "lean_missing": [],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-OTEL-05",
+   "mutation": "no_readback",
+   "dropped_task": null,
+   "judge": "FAIL",
+   "judge_non_pass": [
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J10",
+     "status": "INDETERMINATE"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T3",
+    "T4",
+    "T5"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-OTEL-05",
+   "mutation": "no_observation",
+   "dropped_task": null,
+   "judge": "FAIL",
+   "judge_non_pass": [
+    {
+     "check_id": "J12",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J10",
+     "status": "FAIL"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T1",
+    "T2",
+    "T3",
+    "T4",
+    "T5"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-OTEL-05",
+   "mutation": "drop_effect",
+   "dropped_task": "T3",
+   "judge": "FAIL",
+   "judge_non_pass": [
+    {
+     "check_id": "J12",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J10",
+     "status": "FAIL"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T3",
+    "T4",
+    "T5"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-OTEL-05",
+   "mutation": "amend_vacuous",
+   "dropped_task": "T3",
+   "judge": "INVALID_TEST",
+   "judge_non_pass": [
+    {
+     "check_id": "J09",
+     "status": "INVALID_TEST"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T3",
+    "T4",
+    "T5"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-OTEL-06",
+   "mutation": "orig",
+   "dropped_task": null,
+   "judge": "PASS",
+   "judge_non_pass": [],
+   "lean_pass": true,
+   "lean_missing": [],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-OTEL-06",
+   "mutation": "no_readback",
+   "dropped_task": null,
+   "judge": "FAIL",
+   "judge_non_pass": [
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J10",
+     "status": "INDETERMINATE"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T3",
+    "T4",
+    "T5"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-OTEL-06",
+   "mutation": "no_observation",
+   "dropped_task": null,
+   "judge": "FAIL",
+   "judge_non_pass": [
+    {
+     "check_id": "J12",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J10",
+     "status": "FAIL"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T1",
+    "T2",
+    "T3",
+    "T4",
+    "T5"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-OTEL-06",
+   "mutation": "drop_effect",
+   "dropped_task": "T3",
+   "judge": "FAIL",
+   "judge_non_pass": [
+    {
+     "check_id": "J12",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J09",
+     "status": "INDETERMINATE"
+    },
+    {
+     "check_id": "J02",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J06",
+     "status": "FAIL"
+    },
+    {
+     "check_id": "J10",
+     "status": "FAIL"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T3",
+    "T4",
+    "T5"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  },
+  {
+   "world": "SYN-OTEL-06",
+   "mutation": "amend_vacuous",
+   "dropped_task": "T3",
+   "judge": "INVALID_TEST",
+   "judge_non_pass": [
+    {
+     "check_id": "J09",
+     "status": "INVALID_TEST"
+    }
+   ],
+   "lean_pass": false,
+   "lean_missing": [
+    "T3",
+    "T4",
+    "T5"
+   ],
+   "violation_T9": false,
+   "violation_T14": false
+  }
+ ]
+}

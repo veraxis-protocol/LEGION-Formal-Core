@@ -36,7 +36,8 @@ Expected: `19 files, 0 mismatches`.
 ```
 lake build
 ```
-Expected: `Build completed successfully` (33 jobs on a clean checkout), exit code 0.
+Expected: `Build completed successfully` (33 jobs on a clean checkout of v1.0.0; 40 jobs from v1.1.0 on, which also
+builds `LegionAbstraction`), exit code 0.
 
 ## 4. Axiom audit and exact statements
 ```
@@ -69,3 +70,23 @@ Expected: `CLEAN`.
 Runtime conformance (differentials against the LEGION runtime, boundary tests, and the live 13-world
 qualification) requires the LEGION runtime and private qualification evidence. It is external evidence (see
 `PROOF_SCOPE.md` §2). Reproducing it is not part of reproducing these proofs.
+
+## 6. Closure release v1.1.0 (`LegionAbstraction`)
+Check out `v1.1.0` instead of `v1.0.0`, then:
+```
+lake build                                                       # 40 jobs, exit 0
+lake env lean LegionAbstraction/StatementDump.lean > closure.out 2>&1; echo "exit=$?"
+diff --strip-trailing-cr closure.out qualified/CLOSURE_STATEMENTS_AND_AXIOMS.txt && echo CLOSURE_IDENTICAL
+grep -E "sorryAx|ofReduceBool|trustCompiler" closure.out || echo "NO_NONSTANDARD_AXIOMS"
+grep -rnE "\bsorry\b|^\s*axiom\b|native_decide|\bunsafe\b|implemented_by" LegionAbstraction || echo CLEAN
+python3 -c "import hashlib,json;m=json.load(open('closure/CLOSURE_MANIFEST.json'));b=[f for f,h in {**m['proof_sources_sha256'],**m['evidence_sha256']}.items() if hashlib.sha256(open(f,'rb').read()).hexdigest()!=h];print(len(b),'mismatches',b)"
+```
+Expected: exit 0, `CLOSURE_IDENTICAL`, `NO_NONSTANDARD_AXIOMS`, `CLEAN`, `0 mismatches`.
+
+On v1.1.0, the v1.0.0 checks (steps 2-5) hold with one declared exception. Step 2 reports exactly **1 mismatch:
+`lakefile.toml`**, which gains the `LegionAbstraction` library target; its v1.1.0 hash is in `CLOSURE_MANIFEST.json`.
+Every `.lean` file and `lean-toolchain` of v1.0.0 is byte-identical.
+
+The executable validations in `closure/` (census, serializer validation, trace and Judge conformance, the 13-world
+qualification) ran against the private LEGION runtime and are external evidence, as in section 2 of `PROOF_SCOPE.md`.
+Their scripts are cited by commit in each report; their outputs are hash-pinned in `closure/CLOSURE_MANIFEST.json`.

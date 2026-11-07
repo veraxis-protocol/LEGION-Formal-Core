@@ -1,0 +1,28 @@
+F005_SOURCE=c9575252b62c0525f2ad8b720518d4fa196a9dbd03c453e9ff4fc1971557450b DECIDE=99cda684f29afba33e69b8f4811d754c499987c30c07ac1c67f19ec250ade73a
+START_WORLD SYN-GAIA-TIM
+WORLD_RESULT SYN-GAIA-TIM PASS {"judge_verdict": "PASS", "judge_issues": {}, "contract_binding": "BOUND", "native_effects": 1, "lean_T": 1}
+START_WORLD SYN-GAIA-EXE
+WORLD_RESULT SYN-GAIA-EXE PASS {"judge_verdict": "PASS", "judge_issues": {}, "contract_binding": "BOUND", "native_effects": 5, "lean_T": 5}
+START_WORLD SYN-GAIA-SEA
+WORLD_RESULT SYN-GAIA-SEA PASS {"judge_verdict": "PASS", "judge_issues": {}, "contract_binding": "BOUND", "native_effects": 0, "lean_T": 0}
+START_WORLD SYN-GAIA-ADA
+WORLD_RESULT SYN-GAIA-ADA PASS {"judge_verdict": "PASS", "judge_issues": {}, "contract_binding": "BOUND", "native_effects": 2, "lean_T": 2}
+START_WORLD SYN-GAIA-AMB
+WORLD_RESULT SYN-GAIA-AMB PASS {"judge_verdict": "PASS", "judge_issues": {}, "contract_binding": "BOUND", "native_effects": 0, "lean_T": 0}
+START_WORLD SYN-GAIA-A2A
+WORLD_RESULT SYN-GAIA-A2A PASS {"judge_verdict": "PASS", "judge_issues": {}, "contract_binding": "BOUND", "native_effects": 1, "lean_T": 1}
+START_WORLD SYN-GAIA-NOI
+WORLD_RESULT SYN-GAIA-NOI PASS {"judge_verdict": "PASS", "judge_issues": {}, "contract_binding": "BOUND", "native_effects": 1, "lean_T": 2}
+START_WORLD SYN-OTEL-01
+WORLD_RESULT SYN-OTEL-01 PASS {"judge_verdict": "PASS", "judge_issues": {}, "contract_binding": "BOUND", "native_effects": 1, "lean_T": 1}
+START_WORLD SYN-OTEL-02
+WORLD_RESULT SYN-OTEL-02 PASS {"judge_verdict": "PASS", "judge_issues": {}, "contract_binding": "BOUND", "native_effects": 1, "lean_T": 1}
+START_WORLD SYN-OTEL-03
+WORLD_RESULT SYN-OTEL-03 PASS {"judge_verdict": "PASS", "judge_issues": {}, "contract_binding": "BOUND", "native_effects": 2, "lean_T": 2}
+START_WORLD SYN-OTEL-04
+WORLD_RESULT SYN-OTEL-04 PASS {"judge_verdict": "PASS", "judge_issues": {}, "contract_binding": "BOUND", "native_effects": 11, "lean_T": 11}
+START_WORLD SYN-OTEL-05
+WORLD_RESULT SYN-OTEL-05 PASS {"judge_verdict": "PASS", "judge_issues": {}, "contract_binding": "BOUND", "native_effects": 1, "lean_T": 1}
+START_WORLD SYN-OTEL-06
+WORLD_RESULT SYN-OTEL-06 PASS {"judge_verdict": "PASS", "judge_issues": {}, "contract_binding": "BOUND", "native_effects": 1, "lean_T": 1}
+F005_PASSED=13/13

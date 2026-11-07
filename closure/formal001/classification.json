@@ -1,0 +1,477 @@
+{
+ "classes": {
+  "LEGION-Commerce:commerce_adapter/gateway.py::Gateway.call::self.provider.request": {
+   "class": "PRIMITIVE_INTERNAL",
+   "gate": "Gateway.call enforces require_lean for every non-GET; PayPalSandbox(read_only=True) refuses POST (READ_ONLY_CLIENT)"
+  },
+  "LEGION-Commerce:commerce_adapter/gateway.py::Gateway.capture::self.call[POST]": {
+   "class": "LEAN_GATED",
+   "evidence": [
+    "formal001_evidence/FORMAL001_COMMERCE_NEGATIVES.json",
+    "SANDBOX_ADMISSION_TESTS_after_closure.json",
+    "LMF007_NEGATIVES_after_closure.json"
+   ],
+   "gate": "recheck(admission.check) in the SAME transaction immediately before; Gateway.require_lean demands that check's attestation lean_verdict == T bound to digest(intent) (FORMAL-001 B-COM-1/2); MOCK_ONLY test doubles exempt"
+  },
+  "LEGION-Commerce:commerce_adapter/gateway.py::Gateway.create::self.call[POST]": {
+   "class": "LEAN_GATED",
+   "evidence": [
+    "formal001_evidence/FORMAL001_COMMERCE_NEGATIVES.json",
+    "SANDBOX_ADMISSION_TESTS_after_closure.json",
+    "LMF007_NEGATIVES_after_closure.json"
+   ],
+   "gate": "recheck(admission.check) in the SAME transaction immediately before; Gateway.require_lean demands that check's attestation lean_verdict == T bound to digest(intent) (FORMAL-001 B-COM-1/2); MOCK_ONLY test doubles exempt"
+  },
+  "LEGION-Commerce:commerce_adapter/paypal.py::PayPalSandbox._wire::urllib.request.Request[data/method]": {
+   "class": "PRIMITIVE_INTERNAL",
+   "gate": "Gateway.call enforces require_lean for every non-GET; PayPalSandbox(read_only=True) refuses POST (READ_ONLY_CLIENT)"
+  },
+  "LEGION-Commerce:commerce_adapter/paypal.py::PayPalSandbox.oauth::self._wire": {
+   "class": "AUTH_TOKEN_EXCHANGE"
+  },
+  "LEGION-Commerce:commerce_adapter/paypal.py::PayPalSandbox.request::self._wire": {
+   "class": "PRIMITIVE_INTERNAL",
+   "gate": "Gateway.call enforces require_lean for every non-GET; PayPalSandbox(read_only=True) refuses POST (READ_ONLY_CLIENT)"
+  },
+  "LEGION-Commerce:commerce_adapter/readback.py::independent_readback::provider.request": {
+   "class": "READ_ONLY_EXTERNAL",
+   "gate": "GET only; separate process; PayPalSandbox(read_only=True)"
+  },
+  "LEGION-Commerce:commerce_authority/custody.py::acl_text::subprocess.run": {
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  "LEGION-Commerce:commerce_authority/custody.py::restrict_acl::subprocess.run": {
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  "LEGION-Commerce:commerce_authority/custody.py::windows_identity::subprocess.run": {
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  "LEGION-Commerce:commerce_bridge/installation.py::install_package::subprocess.run": {
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  "LEGION-Commerce:commerce_bridge/qualified.py::JsonProcess.__init__::subprocess.Popen": {
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  "LEGION-Commerce:commerce_bridge/qualified.py::QualifiedSources.__init__.git::subprocess.run": {
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  "LEGION-Commerce:commerce_bridge/runtime.py::CoreRuntime.calculate::subprocess.run": {
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  "LEGION-Commerce:commerce_bridge/sources.py::Sources.verify.git::subprocess.run": {
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  "LEGION-Commerce:commerce_bridge/transport.py::Child._spawn::subprocess.Popen": {
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  "LEGION-Commerce:commerce_bridge/witness.py::LeanWitness.__init__::subprocess.Popen": {
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  "LEGION-Commerce:commerce_demo/lmf007.py::run::subprocess.run": {
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  "LEGION-Commerce:commerce_demo/nim.py::chat::urllib.request.Request[data/method]": {
+   "class": "MODEL_INFERENCE"
+  },
+  "LEGION-Commerce:commerce_demo/nim.py::chat::urllib.request.urlopen": {
+   "class": "MODEL_INFERENCE"
+  },
+  "LEGION-Commerce:commerce_demo/readback.py::main::provider.request": {
+   "class": "READ_ONLY_EXTERNAL",
+   "gate": "GET only; separate process; PayPalSandbox(read_only=True)"
+  },
+  "LEGION-Commerce:commerce_demo/run.py::main::subprocess.run": {
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  "LEGION-Commerce:latency004/equivalence.py::Faults.__exit__::getattr(<dynamic>)": {
+   "class": "REFLECTIVE_REVIEWED",
+   "gate": "test monkeypatch shims, profiling wrappers and fixture loaders; reviewed: no effect primitive reachable by name"
+  },
+  "LEGION-Commerce:latency004/exp_worker_glue.py::main::subprocess.run": {
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  "LEGION-Commerce:latency004/hoststate.py::host_state::subprocess.run": {
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  "LEGION-Commerce:latency004/profile_wp1.py::wrap::getattr(<dynamic>)": {
+   "class": "REFLECTIVE_REVIEWED",
+   "gate": "test monkeypatch shims, profiling wrappers and fixture loaders; reviewed: no effect primitive reachable by name"
+  },
+  "LEGION-Commerce:latency004/robustness.py::descendants::subprocess.run": {
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  "LEGION-Commerce:tools/bootstrap_bridge_sources.py::main::subprocess.check_output": {
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  "LEGION-Commerce:tools/bootstrap_bridge_sources.py::main::subprocess.run": {
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  "LEGION-Commerce:tools/bridge_differential.py::run_case::__import__": {
+   "class": "REFLECTIVE_REVIEWED",
+   "gate": "test monkeypatch shims, profiling wrappers and fixture loaders; reviewed: no effect primitive reachable by name"
+  },
+  "LEGION-Commerce:tools/collect_native_preflight.py::main::subprocess.run": {
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  "LEGION-Commerce:tools/core_correspondence.py::git::subprocess.run": {
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  "LEGION-Commerce:tools/core_correspondence.py::objects::subprocess.run": {
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  "LEGION-Commerce:tools/execution_closure.py::blob::subprocess.run": {
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  "LEGION-Commerce:tools/execution_closure.py::git::subprocess.run": {
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  "LEGION-Commerce:tools/latency_phases.py::wrap::getattr(<dynamic>)": {
+   "class": "REFLECTIVE_REVIEWED",
+   "gate": "test monkeypatch shims, profiling wrappers and fixture loaders; reviewed: no effect primitive reachable by name"
+  },
+  "LEGION-Commerce:tools/prepare_bch_review.py::git::subprocess.check_output": {
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  "LEGION-Commerce:tools/prepare_bridge_review.py::main::subprocess.check_output": {
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  "LEGION-Commerce:tools/prepare_qualified_review.py::main::subprocess.check_output": {
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  "LEGION-Commerce:tools/run_bridge_conformance.py::main::__import__": {
+   "class": "REFLECTIVE_REVIEWED",
+   "gate": "test monkeypatch shims, profiling wrappers and fixture loaders; reviewed: no effect primitive reachable by name"
+  },
+  "LEGION-Commerce:tools/verify_artifacts.py::main::subprocess.run": {
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  "LEGION-Federation:legion_federation/hub.py::get::urllib.request.urlopen": {
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 signed-envelope HTTP between owner peers, hub, registry, judge, dashboard (simulated effects only)"
+  },
+  "LEGION-Federation:legion_federation/hub.py::post::urllib.request.Request[data/method]": {
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 signed-envelope HTTP between owner peers, hub, registry, judge, dashboard (simulated effects only)"
+  },
+  "LEGION-Federation:legion_federation/hub.py::post::urllib.request.urlopen": {
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 signed-envelope HTTP between owner peers, hub, registry, judge, dashboard (simulated effects only)"
+  },
+  "LEGION-Federation:legion_federation/nim.py::chat::urllib.request.Request[data/method]": {
+   "class": "MODEL_INFERENCE"
+  },
+  "LEGION-Federation:legion_federation/nim.py::chat::urllib.request.urlopen": {
+   "class": "MODEL_INFERENCE"
+  },
+  "LEGION-Federation:legion_federation/owner_peer.py::Owner.native::self.world.call_write": {
+   "class": "SIMULATED_OUTSIDE_LEAN_BOUNDARY",
+   "gate": "federation-edge T/F/Z policy (tested, not Lean-proved) + pinned Core native preconditions; SIMULATED world state only; the only external effect derived from a federation contract (PayPal) goes through the Lean-gated Commerce Gateway. Latent: admin event endpoints pass the request's event to pinned World.fire, whose fallback applies a caller dict (operator admin token only)."
+  },
+  "LEGION-Federation:legion_federation/role_handlers.py::admin::o.world.fire": {
+   "class": "SIMULATED_OUTSIDE_LEAN_BOUNDARY",
+   "gate": "federation-edge T/F/Z policy (tested, not Lean-proved) + pinned Core native preconditions; SIMULATED world state only; the only external effect derived from a federation contract (PayPal) goes through the Lean-gated Commerce Gateway. Latent: admin event endpoints pass the request's event to pinned World.fire, whose fallback applies a caller dict (operator admin token only)."
+  },
+  "LEGION-Federation:legion_federation/role_handlers.py::admin::os._exit": {
+   "class": "FAULT_INJECTION_OR_EXIT"
+  },
+  "LEGION-Federation:legion_federation/role_handlers.py::post::urllib.request.Request[data/method]": {
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 signed-envelope HTTP between owner peers, hub, registry, judge, dashboard (simulated effects only)"
+  },
+  "LEGION-Federation:legion_federation/role_handlers.py::post::urllib.request.urlopen": {
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 signed-envelope HTTP between owner peers, hub, registry, judge, dashboard (simulated effects only)"
+  },
+  "LEGION-Federation:legion_federation/world_peer.py::Peer.handle_request::c.world.call_write": {
+   "class": "SIMULATED_OUTSIDE_LEAN_BOUNDARY",
+   "gate": "federation-edge T/F/Z policy (tested, not Lean-proved) + pinned Core native preconditions; SIMULATED world state only; the only external effect derived from a federation contract (PayPal) goes through the Lean-gated Commerce Gateway. Latent: admin event endpoints pass the request's event to pinned World.fire, whose fallback applies a caller dict (operator admin token only)."
+  },
+  "LEGION-Federation:legion_federation/world_peer.py::make_handler.H.do_POST::<subscript>.world.fire": {
+   "class": "SIMULATED_OUTSIDE_LEAN_BOUNDARY",
+   "gate": "federation-edge T/F/Z policy (tested, not Lean-proved) + pinned Core native preconditions; SIMULATED world state only; the only external effect derived from a federation contract (PayPal) goes through the Lean-gated Commerce Gateway. Latent: admin event endpoints pass the request's event to pinned World.fire, whose fallback applies a caller dict (operator admin token only)."
+  },
+  "LEGION-Federation:tools/judge_world_cases.py::get::urllib.request.urlopen": {
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 signed-envelope HTTP between owner peers, hub, registry, judge, dashboard (simulated effects only)"
+  },
+  "LEGION-Federation:tools/run_world_cases.py::Client.post::urllib.request.Request[data/method]": {
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 signed-envelope HTTP between owner peers, hub, registry, judge, dashboard (simulated effects only)"
+  },
+  "LEGION-Federation:tools/run_world_cases.py::Client.post::urllib.request.urlopen": {
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 signed-envelope HTTP between owner peers, hub, registry, judge, dashboard (simulated effects only)"
+  },
+  "LEGION-Federation:tools/run_world_cases.py::run_world::subprocess.Popen": {
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  "LEGION-Federation:tools/run_world_cases.py::run_world::subprocess.run": {
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  "LEGION-Federation:tools/source_pins.py::git::subprocess.run": {
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  "LEGION-Marketplace:legion_marketplace/dashboard.py::main.H.do_POST::urllib.request.Request[data/method]": {
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 signed-envelope HTTP between owner peers, hub, registry, judge, dashboard (simulated effects only)"
+  },
+  "LEGION-Marketplace:legion_marketplace/dashboard.py::main.H.do_POST::urllib.request.urlopen": {
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 signed-envelope HTTP between owner peers, hub, registry, judge, dashboard (simulated effects only)"
+  },
+  "LEGION-Marketplace:legion_marketplace/e2e.py::Env.run::subprocess.run": {
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  "LEGION-Marketplace:legion_marketplace/e2e.py::Env.spawn::subprocess.Popen": {
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  "LEGION-Marketplace:legion_marketplace/e2e.py::get::urllib.request.urlopen": {
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 signed-envelope HTTP between owner peers, hub, registry, judge, dashboard (simulated effects only)"
+  },
+  "LEGION-Marketplace:legion_marketplace/e2e.py::post::urllib.request.Request[data/method]": {
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 signed-envelope HTTP between owner peers, hub, registry, judge, dashboard (simulated effects only)"
+  },
+  "LEGION-Marketplace:legion_marketplace/e2e.py::post::urllib.request.urlopen": {
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 signed-envelope HTTP between owner peers, hub, registry, judge, dashboard (simulated effects only)"
+  },
+  "LEGION-Marketplace:legion_marketplace/judge.py::get::urllib.request.urlopen": {
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 signed-envelope HTTP between owner peers, hub, registry, judge, dashboard (simulated effects only)"
+  },
+  "LEGION-Marketplace:legion_marketplace/negatives.py::run.n_kill::subprocess.Popen": {
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  "LEGION-R2:tests/legion_struct/causal_007/attempt_authority.py::AuthorityClient._call::urllib.request.Request[data/method]": {
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 between LEGION processes; world effects only via /actuate (actuator token + Lean); provider_proxy forwards model calls (inference)"
+  },
+  "LEGION-R2:tests/legion_struct/causal_007/attempt_authority.py::AuthorityClient._call::urllib.request.urlopen": {
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 between LEGION processes; world effects only via /actuate (actuator token + Lean); provider_proxy forwards model calls (inference)"
+  },
+  "LEGION-R2:tests/legion_struct/causal_007/causal_host.py::CausalHost._apply::self.world.analyze": {
+   "class": "SEPARATE_TEST_WORLD",
+   "evidence": [
+    "test_formal001_closure.py::test_causal_host_unreachable_from_qualified_runtime"
+   ],
+   "gate": "own in-memory World instance; unreachable from every qualified runtime entry point (import closure)"
+  },
+  "LEGION-R2:tests/legion_struct/causal_007/causal_host.py::CausalHost._apply::self.world.call_write": {
+   "class": "SEPARATE_TEST_WORLD",
+   "evidence": [
+    "test_formal001_closure.py::test_causal_host_unreachable_from_qualified_runtime"
+   ],
+   "gate": "own in-memory World instance; unreachable from every qualified runtime entry point (import closure)"
+  },
+  "LEGION-R2:tests/legion_struct/causal_007/causal_host.py::CausalHost._apply::self.world.fire": {
+   "class": "SEPARATE_TEST_WORLD",
+   "evidence": [
+    "test_formal001_closure.py::test_causal_host_unreachable_from_qualified_runtime"
+   ],
+   "gate": "own in-memory World instance; unreachable from every qualified runtime entry point (import closure)"
+  },
+  "LEGION-R2:tests/legion_struct/causal_007/lean_admission.py::LeanDecider._start::subprocess.Popen": {
+   "class": "PROCESS_TOOLING",
+   "evidence": [
+    "test_formal001_closure.py::test_b_r2_1_*"
+   ],
+   "gate": "starts the decider only if sha256 is the pinned qualified build (B-R2-1)"
+  },
+  "LEGION-R2:tests/legion_struct/causal_007/lean_gated_world.py::LeanGatedWorld.call_write::<call>.call_write": {
+   "class": "PRIMITIVE_INTERNAL",
+   "evidence": [
+    "test_formal001_closure.py::test_b_r2_2_*"
+   ],
+   "gate": "reached only after a single-use Lean ticket for (command_id, tool, target, args) or for an already applied command id (idempotent duplicate: no new effect)"
+  },
+  "LEGION-R2:tests/legion_struct/causal_007/lean_gated_world.py::LeanGatedWorld.fire::<call>.fire": {
+   "class": "EXOGENOUS_WORLD_DYNAMICS",
+   "evidence": [
+    "test_formal001_closure.py::test_b_r2_4_invented_event_cannot_fire"
+   ],
+   "gate": "events of the frozen world spec only (B-R2-4 closure: invented event dicts refused); time/after-effect triggers"
+  },
+  "LEGION-R2:tests/legion_struct/causal_007/mission_host.py::ShimPatch.setattr::getattr(<dynamic>)": {
+   "class": "REFLECTIVE_REVIEWED",
+   "gate": "test monkeypatch shims, profiling wrappers and fixture loaders; reviewed: no effect primitive reachable by name"
+  },
+  "LEGION-R2:tests/legion_struct/causal_007/mission_host.py::ShimPatch.setattr::importlib.import_module": {
+   "class": "REFLECTIVE_REVIEWED",
+   "gate": "test monkeypatch shims, profiling wrappers and fixture loaders; reviewed: no effect primitive reachable by name"
+  },
+  "LEGION-R2:tests/legion_struct/causal_007/mission_host.py::World.up::importlib.import_module": {
+   "class": "REFLECTIVE_REVIEWED",
+   "gate": "test monkeypatch shims, profiling wrappers and fixture loaders; reviewed: no effect primitive reachable by name"
+  },
+  "LEGION-R2:tests/legion_struct/causal_007/mission_host.py::World.up::urllib.request.urlopen": {
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 between LEGION processes; world effects only via /actuate (actuator token + Lean); provider_proxy forwards model calls (inference)"
+  },
+  "LEGION-R2:tests/legion_struct/causal_007/mission_host.py::_get::urllib.request.Request[data/method]": {
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 between LEGION processes; world effects only via /actuate (actuator token + Lean); provider_proxy forwards model calls (inference)"
+  },
+  "LEGION-R2:tests/legion_struct/causal_007/mission_host.py::_get::urllib.request.urlopen": {
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 between LEGION processes; world effects only via /actuate (actuator token + Lean); provider_proxy forwards model calls (inference)"
+  },
+  "LEGION-R2:tests/legion_struct/causal_007/mission_host.py::_watch_parent._run::os._exit": {
+   "class": "FAULT_INJECTION_OR_EXIT"
+  },
+  "LEGION-R2:tests/legion_struct/causal_007/provider_proxy.py::Handler.do_POST.call_fn::urllib.request.Request[data/method]": {
+   "class": "MODEL_INFERENCE",
+   "gate": "attested model-provider proxy: forwards agent LLM calls (inference only; no world or payment API)"
+  },
+  "LEGION-R2:tests/legion_struct/causal_007/provider_proxy.py::Handler.do_POST.call_fn::urllib.request.urlopen": {
+   "class": "MODEL_INFERENCE",
+   "gate": "attested model-provider proxy: forwards agent LLM calls (inference only; no world or payment API)"
+  },
+  "LEGION-R2:tests/legion_struct/causal_007/provider_proxy.py::_watch_parent._run::os._exit": {
+   "class": "FAULT_INJECTION_OR_EXIT"
+  },
+  "LEGION-R2:tests/legion_struct/causal_007/sidecar_server.py::CausalState._fetch_world_records::urllib.request.Request[data/method]": {
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 between LEGION processes; world effects only via /actuate (actuator token + Lean); provider_proxy forwards model calls (inference)"
+  },
+  "LEGION-R2:tests/legion_struct/causal_007/sidecar_server.py::CausalState._fetch_world_records::urllib.request.urlopen": {
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 between LEGION processes; world effects only via /actuate (actuator token + Lean); provider_proxy forwards model calls (inference)"
+  },
+  "LEGION-R2:tests/legion_struct/causal_007/sidecar_server.py::_watch_parent._run::os._exit": {
+   "class": "FAULT_INJECTION_OR_EXIT"
+  },
+  "LEGION-R2:tests/legion_struct/causal_007/stub_model_server.py::_watch_parent._run::os._exit": {
+   "class": "FAULT_INJECTION_OR_EXIT"
+  },
+  "LEGION-R2:tests/legion_struct/causal_007/supervisor.py::Supervisor._spawn::subprocess.Popen": {
+   "class": "PROCESS_TOOLING",
+   "gate": "git/ACL/worker/decider/process supervision; no provider credentials are passed to a child that could POST except commerce_demo.readback (read_only=True)"
+  },
+  "LEGION-R2:tests/legion_struct/causal_007/supervisor.py::Supervisor._wait_health::urllib.request.urlopen": {
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 between LEGION processes; world effects only via /actuate (actuator token + Lean); provider_proxy forwards model calls (inference)"
+  },
+  "LEGION-R2:tests/legion_struct/struct_agent.py::_watch_parent._run::os._exit": {
+   "class": "FAULT_INJECTION_OR_EXIT"
+  },
+  "LEGION-R2:tests/legion_struct/struct_agent.py::http::urllib.request.Request[data/method]": {
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 between LEGION processes; world effects only via /actuate (actuator token + Lean); provider_proxy forwards model calls (inference)"
+  },
+  "LEGION-R2:tests/legion_struct/struct_agent.py::http::urllib.request.urlopen": {
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 between LEGION processes; world effects only via /actuate (actuator token + Lean); provider_proxy forwards model calls (inference)"
+  },
+  "LEGION-R2:tests/legion_struct/struct_plugin.py::_verified_binding_records::__import__": {
+   "class": "REFLECTIVE_REVIEWED",
+   "gate": "test monkeypatch shims, profiling wrappers and fixture loaders; reviewed: no effect primitive reachable by name"
+  },
+  "LEGION-R2:tests/legion_struct/struct_readback.py::_watch_parent._run::os._exit": {
+   "class": "FAULT_INJECTION_OR_EXIT"
+  },
+  "LEGION-R2:tests/legion_struct/struct_readback.py::get::urllib.request.Request[data/method]": {
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 between LEGION processes; world effects only via /actuate (actuator token + Lean); provider_proxy forwards model calls (inference)"
+  },
+  "LEGION-R2:tests/legion_struct/struct_readback.py::get::urllib.request.urlopen": {
+   "class": "LOOPBACK_IPC",
+   "gate": "127.0.0.1 between LEGION processes; world effects only via /actuate (actuator token + Lean); provider_proxy forwards model calls (inference)"
+  },
+  "LEGION-R2:tests/legion_struct/world_engine.py::World._apply_effects::self._apply_prepared": {
+   "class": "PRIMITIVE_INTERNAL",
+   "gate": "World internals; in the qualified runtime the World is a LeanGatedWorld"
+  },
+  "LEGION-R2:tests/legion_struct/world_engine.py::World._run_derived::self._apply_effects": {
+   "class": "PRIMITIVE_INTERNAL",
+   "gate": "World internals; in the qualified runtime the World is a LeanGatedWorld"
+  },
+  "LEGION-R2:tests/legion_struct/world_engine.py::World.call_write::self._apply_effects": {
+   "class": "PRIMITIVE_INTERNAL",
+   "gate": "World internals; in the qualified runtime the World is a LeanGatedWorld"
+  },
+  "LEGION-R2:tests/legion_struct/world_engine.py::World.call_write::self._run_derived": {
+   "class": "PRIMITIVE_INTERNAL",
+   "gate": "World internals; in the qualified runtime the World is a LeanGatedWorld"
+  },
+  "LEGION-R2:tests/legion_struct/world_engine.py::World.fire::self._apply_effects": {
+   "class": "EXOGENOUS_WORLD_DYNAMICS",
+   "evidence": [
+    "test_formal001_closure.py::test_b_r2_4_invented_event_cannot_fire"
+   ],
+   "gate": "events of the frozen world spec only (B-R2-4 closure: invented event dicts refused); time/after-effect triggers"
+  },
+  "LEGION-R2:tests/legion_struct/world_engine.py::World.fire::self._run_derived": {
+   "class": "EXOGENOUS_WORLD_DYNAMICS",
+   "evidence": [
+    "test_formal001_closure.py::test_b_r2_4_invented_event_cannot_fire"
+   ],
+   "gate": "events of the frozen world spec only (B-R2-4 closure: invented event dicts refused); time/after-effect triggers"
+  },
+  "LEGION-R2:tests/legion_struct/world_server.py::Handler._actuate::WORLD.call_write": {
+   "class": "LEAN_GATED",
+   "evidence": [
+    "test_formal_core_boundary.py (B01-B18)",
+    "test_formal_core_world_negatives.py",
+    "test_formal001_closure.py"
+   ],
+   "gate": "_actuate: verify_fresh + reservation + task/tool/target + semantic binding + LeanDecider.decide(build_payload) == T, then mint_lean_ticket(exact action); LeanGatedWorld.call_write refuses a new effect without that ticket"
+  },
+  "LEGION-R2:tests/legion_struct/world_server.py::Handler._actuate::os._exit": {
+   "class": "FAULT_INJECTION_OR_EXIT"
+  },
+  "LEGION-R2:tests/legion_struct/world_server.py::Handler.do_POST::WORLD.analyze": {
+   "class": "ANSWER_RECORD",
+   "evidence": [
+    "test_formal001_closure.py::test_b_r2_3_answer_channel_rejected_and_13_worlds_clean"
+   ],
+   "gate": "writes state.answers only; worlds whose effect rules read answers are refused at start (B-R2-3)"
+  },
+  "LEGION-R2:tests/legion_struct/world_server.py::_watch_parent._run::os._exit": {
+   "class": "FAULT_INJECTION_OR_EXIT"
+  },
+  "LEGION-R2:tests/legion_struct/world_server.py::fire_due_events::WORLD.fire": {
+   "class": "EXOGENOUS_WORLD_DYNAMICS",
+   "evidence": [
+    "test_formal001_closure.py::test_b_r2_4_invented_event_cannot_fire"
+   ],
+   "gate": "events of the frozen world spec only (B-R2-4 closure: invented event dicts refused); time/after-effect triggers"
+  }
+ },
+ "rules_source": "make_classification.py",
+ "schema": "legion.formal001.classification.v1"
+}

@@ -14,6 +14,28 @@ proved about the Core".
   Every `.lean` file here is byte-identical to the qualified proof manifest.
 - License: PolyForm Noncommercial 1.0.0 (see `LICENSE`, `NOTICE`, `PROVENANCE.md`)
 
+## Closure release v1.1.0 (2026-11-07)
+
+v1.1.0 closes the proof-to-execution obligations as far as they can be closed without a verified Python semantics.
+**No v1.0.0 `.lean` source changed, and the qualified decider binary is the same.** The one changed v1.0.0 file is `lakefile.toml`, which gains the new library target. The release adds:
+
+- **`LegionAbstraction/`**, a separate Lean library. Its 22 headline statements (`qualified/CLOSURE_STATEMENTS_AND_AXIOMS.txt`), proved with 38 supporting lemmas, cover:
+  - the runtime-to-model abstraction α: the decision, its grounds and the journal closure are invariant under identifier renaming, and a T verdict has a defined meaning for the raw runtime strings;
+  - runtime-step refinement, including uncertain outcomes and provider uncertainty;
+  - conformance of the executable Judge to the T9/T14 completion specification.
+
+  The statements were written to close specific obligations, not to increase the theorem count.
+- **`closure/`**, with five work-order reports, each giving its T/F/Z verdict, source commits, proof statements, uncovered assumptions, test logs and blockers:
+  - FORMAL-001: effect-path census and bypass closure;
+  - FORMAL-002: abstraction;
+  - FORMAL-003: refinement;
+  - FORMAL-004: Judge conformance;
+  - FORMAL-005: build, audit, replay and qualification.
+
+  It also holds the census tool and the cited evidence (`closure/CLOSURE_MANIFEST.json`).
+
+See `PROOF_SCOPE.md`, which has a PE1–PE4 status table, for exactly what is and is not established. Python code, cryptography, PayPal and physical-world behaviour are **not** proved by any theorem here.
+
 ## What is proved (Lean 4 kernel-checked)
 
 All of the following are quantified over **every reachable state** of a transition system that includes

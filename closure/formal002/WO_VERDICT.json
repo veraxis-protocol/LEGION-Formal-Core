@@ -1,0 +1,11 @@
+{"wo": "FORMAL-002", "title": "Formalize runtime-to-model abstraction; prove critical mapping properties; validate the executable serializer",
+ "verdict": "T", "scope": "world commit boundary alpha (lean_admission.build_payload); Python<->Lean alpha correspondence validated, not proved",
+ "source_commits": {"LEGION-R2": "386341b (branch formal-closure-001; parent 4c14810)", "legion_decide_sha256": "99cda684f29afba33e69b8f4811d754c499987c30c07ac1c67f19ec250ade73a (unchanged)",
+                    "lean": "4.29.1 Windows, no Mathlib"},
+ "theorems": ["guards_rn", "admission_rn", "closedSet_rn", "decision_rn", "grounds_rn", "intern_inj", "intern_pos", "alpha_T_requires", "alpha_sound"],
+ "axioms": ["propext", "Quot.sound", "Classical.choice"], "sorry": 0,
+ "validation": {"generated_states": 1500, "verdicts": {"F": 902, "Z": 427, "T": 171}, "shape_violations": 0, "renaming_mismatches": 0,
+                "renamed_decisions": 7640, "m3_violations": 0, "recorded_replays": "28/28", "recorded_shape_violations": 0},
+ "uncovered_assumptions": ["Python build_payload == Lean alpha (validated only)", "finite->global injection extension not mechanized",
+                           "Rec.ok and JTask.na trusted Python inputs (PE3 residual)", "PE1 JSON layer / compiler trusted"],
+ "blockers": []}

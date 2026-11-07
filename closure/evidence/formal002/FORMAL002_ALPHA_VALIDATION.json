@@ -1,0 +1,22 @@
+{
+ "generated": 1500,
+ "shape_violations": [],
+ "renaming_mismatches": [],
+ "m3_violations": [],
+ "verdicts": {
+  "F": 902,
+  "Z": 427,
+  "T": 171
+ },
+ "recorded": 28,
+ "replay_mismatches": [],
+ "recorded_shape_violations": [],
+ "designed_valid_outcomes": {
+  "DEPS=Z,ZTL=Z": 417,
+  "T": 165
+ },
+ "decider_sha256": "99cda684f29afba33e69b8f4811d754c499987c30c07ac1c67f19ec250ade73a",
+ "renamings_per_payload": 5,
+ "seed": 20261107,
+ "verdict": "PASS"
+}

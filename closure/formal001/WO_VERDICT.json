@@ -1,0 +1,22 @@
+{
+ "wo": "FORMAL-001",
+ "title": "Exhaustive consequential-effect path census; eliminate or block every bypass of the mandatory Lean admission boundary",
+ "verdict": {"qualified_boundary": "T", "federation_marketplace_simulated_effects": "F (outside the Lean boundary; not claimed)", "census": "T"},
+ "pe2_status": "supported by complete static census (relative to SINKS/roots/TCB-1) + runtime enforcement + negative tests; NOT a Lean theorem",
+ "source_commits": {"LEGION-R2": {"base": "30c7ef1", "head": "4c14810", "branch": "formal-closure-001", "public": false},
+                    "LEGION-Commerce": {"base": "0f397ec", "head": "0da8501", "branch": "claude/formal-closure-001", "public": "not pushed"},
+                    "LEGION-Federation": "9d2a32a (unchanged)", "LEGION-Marketplace": "906ec0f (unchanged)",
+                    "LEGION-Formal-Core": "f5ea79c (Lean unchanged); decider sha256 99cda684f29afba33e69b8f4811d754c499987c30c07ac1c67f19ec250ade73a"},
+ "census": {"sites": 124, "keys": 110, "unclassified": 0, "stale": 0, "open_bypasses": 0, "lean_gated_keys": 3, "simulated_outside_lean_keys": 4},
+ "bypasses_closed": ["B-COM-1 A04 signed-claim permits", "B-COM-2 v1 bridge without qualified decider", "G-1 attestation for other intent", "G-2 stale attestation reuse",
+                     "B-R2-1 unpinned decider binary", "B-R2-2 world write without Lean ticket", "B-R2-3 answer channel", "B-R2-4 invented events (latent)"],
+ "tests": {"r2_closure": "9/9", "r2_boundary_regression": {"before": "60/61", "after": "60/61", "preserved_failure": "test_n6_replay_denied_and_positive_applies (identical on baseline)"},
+           "commerce_formal001_negatives": {"before": "2/6, 3 forbidden POSTs", "after": "6/6, 0 forbidden POSTs"},
+           "a04_gateway": {"before": "42/42", "after": "42/42"}, "bridge": {"before": "18/19 (CORE_RUNTIME_TIMEOUT)", "after": "19/19"},
+           "sandbox_admission": "22/22", "lmf007_negatives": "6/6"},
+ "uncovered_assumptions": ["TCB-1 code integrity / no non-reviewed reflection", "decider pin TOCTOU (hash then exec by path)", "MOCK_ONLY exemption is self-declared",
+                           "Python control flow not modelled in Lean"],
+ "blockers": ["production A03 acceptance must be re-signed by the operator (commerce_adapter source hashes changed; fails closed)",
+              "Federation/Marketplace simulated effects are not Lean-admitted (F)"],
+ "no_payment_made": true
+}
