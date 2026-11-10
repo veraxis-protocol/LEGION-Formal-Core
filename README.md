@@ -111,3 +111,14 @@ See `REPRODUCE.md` for the exact expected results and the byte-level comparison 
 | `AxiomAudit.lean`, `StatementDump.lean` | audit entry points |
 | `PROOF_MANIFEST.json` | qualified manifest (verbatim) |
 | `qualified/` | the qualified audit outputs, for byte comparison |
+
+## Related repositories
+
+| Repository | Role | License |
+|---|---|---|
+| [LEGION Deal Rescue](https://github.com/veraxis-protocol/LEGION-Deal-Rescue) | Merchant application built on this stack: seven-party deals, independent Judge, PayPal Sandbox payments | Apache-2.0 |
+| [LEGION](https://github.com/veraxis-protocol/LEGION) | LEGION Core runtime: worlds, admission, independent Judge | PolyForm Noncommercial 1.0.0 |
+| [LEGION-Formal-Core](https://github.com/veraxis-protocol/LEGION-Formal-Core) | Lean 4 model of single-collective admission and completion | PolyForm Noncommercial 1.0.0 |
+| [LEGION-Federation](https://github.com/veraxis-protocol/LEGION-Federation) | Independent owners' collectives: disclosure policy, signed commitments, multi-party contracts | PolyForm Noncommercial 1.0.0 |
+| [LEGION-Marketplace](https://github.com/veraxis-protocol/LEGION-Marketplace) | Intent publication, discovery, end-to-end harness | PolyForm Noncommercial 1.0.0 |
+| [LEGION-Commerce](https://github.com/veraxis-protocol/LEGION-Commerce) | PayPal Sandbox adapter, admission bridge, payment orchestration | no license file |
